@@ -1,0 +1,242 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix vair: <https://w3id.org/vair#> .
+@prefix earl: <http://www.w3.org/ns/earl#> .
+
+# N.B. References use airo:Dataset but vair:Algorithm (as of 25.06.2024, airo:Algorithm not defined but airo:Dataset was recently added).
+
+# Example namespace to distinguish existing classes/properties
+# From ones which are introduced here
+@prefix : <https://example.org/ex#> .
+
+# Recording / reporting using EARL
+##########################################################
+# Create hasAssertion property to connect dataset with earl. 
+# Just assume in the : namespace for now, 
+# to distinguish from existing constructs in AIRO, VAIR, etc.
+##########################################################
+# Audit encompasses all of the different earl:Assertions made in a particular test suite
+:Audit rdf:type owl:Class ;   # Declared for any future use cases, not concerned with bias.
+    rdfs:comment "An audit of an AI system, comprising of one or many assertions." ;
+    rdfs:label "Audit" .
+:BiasAudit rdfs:subClassOf :Audit ;   # Bias audit
+    rdfs:comment "An audit that focuses on measuring bias in the AI system" ;
+    rdfs:label "Bias Audit" .
+
+:hasAudit rdf:type owl:ObjectProperty ;
+    rdfs:domain airo:Dataset , vair:Algorithm ;
+    rdfs:range :Audit ;
+    rdfs:comment "Connects a dataset or algorithm with an audit." ;
+    rdfs:label "has audit" .
+
+##########################################################
+# Assume each 'bias' type is its own earl:Assertion.
+# Even if it is part of a single audit in reality
+##########################################################
+:BiasAssertion rdfs:subClassOf earl:Assertion ;
+    rdfs:comment "An assertion that measures bias in an AI system" ;
+    rdfs:label "Bias Assertion" .
+
+:hasAssertion rdf:type owl:ObjectProperty ;
+    rdfs:domain :Audit ;
+    rdfs:range earl:Assertion ;
+    rdfs:comment "Connects an audit with an assertion." ;
+    rdfs:label "has assertion" .
+
+# Connecting with AIRO; An AIProvider may be the assertor
+airo:AIProvider rdfs:subClassOf earl:Assertor .
+
+# AI Act piece:
+# Racial or ethnic origin, political opinions, religious or 
+# philosophical beliefs, or trade union membership, and the 
+# processing of genetic data, biometric data for the purposes 
+# of uniquely identifying a natural person, data concerning health 
+# or data concerning a natural person's sex life or sexual orientation
+
+# Gender bias
+:GenderBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on gender bias." ;
+    rdfs:label "make assertion regarding gender bias" .
+
+# Bias based on religious beliefs
+:ReligionBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on religious bias." ;
+    rdfs:label "make assertion regarding religious bias" .
+
+# Racial bias
+:RacialBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on racial bias." ;
+    rdfs:label "make assertion regarding racial bias" .
+
+# Bias based on the sexual orientation of an individual
+:SexualOrientationAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on sexual orientation bias." ;
+    rdfs:label "make assertion regarding sexual orientation bias" .
+
+# Ethnic bias
+:EthnicBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on ethnic bias." ;
+    rdfs:label "make assertion regarding ethnicity bias" .
+
+# Political bias
+:PoliticalBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on political bias." ;
+    rdfs:label "make assertion regarding political bias" .
+
+# Philosophical belief bias
+:PhilosophicalBeliefBiasAssertion rdfs:subClassOf :BiasAssertion .;
+    rdfs:comment "An assertion from a test based on philosophical belief bias." ;
+    rdfs:label "make assertion regarding philosophical belief bias" .
+
+# Bias related to trade union membership
+:TradeUnionMembershipBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on trade union membership bias." ;
+    rdfs:label "make assertion regarding trade union membership bias" .
+
+# Bias related to genetic data
+:GeneticDataBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on genetic data bias." ;
+    rdfs:label "make assertion regarding genetic data bias" .
+
+# Bias related to the use of biometric data
+:BiometricDataUseBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on biometric data bias." ;
+    rdfs:label "make assertion regarding biometric data bias" .
+
+# Bias related to health data
+:HealthDataBiasAssertion rdfs:subClassOf :BiasAssertion ;
+    rdfs:comment "An assertion from a test based on health data bias." ;
+    rdfs:label "make assertion regarding health data bias" .
+
+:acceptableThreshold rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range xsd:float ;
+    rdfs:comment "The threshold value for the bias assertion to be considered acceptable." ;
+    rdfs:label "acceptable threshold" .
+
+:recordedValue rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range xsd:float ;
+    rdfs:comment "The value recorded for the bias assertion." ;
+    rdfs:label "recorded value" .
+
+
+################################
+# Mapping to EU fundamental rights
+################################
+:EUFundamentalRight rdf:type owl:Class .
+
+:RightToHumanDignity rdf:type :EUFundamentalRight ;
+    rdfs:comment "The right to human dignity."@en ;
+    rdfs:label "Right to human dignity"@en .
+
+:RightToNonDiscrimination rdf:type :EUFundamentalRight ;
+    rdfs:comment "The right to non-discrimination."@en ;
+    rdfs:label "Right to non-discrimination"@en .
+
+:RightToPrivacy rdf:type :EUFundamentalRight ;
+    rdfs:comment "The right to privacy."@en ;
+    rdfs:label "Right to privacy"@en .
+
+:RightToDataProtection rdf:type :EUFundamentalRight ;
+    rdfs:comment "The right to data protection."@en ;
+    rdfs:label "Right to data protection"@en .
+
+:FreedomOfThoughtConscienceReligion rdf:type :EUFundamentalRight ;
+    rdfs:comment "The freedom of thought, conscience, and religion."@en ;
+    rdfs:label "Freedom of thought, conscience, and religion"@en .
+
+:FreedomOfExpression rdf:type :EUFundamentalRight ;
+    rdfs:comment "The freedom of expression."@en ;
+    rdfs:label "Freedom of expression"@en .
+
+:FreedomOfAssociation rdf:type :EUFundamentalRight ;
+    rdfs:comment "The freedom of association."@en ;
+    rdfs:label "Freedom of association"@en .
+
+:RightToWork rdf:type :EUFundamentalRight ;
+    rdfs:comment "The right to work."@en ;
+    rdfs:label "Right to work"@en .
+
+:RightToEducation rdf:type :EUFundamentalRight ;
+    rdfs:comment "The right to education."@en ;
+    rdfs:label "Right to education"@en .
+
+:RightToCulturalDiversity rdf:type :EUFundamentalRight ;
+    rdfs:comment "The right to cultural diversity."@en ;
+    rdfs:label "Right to cultural diversity"@en .
+
+:RightsOfTheChild rdf:type :EUFundamentalRight ;
+    rdfs:comment "The rights of the child."@en ;
+    rdfs:label "Rights of the child"@en .
+
+:RightsOfTheElderly rdf:type :EUFundamentalRight ;
+    rdfs:comment "The rights of the elderly."@en ;
+    rdfs:label "Rights of the elderly"@en .
+
+:RightsOfPersonsWithDisabilities rdf:type :EUFundamentalRight ;
+    rdfs:comment "The rights of persons with disabilities."@en ;
+    rdfs:label "Rights of persons with disabilities"@en .
+
+
+# 'Potentially violates' to associate bias assertions with potential breaches of EU fundamental rights
+:potentiallyViolates rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range :EUFundamentalRight ;
+    rdfs:comment "Connects a bias assertion with a potential violation of an EU fundamental right." ;
+    rdfs:label "potentially violates" .
+
+:GenderBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :RightToHumanDignity .
+
+:ReligionBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :FreedomOfThoughtConscienceReligion .
+
+:RacialBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :RightToHumanDignity, :RightToCulturalDiversity .
+
+:SexualOrientationAssertion :potentiallyViolates :RightToNonDiscrimination , :RightToPrivacy .
+
+:EthnicBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :RightToHumanDignity, :RightToCulturalDiversity .
+
+:PoliticalBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :FreedomOfExpression .
+
+:PhilosophicalBeliefBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :FreedomOfThoughtConscienceReligion .
+
+:TradeUnionMembershipBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :FreedomOfAssociation .
+
+:GeneticDataBiasAssertion :potentiallyViolates :RightToDataProtection , :RightToPrivacy .
+
+:BiometricDataUseBiasAssertion :potentiallyViolates :RightToDataProtection , :RightToPrivacy .
+
+:HealthDataBiasAssertion :potentiallyViolates :RightToPrivacy , :RightToDataProtection .
+
+# ... Potentially add more bias categories and corresponding potential fundamental right violations for different EU fundamental rights (age, disability, education, employment, education, children)?
+
+
+##########################################################
+# Example scenario (ABox):
+##########################################################
+:provider rdf:type airo:AIProvider .
+:ex1 a :RacialBiasAssertion ;
+    earl:assertedBy :provider ;
+    :acceptableThreshold "0.05"^^xsd:float ;
+    :recordedValue "0.1"^^xsd:float .
+    earl:outcome earl:failed .
+:dataset rdf:type vair:Dataset .
+:algorithm rdf:type vair:Algorithm .
+:mybiasaudit rdf:type :BiasAudit ;
+    :hasAssertion :ex1 .
+
+# Bias audit for a dataset
+:dataset :hasAudit :mybiasaudit .
+:mymodel rdf:type airo:Model ;
+    airo:hasComponent :dataset , :algorithm .
+
+:examplesystem rdf:type airo:AISystem ;
+    airo:hasComponent :mymodel .
