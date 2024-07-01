@@ -217,26 +217,3 @@ airo:AIProvider rdfs:subClassOf earl:Assertor .
 :HealthDataBiasAssertion :potentiallyViolates :RightToPrivacy , :RightToDataProtection .
 
 # ... Potentially add more bias categories and corresponding potential fundamental right violations for different EU fundamental rights (age, disability, education, employment, education, children)?
-
-
-##########################################################
-# Example scenario (ABox):
-##########################################################
-:provider rdf:type airo:AIProvider .
-:ex1 a :RacialBiasAssertion ;
-    earl:assertedBy :provider ;
-    :acceptableThreshold "0.05"^^xsd:float ;
-    :recordedValue "0.1"^^xsd:float .
-    earl:outcome earl:failed .
-:dataset rdf:type vair:Dataset .
-:algorithm rdf:type vair:Algorithm .
-:mybiasaudit rdf:type :BiasAudit ;
-    :hasAssertion :ex1 .
-
-# Bias audit for a dataset
-:dataset :hasAudit :mybiasaudit .
-:mymodel rdf:type airo:Model ;
-    airo:hasComponent :dataset , :algorithm .
-
-:examplesystem rdf:type airo:AISystem ;
-    airo:hasComponent :mymodel .
