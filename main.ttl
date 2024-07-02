@@ -11,137 +11,270 @@
 @prefix vair: <https://w3id.org/vair#> .
 @prefix earl: <http://www.w3.org/ns/earl#> .
 
-# N.B. References use airo:Dataset but vair:Algorithm (as of 25.06.2024, airo:Algorithm not defined but airo:Dataset was recently added).
+@prefix : <https://example.org/ex#> .   # for new declarations
 
-# Example namespace to distinguish existing classes/properties
-# From ones which are introduced here
-@prefix : <https://example.org/ex#> .
+# Allow AI systems to be described in terms of component AI systems.
+airo:hasComponent rdfs:domain airo:AISystem ;
+    rdfs:range airo:AISystem .
 
-# Recording / reporting using EARL
-##########################################################
-# Create hasAssertion property to connect dataset with earl. 
-# Just assume in the : namespace for now, 
-# to distinguish from existing constructs in AIRO, VAIR, etc.
-##########################################################
-# Audit encompasses all of the different earl:Assertions made in a particular test suite
-:BiasAudit rdf:type owl:Class ;   # Bias audit
+# Describe a model's intended purpose.
+airo:hasPurpose rdfs:domain airo:MLModel ;
+    rdfs:range airo:Purpose .
+
+
+######################################
+# Description of bias
+######################################
+:Bias rdf:type owl:Class ;
+    terms:source "ISO/IEC 24027:2020, 3.3.2"@en ;
+    rdfs:comment "systematic difference in treatment of certain objects, people, or groups in comparison to others."@en ;
+    rdfs:label "bias"@en .
+
+:CognitiveBias rdf:type owl:Class ;
+    rdfs:subClassOf :Bias ;
+    terms:source "ISO/IEC 24027:2020, 3.3.4"@en ;
+    rdfs:comment "human bias that might impact the design and application of a system."@en ;
+    rdfs:label "human cognitive bias"@en .
+
+:AutomationBias rdf:type owl:Class ;
+    rdfs:subClassOf :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 3.3.1"@en ;
+    rdfs:comment "type of human cognitive bias due to over-reliance on the recommendations of an AI system."@en ;
+    rdfs:label "automation bias"@en .
+
+:ConfirmationBias rdf:type owl:Class ;
+    rdfs:subClassOf :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 3.3.4"@en ;
+    rdfs:comment "type of human cognitive bias that favours predictions of AI systems that confirm pre-existing beliefs or hypotheses."@en ;
+    rdfs:label "confirmation bias"@en .
+
+:DataBias rdf:type owl:Class ;
+    terms:source "ISO/IEC 24027:2020, 3.3.7"@en ;
+    rdfs:comment "data properties that if unaddressed lead to AI systems that perform better or worse for different groups."@en ;
+    rdfs:label "data bias"@en .
+
+:StatisticalBias rdf:type owl:Class ;
+    terms:source "ISO 20501:2019, 3.3.9"@en ;
+    rdfs:comment "type of consistent numerical offset in an estimate relative to the true underlying value, inherent to most estimates."@en ;
+    rdfs:label "statistical bias"@en .
+
+:Trustworthiness rdf:type airo:Entity ;
+    terms:source "ISO 17068:2017, 3.18"@en ;
+    rdfs:comment "quality of being dependable and reliable."@en ;
+    rdfs:label "trustworthiness"@en .
+
+:Group rdf:type owl:Class ;
+    terms:source "ISO/IEC 24027:2020, 3.3.8"@en ;
+    rdfs:comment "subset of objects in a domain that are linked because they have shared characteristics."@en ;
+    rdfs:label "group"@en .
+
+
+# The following are discussed in ISO/IEC 24027:2020 but not listed in the 'Terms' section of that document
+:SocietalBias rdf:type owl:Class ;
+    rdfs:subClassOf :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.9"@en ;
+    rdfs:comment "Societal bias occurs when one or more similar cognitive biases (conscious or unconscious) are being held by many individuals in society. This societal bias originates from society at large and could be closely related to other cognitive or statistical biases. It manifests as data available about society that reflects historical patterns. Societal bias can also be considered a type of data bias."@en ;
+    rdfs:label "societal bias"@en .
+
+:SelectionBias rdf:type owl:Class ;
+    rdfs:subClassOf :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.2.1"@en ;
+    rdfs:comment "Selection bias occurs when data is not collected randomly from the intended population."@en ;
+    rdfs:label "selection bias"@en .
+
+# Instance-level declarations of different types of societal bias.
+# TODO: find standard definitions if possible.
+:GenderBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Gender bias"@en .
+
+:ReligionBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Religious bias"@en .
+
+:RacialBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Racial bias"@en .
+
+:SexualOrientationBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Sexual orientation bias"@en .
+
+:EthnicBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Ethic bias"@en .
+
+:PoliticalBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Political bias"@en .
+
+:PhilosophicalBeliefBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Philophical belief bias"@en .
+
+:TradeUnionMembershipBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Bias due to trade union membership"@en .
+
+:GeneticDataBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Genetic data bias"@en .
+
+:BiometricDataUseBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Biometric data use bias"@en .
+
+:HealthDataBias rdf:type :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:label "Health data bias"@en .
+
+:SamplingBias rdf:type :SelectionBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.2.2"@en ;
+    rdfs:comment "Sampling bias occurs when data is not collected randomly from the intended population."@en ;
+    rdfs:label "sampling bias"@en .
+
+:CoverageBias rdf:type :SelectionBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.2.3"@en ;
+    rdfs:comment "Coverage bias occurs when a population represented in a dataset does not match the population that the ML model is making predictions about."@en ;
+    rdfs:label "coverage bias"@en .
+
+:NonResponseBias rdf:type :SelectionBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.2.4"@en ;
+    rdfs:comment "Non-response bias (also called participation bias) occurs when people from certain groups opt-out of surveys at different rates than users from other groups."@en ;
+    rdfs:label "non-response bias"@en .
+
+:DataLabelBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.3"@en ;
+    rdfs:comment "The labelling process itself potentially introduces the cognitive or societal biases described in in subclause 7.2 to the data."@en ;
+    rdfs:label "data labels and labelling process"@en .
+
+:NonRepresentativeSampling rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.4"@en ;
+    rdfs:comment "If a dataset is not representative of the intended deployment environment, then the model has the potential to learn biases based on the ways in which the data is non-representative."@en ;
+    rdfs:label "non-representative sampling"@en .
+
+:MissingFeaturesLabels rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.5"@en ;
+    rdfs:comment "Features are often missing from individual training samples. If the frequency of missing features is higher for one group than another then this present another vector for bias."@en ;
+    rdfs:label "missing features and labels"@en .
+
+:DataProcessing rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.6"@en ;
+    rdfs:comment "Bias might also creep in due to pre-processing (or post-processing) of data, even though the original data would not have led to any bias."@en ;
+    rdfs:label "data processing bias"@en .
+
+:SimpsonsParadox rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.7"@en ;
+    rdfs:comment "Simpson's paradox manifests when a trend that is indicated in individual groups of data reverses when the groups of data are combined."@en ;
+    rdfs:label "Simpson's paradox"@en .
+
+:ConfoundingVariableBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.8"@en ;
+    rdfs:coment "A confounding variable that influences both the dependent variable and independent variable causing a spurious association."@en ;
+    rdfs:label "confounding variables"@en .
+
+:NonNormality rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.9"@en ;
+    rdfs:comment "if the data is subject to a different distribution [from normal] (e.g. Chi-Square, Beta, Lorentz, Cauchy, Weibull or Pareto) the result might be biased and misleading."@en ;
+    rdfs:label "non-normality"@en .
+
+:OutlierNoiseBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.10"@en ;
+    rdfs:comment "Outliers are extreme data values that, if real, represent very low probability events of the to-be-modelled data. Noise is distortion which is characterised by a statistically-distributed variation of a physical quantity."@en ;
+    rdfs:label "outliers and noise"@en .
+
+:DataAggregationBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.11; http://arxiv.org/abs/1901.10002"@en ;
+    rdfs:comment "Aggregating data covering different groups of objects that might have different statistical distributions can introduce bias into the data used to train AI systems"@en ;
+    rdfs:label "data aggregation bias"@en .
+
+:DistributedTrainingBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.12"@en ;
+    rdfs:comment "Distributed ML might introduce its own cause for data bias as the different sources of data might not have the same distribution of feature space."@en ;
+    rdfs:label "distributed training bias"@en .
+
+:GroupAttributionBias rdf:type :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.3"@en ;
+    rdfs:comment "Group attribution bias occurs when a human assumes that what is true for an individual or object is also true for everyone, or all objects, in that group."@en ;
+    rdfs:label "group attribution bias"@en .
+
+:ImplicitBias rdf:type :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.4"@en ;
+    rdfs:comment "Implicit bias occurs when a human makes an association or assumption based on their mental models and memories."@en ;
+    rdfs:label "implicit bias"@en .
+
+:InGroupBias rdf:type :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.6"@en ;
+    rdfs:comment "In-group bias occurs when showing partiality to one's own group or own characteristics."@en ;
+    rdfs:label "in-group bias"@en .
+
+:OutGroupHomogeneityBias rdf:type :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.7"@en ;
+    rdfs:comment "Out-group homogeneity bias occurs when seeing out-group members as more alike than in-group members when comparing attitudes, values, personality traits, and other characteristics."@en ;
+    rdfs:label "out-group homogeneity bias"@en .
+
+:WYSIATIBias rdf:type :CognitiveBias ;
+    terms:source "ISO IEC 24027:2020, 7.2.8 / https://www.microsoft.com/en-us/research/uploads/prod/2020/05/Fairlearn_WhitePaper-2020-09-22.pdf"@en ;
+    rdfs:comment "'What You See Is All There Is' (WYSIATI) bias occurs when a human looks for information that confirms their beliefs, overlooks contradicting information, and draws conclusions based on what is familiar."@en ;
+    rdfs:label "What you see is all there is bias"@en .
+
+################################################################################
+# Bias audits, a type of Documentation which must have an ML Model as domain
+################################################################################
+
+# Implicitly in being a subclass of airo:Documentation, ANY airo:AIComponent can have a bias audit on it
+:BiasAudit rdf:type owl:Class ;
     rdfs:subClassOf airo:Documentation ;
-    rdfs:comment "An audit that focuses on measuring bias in the AI system" ;
-    rdfs:label "Bias Audit" .
+    rdfs:comment "An audit which focuses on measuring bias in the AI system"@en ;  # TODO: find referenceable definitions
+    rdfs:label "Bias audit"@en .
+# :hasAudit property no longer required; use airo:hasDocumentation with a :BiasAudit.
 
-:hasAudit rdf:type owl:ObjectProperty ;
-    rdfs:domain airo:Dataset ;
-    rdfs:range :Audit ;
-    rdfs:comment "Connects a dataset or algorithm with an audit." ;
-    rdfs:label "has audit" .
-
-##########################################################
-# Assume each 'bias' type is its own earl:Assertion.
-# Even if it is part of a single audit in reality
-##########################################################
 :BiasAssertion rdf:type owl:Class ;
     rdfs:subClassOf earl:Assertion ;
-    rdfs:comment "An assertion that measures bias in an AI system" ;
-    rdfs:label "Bias Assertion" .
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
 
 :hasAssertion rdf:type owl:ObjectProperty ;
-    rdfs:domain airo:Documentation ;
+    rdfs:domain :BiasAudit ;
     rdfs:range earl:Assertion ;
-    rdfs:comment "Connects an audit with an assertion." ;
+    rdfs:comment "Connects a bias audit with an assertion"@en ;
     rdfs:label "has assertion" .
 
-# Connecting with AIRO; An AIProvider may be the assertor
-airo:AIProvider rdfs:subClassOf earl:Assertor .
+# TestSubject should be able to consider 
+earl:test rdfs:range :Bias .    # any bias category should be representable as a TestSubject
 
-# AI Act piece:
-# Racial or ethnic origin, political opinions, religious or 
-# philosophical beliefs, or trade union membership, and the 
-# processing of genetic data, biometric data for the purposes 
-# of uniquely identifying a natural person, data concerning health 
-# or data concerning a natural person's sex life or sexual orientation
+# Expand EARL to allow for numerical test results (not only pass / fail)
+:FloatPass rdf:type owl:Class ;
+    rdfs:subClassOf earl:Pass ;
+    rdfs:comment ""@en ;
+    rdfs:label "Float pass"@en .
 
-# Gender bias
-:GenderBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on gender bias." ;
-    rdfs:label "make assertion regarding gender bias" .
+:FloatFail rdf:type owl:Class ;
+    rdfs:subClassOf earl:Fail ;
+    rdfs:comment ""@en ;
+    rdfs:label "Float fail"@en .
 
-# Bias based on religious beliefs
-:ReligionBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on religious bias." ;
-    rdfs:label "make assertion regarding religious bias" .
+:IntPass rdf:type owl:Class ;
+    rdfs:subClassOf earl:Pass ;
+    rdfs:comment ""@en ;
+    rdfs:label "Integer pass"@en .
 
-# Racial bias
-:RacialBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on racial bias." ;
-    rdfs:label "make assertion regarding racial bias" .
+:IntFail rdf:type owl:Class ;
+    rdfs:subClassOf earl:Fail ;
+    rdfs:comment ""@en ;
+    rdfs:label "Integer fail"@en .
 
-# Bias based on the sexual orientation of an individual
-:SexualOrientationAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on sexual orientation bias." ;
-    rdfs:label "make assertion regarding sexual orientation bias" .
-
-# Ethnic bias
-:EthnicBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on ethnic bias." ;
-    rdfs:label "make assertion regarding ethnicity bias" .
-
-# Political bias
-:PoliticalBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on political bias." ;
-    rdfs:label "make assertion regarding political bias" .
-
-# Philosophical belief bias
-:PhilosophicalBeliefBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on philosophical belief bias." ;
-    rdfs:label "make assertion regarding philosophical belief bias" .
-
-# Bias related to trade union membership
-:TradeUnionMembershipBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on trade union membership bias." ;
-    rdfs:label "make assertion regarding trade union membership bias" .
-
-# Bias related to genetic data
-:GeneticDataBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on genetic data bias." ;
-    rdfs:label "make assertion regarding genetic data bias" .
-
-# Bias related to the use of biometric data
-:BiometricDataUseBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on biometric data bias." ;
-    rdfs:label "make assertion regarding biometric data bias" .
-
-# Bias related to health data
-:HealthDataBiasAssertion rdf:type owl:Class ;
-    rdfs:subClassOf :BiasAssertion ;
-    rdfs:comment "An assertion from a test based on health data bias." ;
-    rdfs:label "make assertion regarding health data bias" .
-
-:acceptableThreshold rdf:type owl:ObjectProperty ;
-    rdfs:domain :BiasAssertion ;
+:floatValue rdf:type owl:ObjectProperty ;
+    rdfs:domain :FloatPass , :FloatFail ;
     rdfs:range xsd:float ;
-    rdfs:comment "The threshold value for the bias assertion to be considered acceptable." ;
-    rdfs:label "acceptable threshold" .
-
-:recordedValue rdf:type owl:ObjectProperty ;
-    rdfs:domain :BiasAssertion ;
-    rdfs:range xsd:float ;
-    rdfs:comment "The value recorded for the bias assertion." ;
-    rdfs:label "recorded value" .
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
 
 
-################################
-# Mapping to EU fundamental rights
-################################
+
+######################################
+# Description of EU fundamental rights
+######################################
 :EUFundamentalRight rdf:type owl:Class .
 
 :RightToHumanDignity rdf:type :EUFundamentalRight ;
@@ -401,26 +534,3 @@ airo:AIProvider rdfs:subClassOf earl:Assertor .
     rdfs:comment "Connects a bias assertion with a potential violation of an EU fundamental right." ;
     rdfs:label "potentially violates" .
 
-:GenderBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :RightToHumanDignity .
-
-:ReligionBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :FreedomOfThoughtConscienceReligion .
-
-:RacialBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :RightToHumanDignity, :RightToCulturalDiversity .
-
-:SexualOrientationAssertion :potentiallyViolates :RightToNonDiscrimination , :RightToPrivacy .
-
-:EthnicBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :RightToHumanDignity, :RightToCulturalDiversity .
-
-:PoliticalBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :FreedomOfExpression .
-
-:PhilosophicalBeliefBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :FreedomOfThoughtConscienceReligion .
-
-:TradeUnionMembershipBiasAssertion :potentiallyViolates :RightToNonDiscrimination , :FreedomOfAssociation .
-
-:GeneticDataBiasAssertion :potentiallyViolates :RightToDataProtection , :RightToPrivacy .
-
-:BiometricDataUseBiasAssertion :potentiallyViolates :RightToDataProtection , :RightToPrivacy .
-
-:HealthDataBiasAssertion :potentiallyViolates :RightToPrivacy , :RightToDataProtection .
-
-# ... Potentially add more bias categories and corresponding potential fundamental right violations for different EU fundamental rights (age, disability, education, employment, education, children)?
