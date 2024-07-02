@@ -1,4 +1,4 @@
-# Expanding AIRO to allow for recording / documentation of bias
+# Improving transparency and representating bias reports in open knowledge graphs
 This repository contains the files associated with my MSc research project, supervised by Prof. David Lewis from Trinity College Dublin.
 
 This project expands upon an existing open ontology, AIRO (https://github.com/DelaramGlp/airo). AIRO is an ontology for AI risk management in accordance with the EU AI Act. Expansions provide properties and types, also building upon DCAT and EARL, allowing for audits to be represented, with a particular focus on managing bias, as is required by the European Union's AI Act. A mapping from these biases to potential EU fundamental right violations is also provided, which functions to assist with AI Act compliance.
