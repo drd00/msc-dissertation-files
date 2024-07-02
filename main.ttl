@@ -515,7 +515,7 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
 :RightPresumptionInnocence rdf:type :EUFundamentalRight ;
     terms:source "http://data.europa.eu/eli/treaty/char_2012/art_48/oj"@en ;
     rdfs:comment "1. Everyone who has been charged shall be presumed innocent until proved guilty according to law.\n2. Respect for the rights of the defence of anyone who has been charged shall be guaranteed."@en ;
-    rdfsd:label "Presumption of innocence and right of defence"@en .
+    rdfs:label "Presumption of innocence and right of defence"@en .
 
 :PrinciplesLegalityProportionality rdf:type :EUFundamentalRight ;
     terms:source "http://data.europa.eu/eli/treaty/char_2012/art_49/oj"@en ;
