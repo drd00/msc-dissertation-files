@@ -24,15 +24,13 @@
 # to distinguish from existing constructs in AIRO, VAIR, etc.
 ##########################################################
 # Audit encompasses all of the different earl:Assertions made in a particular test suite
-:Audit rdf:type owl:Class ;   # Declared for any future use cases, not concerned with bias.
-    rdfs:comment "An audit of an AI system, comprising of one or many assertions." ;
-    rdfs:label "Audit" .
-:BiasAudit rdfs:subClassOf :Audit ;   # Bias audit
+:BiasAudit rdf:type owl:Class ;   # Bias audit
+    rdfs:subClassOf airo:Documentation ;
     rdfs:comment "An audit that focuses on measuring bias in the AI system" ;
     rdfs:label "Bias Audit" .
 
 :hasAudit rdf:type owl:ObjectProperty ;
-    rdfs:domain airo:Dataset , vair:Algorithm ;
+    rdfs:domain airo:Dataset ;
     rdfs:range :Audit ;
     rdfs:comment "Connects a dataset or algorithm with an audit." ;
     rdfs:label "has audit" .
@@ -41,12 +39,13 @@
 # Assume each 'bias' type is its own earl:Assertion.
 # Even if it is part of a single audit in reality
 ##########################################################
-:BiasAssertion rdfs:subClassOf earl:Assertion ;
+:BiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf earl:Assertion ;
     rdfs:comment "An assertion that measures bias in an AI system" ;
     rdfs:label "Bias Assertion" .
 
 :hasAssertion rdf:type owl:ObjectProperty ;
-    rdfs:domain :Audit ;
+    rdfs:domain airo:Documentation ;
     rdfs:range earl:Assertion ;
     rdfs:comment "Connects an audit with an assertion." ;
     rdfs:label "has assertion" .
@@ -62,57 +61,68 @@ airo:AIProvider rdfs:subClassOf earl:Assertor .
 # or data concerning a natural person's sex life or sexual orientation
 
 # Gender bias
-:GenderBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:GenderBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on gender bias." ;
     rdfs:label "make assertion regarding gender bias" .
 
 # Bias based on religious beliefs
-:ReligionBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:ReligionBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on religious bias." ;
     rdfs:label "make assertion regarding religious bias" .
 
 # Racial bias
-:RacialBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:RacialBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on racial bias." ;
     rdfs:label "make assertion regarding racial bias" .
 
 # Bias based on the sexual orientation of an individual
-:SexualOrientationAssertion rdfs:subClassOf :BiasAssertion ;
+:SexualOrientationAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on sexual orientation bias." ;
     rdfs:label "make assertion regarding sexual orientation bias" .
 
 # Ethnic bias
-:EthnicBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:EthnicBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on ethnic bias." ;
     rdfs:label "make assertion regarding ethnicity bias" .
 
 # Political bias
-:PoliticalBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:PoliticalBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on political bias." ;
     rdfs:label "make assertion regarding political bias" .
 
 # Philosophical belief bias
-:PhilosophicalBeliefBiasAssertion rdfs:subClassOf :BiasAssertion .;
+:PhilosophicalBeliefBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on philosophical belief bias." ;
     rdfs:label "make assertion regarding philosophical belief bias" .
 
 # Bias related to trade union membership
-:TradeUnionMembershipBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:TradeUnionMembershipBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on trade union membership bias." ;
     rdfs:label "make assertion regarding trade union membership bias" .
 
 # Bias related to genetic data
-:GeneticDataBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:GeneticDataBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on genetic data bias." ;
     rdfs:label "make assertion regarding genetic data bias" .
 
 # Bias related to the use of biometric data
-:BiometricDataUseBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:BiometricDataUseBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on biometric data bias." ;
     rdfs:label "make assertion regarding biometric data bias" .
 
 # Bias related to health data
-:HealthDataBiasAssertion rdfs:subClassOf :BiasAssertion ;
+:HealthDataBiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf :BiasAssertion ;
     rdfs:comment "An assertion from a test based on health data bias." ;
     rdfs:label "make assertion regarding health data bias" .
 
