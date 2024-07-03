@@ -495,7 +495,7 @@
     rdfs:comment "Will older versions of the dataset continue to be supported/hosted/maintained? If so, please describe how. If not, please describe how its obsolescence will be communicated to dataset consumers."@en ;
     rdfs:label "legacy support"@en .
 
-:augmentationMechanism rdf:type owl:ObjectProperty 
+:augmentationMechanism rdf:type owl:ObjectProperty ;
     rdfs:domain :MaintenanceComponent ;
     rdfs:range xsd:string ;
     terms:source "Datasheets for datasets, https://arxiv.org/2006.11316"@en ;
