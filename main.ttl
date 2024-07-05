@@ -145,7 +145,7 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
 
 :DataLabelBias rdf:type :DataBias ;
     terms:source "ISO/IEC 24027:2020, 7.3.3"@en ;
-    rdfs:comment "The labelling process itself potentially introduces the cognitive or societal biases described in in subclause 7.2 to the data."@en ;
+    rdfs:comment "The labelling process itself potentially introduces the cognitive or societal biases described in subclause 7.2 to the data."@en ;
     rdfs:label "data labels and labelling process"@en .
 
 :NonRepresentativeSampling rdf:type :DataBias ;
@@ -155,7 +155,7 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
 
 :MissingFeaturesLabels rdf:type :DataBias ;
     terms:source "ISO/IEC 24027:2020, 7.3.5"@en ;
-    rdfs:comment "Features are often missing from individual training samples. If the frequency of missing features is higher for one group than another then this present another vector for bias."@en ;
+    rdfs:comment "Features are often missing from individual training samples. If the frequency of missing features is higher for one group than another then this presents another vector for bias."@en ;
     rdfs:label "missing features and labels"@en .
 
 :DataProcessing rdf:type :DataBias ;

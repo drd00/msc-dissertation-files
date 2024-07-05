@@ -25,11 +25,10 @@
     rdfs:label "Datasheet"@en .
 
 :hasDatasheet rdf:type owl:ObjectProperty ;
-    rdfs:domain vair:Dataset ;
+    rdfs:domain airo:Dataset ;
     rdfs:range :Datasheet ;
     rdfs:label "has datasheet"@en ;
     rdfs:comment "A dataset has a datasheet that describes the dataset"@en .
-
 
 # Extensions for datasheet fields:
     # For organisation, have properties defined on the Datasheet
