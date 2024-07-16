@@ -230,17 +230,25 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
 
 :BiasAssertion rdf:type owl:Class ;
     rdfs:subClassOf earl:Assertion ;
-    rdfs:comment ""@en ;
-    rdfs:label ""@en .
+    rdfs:comment "Indicates that an assertion measures bias"@en ;
+    rdfs:label "Bias assertion"@en .
 
 :hasAssertion rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAudit ;
     rdfs:range earl:Assertion ;
     rdfs:comment "Connects a bias audit with an assertion"@en ;
-    rdfs:label "has assertion" .
+    rdfs:label "has assertion"@en .
 
 # TestSubject should be able to consider
-earl:test rdfs:range :Bias .    # any bias category should be representable as a TestSubject
+earl:test rdfs:range :Bias .    # any bias category should be representable as a test subject
+
+# Constraint to ensure any :BiasAssertion has a :Bias test subject
+:BiasAudit rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty earl:test ;
+    owl:allValuesFrom :Bias ;
+    owl:cardinality "1"^^xsd:integer
+] .
 
 # Expand EARL to allow for numerical test results (not only pass / fail)
 :FloatPass rdf:type owl:Class ;
@@ -266,14 +274,14 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
 :floatValue rdf:type owl:ObjectProperty ;
     rdfs:domain :FloatPass , :FloatFail ;
     rdfs:range xsd:float ;
-    rdfs:comment ""@en ;
-    rdfs:label ""@en .
+    rdfs:comment "Indicates the float value result associated with a FloatPass or FloatFail test result."@en ;
+    rdfs:label "float value"@en .
 
 :integerValue rdf:type owl:ObjectProperty ;
     rdfs:domain :IntegerPass , :IntegerFail ;
     rdfs:range xsd:integer ;
-    rdfs:comment ""@en ;
-    rdfs:label ""@en .
+    rdfs:comment "Indicates the integer value result associated with an IntegerPass or IntegerFail test result."@en ;
+    rdfs:label "integer value"@en .
 
 # Enforce cardinality constraints for properties
 :FloatPass rdfs:subClassOf [
