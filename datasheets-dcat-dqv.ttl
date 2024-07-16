@@ -16,6 +16,14 @@
 	terms:title "Purpose of dataset" ;
 	terms:description "Describes the purpose of the dataset" .
 
+# Funded by
+:FundingPresenceDimension rdf:type dqv:Dimension ;
+    terms:title "" ;
+    terms:description "" .
+
+:FundingDescriptionDimension rdf:type dqv:Dimension ;
+    terms:title "" ;
+    terms:description "" .
 
 # Comprised of instances
 :InstanceTypesDimension rdf:type dqv:Dimension ;

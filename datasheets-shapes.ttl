@@ -1,0 +1,157 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Example namespace for any new types.
+@prefix : <https://example.org/ex#> .
+
+# TODO: reference the dimensions in `datasheets-dcat-dqv.ttl` using valid URIs.
+
+# Use SHACL SPARQL rules everywhere for consistency, even where no 'if/else' logic is required.
+:DatasetShape rdf:type sh:NodeShape ;
+    sh:targetClass dcat:Dataset ;
+    ################################
+    # Has purpose
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasPurposeMeasurement true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :PurposeDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path :hasPurposeMeasurement ;
+        sh:hasValue true ;
+        sh:message "Dataset must have a purpose measurement with a string value" ;
+    ] ;
+    ################################
+    # Created by
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX dcat: <http://www.w3.org/ns/dcat#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasCreatedBy true .
+            }
+            WHERE {
+                $this dcat:creator ?entity .
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path :hasCreatedBy ;
+        sh:hasValue true ;
+        sh:message "Dataset must have a creator property" ;
+    ] ;
+    ################################
+    # Funded by
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasFundedBy true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :FundingPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """ ;
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasFundingDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :FundingDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """ ;
+    ] ;
+    sh:rule [
+        rdf:type SPARQLRule ;
+        sh:if [
+            sh:property [
+                sh:path :hasFundedBy ;
+                sh:hasValue true ;
+            ] ;
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasFundingDescription ;
+                sh:hasValue true ;
+                sh:message "Because it was indicated that funding was provided, a string description must be provided." ;
+            ] ;
+        ] ;
+    ] ;
+    ################################
+    # Comprised of instances - require at minimum human-readable details.
+    ################################
+    sh:rule [
+        rdf:type SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasInstanceCompositionDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceTypesDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path :hasInstanceCompositionDescription ;
+        sh:hasValue true ;
+        sh:message "There must be at minimum a human-readable description of instance composition." ;
+    ] .
