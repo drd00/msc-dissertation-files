@@ -239,28 +239,28 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
     rdfs:comment "Connects a bias audit with an assertion"@en ;
     rdfs:label "has assertion" .
 
-# TestSubject should be able to consider 
+# TestSubject should be able to consider
 earl:test rdfs:range :Bias .    # any bias category should be representable as a TestSubject
 
 # Expand EARL to allow for numerical test results (not only pass / fail)
 :FloatPass rdf:type owl:Class ;
     rdfs:subClassOf earl:Pass ;
-    rdfs:comment ""@en ;
+    rdfs:comment "Indicates that a test results in a pass, with a floating point test result."@en ;
     rdfs:label "Float pass"@en .
 
 :FloatFail rdf:type owl:Class ;
     rdfs:subClassOf earl:Fail ;
-    rdfs:comment ""@en ;
+    rdfs:comment "Indicates that a test results in a fail, with a floating point test result."@en ;
     rdfs:label "Float fail"@en .
 
-:IntPass rdf:type owl:Class ;
+:IntegerPass rdf:type owl:Class ;
     rdfs:subClassOf earl:Pass ;
-    rdfs:comment ""@en ;
+    rdfs:comment "Indicates that a test results in a pass, with an integer test result."@en ;
     rdfs:label "Integer pass"@en .
 
-:IntFail rdf:type owl:Class ;
+:IntegerFail rdf:type owl:Class ;
     rdfs:subClassOf earl:Fail ;
-    rdfs:comment ""@en ;
+    rdfs:comment "Indicates that a test results in a fail, with an integer test result."@en ;
     rdfs:label "Integer fail"@en .
 
 :floatValue rdf:type owl:ObjectProperty ;
@@ -269,6 +269,36 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
     rdfs:comment ""@en ;
     rdfs:label ""@en .
 
+:integerValue rdf:type owl:ObjectProperty ;
+    rdfs:domain :IntegerPass , :IntegerFail ;
+    rdfs:range xsd:integer ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
+# Enforce cardinality constraints for properties
+:FloatPass rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :floatValue ;
+    owl:minCardinality "1"^^xsd:integer
+] .
+
+:FloatFail rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :floatValue ;
+    owl:minCardinality "1"^^xsd:integer
+] .
+
+:IntegerPass rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :integerValue ;
+    own:minCardinality "1"^^xsd:integer
+]
+
+:IntegerFail rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :integerValue ;
+    own:minCardinality "1"^^xsd:integer
+]
 
 ######################################
 # Description of EU fundamental rights
@@ -524,6 +554,13 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
     terms:source "http://data.europa.eu/eli/treaty/char_2012/art_50/oj"@en ;
     rdfs:comment "No one shall be liable to be tried or punished again in criminal proceedings for an offence for which he or she has already been finally acquitted or convicted within the Union in accordance with the law."@en ;
     rdfs:label "Right not to be tried or punished twice in criminal proceedings for the same criminal offence"@en .
+
+# TODO: Fill appropriate domain for this property
+:potentiatesSocietalBias rdf:type owl:ObjectProperty ;
+    rdfs:domain : ;
+    rdfs:range :SocietalBias ;
+    rdfs:comment ""@en ;
+    rdfs:albel ""@en .
 
 # 'Potentially violates' to associate bias assertions with potential breaches of EU fundamental rights
 :potentiallyViolates rdf:type owl:ObjectProperty ;
