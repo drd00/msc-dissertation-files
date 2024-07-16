@@ -221,7 +221,6 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
 ################################################################################
 # Bias audits, a type of Documentation which must have an ML Model as domain
 ################################################################################
-
 # Implicitly in being a subclass of airo:Documentation, ANY airo:AIComponent can have a bias audit on it
 :BiasAudit rdf:type owl:Class ;
     rdfs:subClassOf airo:Documentation ;
@@ -269,7 +268,6 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
     rdfs:range xsd:float ;
     rdfs:comment ""@en ;
     rdfs:label ""@en .
-
 
 
 ######################################
@@ -529,8 +527,7 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
 
 # 'Potentially violates' to associate bias assertions with potential breaches of EU fundamental rights
 :potentiallyViolates rdf:type owl:ObjectProperty ;
-    rdfs:domain :BiasAssertion ;
+    rdfs:domain :SocietalBias ;
     rdfs:range :EUFundamentalRight ;
     rdfs:comment "Connects a bias assertion with a potential violation of an EU fundamental right." ;
     rdfs:label "potentially violates" .
-

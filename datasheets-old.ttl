@@ -14,9 +14,9 @@
 ###########################################################
 # Datasheets for datasets
 # Provide information pertaining to the dataset as specified in the paper: Datasheets for datasets by Gebru et al. (2020), which are not supported out-the-box by DCAT.
-# 
+#
 # NOTE: This is a draft and is subject to change. It is not yet finalised.
-# 
+#
 ###########################################################
 # Extensions to DCAT represented as properties on a datasheet class
 :Datasheet rdf:type owl:Class ;
@@ -33,7 +33,7 @@
 # Extensions for datasheet fields:
     # For organisation, have properties defined on the Datasheet
     # Class be split according to their sections in the paper:
-    # (1) Motivation, (2) Composition, (3) Collection, 
+    # (1) Motivation, (2) Composition, (3) Collection,
     # (4) Preprocessing / cleaning / labelling
     # (5) Uses, (6) Distribution, (7) Maintenance
 
@@ -131,7 +131,7 @@
 
 :createdBy rdf:type owl:ObjectProperty ;
     rdfs:domain :MotivationComponent ;
-    rdfs:range foaf:Agent , foaf:Person , 
+    rdfs:range foaf:Agent , foaf:Person ,
     foaf:Organization , foaf:Group , airo:Stakeholder ;
     terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
     rdfs:comment "Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution organization)?"@en ;
@@ -252,7 +252,7 @@
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
     terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
-    rdfs:comment "Does the dataset contain data that might be considered sensitive in any way (e.g., data that reveals race or etnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)? If so, please provide a description."@en ;
+    rdfs:comment "Does the dataset contain data that might be considered sensitive in any way (e.g., data that reveals race or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)? If so, please provide a description."@en ;
     rdfs:label "sensitive data"@en .
 
 
@@ -361,7 +361,7 @@
     rdfs:range xsd:string ;
     terms:source "Datasheets for datasets, https://arxiv.org/2006.11316"@en ;
     rdfs:comment "Is the software that was used to preprocess/clean/label the data available? If so, please provide a link or other access point."@en ;
-    rdfs:label "software available"@en . 
+    rdfs:label "software available"@en .
 
 
 ####################################################
