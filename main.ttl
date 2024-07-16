@@ -279,25 +279,25 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
 :FloatPass rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :floatValue ;
-    owl:minCardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:integer
 ] .
 
 :FloatFail rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :floatValue ;
-    owl:minCardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:integer
 ] .
 
 :IntegerPass rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :integerValue ;
-    own:minCardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:integer
 ]
 
 :IntegerFail rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :integerValue ;
-    own:minCardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:integer
 ]
 
 ######################################
