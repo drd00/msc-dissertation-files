@@ -243,7 +243,7 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
 earl:test rdfs:range :Bias .    # any bias category should be representable as a test subject
 
 # Constraint to ensure any :BiasAssertion has a :Bias test subject
-:BiasAudit rdfs:subClassOf [
+:BiasAssertion rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty earl:test ;
     owl:allValuesFrom :Bias ;
