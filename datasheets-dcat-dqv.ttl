@@ -69,14 +69,14 @@
 	terms:description "Indicates whether any information is missing from individual instances" .
 
 :MissingInfoDescriptionDimension rdf:type dqv:Dimension ;
-	dct:title "Description of missing information" ;
-	dct:description "Provides details about what information is missing and why" .
+	terms:title "Description of missing information" ;
+	terms:description "Provides details about what information is missing and why" .
 
 
 # Relationships made explicit
 :RelationshipPresenceDimension rdf:type dqv:Dimension ;
 	terms:title "Presence of Explicit Relationships" ;
-	terms:description "Indicates whether relationships between individual instances are made explicit"
+	terms:description "Indicates whether relationships between individual instances are made explicit" .
 
 :RelationshipDescriptionDimension rdf:type dqv:Dimension ;
 	terms:title "Description of Relationships" ;
@@ -136,7 +136,7 @@
 	terms:title "Presence of potentially offensive or anxiety-causing content" ;
 	terms:description "Indicates whether the dataset contains data that might be offensive, insulting, threatening, or might cause anxiety if viewed directly" .
 
-:SensitiveContentDescriptionDimension rdf:typ dqv:Dimension ;
+:SensitiveContentDescriptionDimension rdf:type dqv:Dimension ;
 	terms:title "Description of potentially offensive or anxiety-causing content" ;
 	terms:description "Provides details about the nature of potentially offensive or anxiety-causing content" .
 
@@ -168,7 +168,7 @@
 
 :SensitiveDataDescriptionDimension rdf:type dqv:Dimension ;
 	terms:title "Description of sensitive data" ;
-	terms:description "Provides details about how data might be considered sensitive."
+	terms:description "Provides details about how data might be considered sensitive." .
 
 
 # Instance data acquisition
