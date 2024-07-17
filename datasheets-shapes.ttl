@@ -112,7 +112,7 @@
         """ ;
     ] ;
     sh:rule [
-        rdf:type SPARQLRule ;
+        rdf:type sh:SPARQLRule ;
         sh:if [
             sh:property [
                 sh:path :hasFundedBy ;
@@ -131,7 +131,7 @@
     # Comprised of instances - require at minimum human-readable details.
     ################################
     sh:rule [
-        rdf:type SPARQLRule ;
+        rdf:type sh:SPARQLRule ;
         sh:construct """
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
