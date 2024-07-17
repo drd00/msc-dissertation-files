@@ -38,12 +38,12 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
-        """ ;
+        """
     ] ;
     sh:property [
         sh:path :hasPurposeMeasurement ;
         sh:hasValue true ;
-        sh:message "Dataset must have a purpose measurement with a string value" ;
+        sh:message "Dataset must have a purpose measurement with a string value"@en
     ] ;
     ################################
     # Created by
@@ -61,12 +61,12 @@
             WHERE {
                 $this dcat:creator ?entity .
             }
-        """ ;
+        """
     ] ;
     sh:property [
         sh:path :hasCreatedBy ;
         sh:hasValue true ;
-        sh:message "Dataset must have a creator property" ;
+        sh:message "Dataset must have a creator property"@en
     ] ;
     ################################
     # Funded by
@@ -80,7 +80,8 @@
             PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
-                $this :hasFundedBy true .
+                $this :hasFundingField true .
+                $this :hasFunding ?value .
             }
             WHERE {
                 ?measurement dqv:computedOn $this ;
@@ -89,15 +90,6 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
-        """ ;
-    ] ;
-    sh:rule [
-        rdf:type sh:SPARQLRule ;
-        sh:construct """
-            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-            PREFIX dqv: <http://www.w3.org/ns/dqv#>
-            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasFundingDescription true .
@@ -109,23 +101,27 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
-        """ ;
+        """
+    ] ;
+    sh:property [
+        sh:path :hasFundingField ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether funding was received"@en
     ] ;
     sh:rule [
-        rdf:type sh:SPARQLRule ;
         sh:if [
             sh:property [
-                sh:path :hasFundedBy ;
-                sh:hasValue true ;
-            ] ;
+                sh:path :hasFunding ;
+                sh:hasValue true
+            ]
         ] ;
         sh:then [
             sh:property [
                 sh:path :hasFundingDescription ;
                 sh:hasValue true ;
-                sh:message "Because it was indicated that funding was provided, a string description must be provided." ;
-            ] ;
-        ] ;
+                sh:message "Because it was indicated that funding was provided, a string description must be provided."@en
+            ]
+        ]
     ] ;
     ################################
     # Comprised of instances - require at minimum human-readable details.
@@ -148,10 +144,508 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
-        """ ;
+        """
     ] ;
     sh:property [
         sh:path :hasInstanceCompositionDescription ;
         sh:hasValue true ;
-        sh:message "There must be at minimum a human-readable description of instance composition." ;
+        sh:message "There must be at minimum a human-readable description of instance composition."@en
+    ] ;
+    ################################
+    # Instance counts
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasInstanceCount true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceCountDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:nonNegativeInteger)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasInstanceCount ;
+        sh:hasValue true ;
+        sh:message "There must be count of the number of instances in the dataset"@en
+    ] ;
+    ################################
+    # Instances subset or all
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasSamplingDimension true .
+                $this :samplingDimensionValue ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :SamplingDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+
+            CONSTRUCT {
+                $this :hasRepresentativenessDimension true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :RepresentativenessDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+
+            CONSTRUCT {
+                $this :hasSamplingMethodDimension true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :SamplingMethodDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasSamplingDimension ;
+        sh:hasValue true ;
+        sh:message "There must be information pertaining to whether the dataset is complete or a sample (from a larger dataset)"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :samplingDimensionValue ;
+                sh:hasValue false ; # => a subset (of a larger dataset); interpreted: *not* a complete dataset
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasRepresentativenessDimension ;
+                sh:hasValue true ;
+                sh:message "If the dataset is a sample (of a larger dataset), then its datasheet must describe how representative the sample is of the larger set"@en
+            ] ;
+            sh:property [
+                sh:path :hasSamplingMethodDimension ;
+                sh:hasValue true ;
+                sh:message "If the dataset is a sample (of a larger dataset), then its datasheet must describe the method used for sampling" ;
+            ]
+        ]
+    ] ;
+    ################################
+    # Each instance consists of
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasInstanceComposition true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceCompositionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+
+            CONSTRUCT {
+                $this :hasFeatureDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :FeatureDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasInstanceComposition ;
+        sh:hasValue true ;
+        sh:message "A datasheet must describe what each instance in the dataset consists of"@en
+    ] ;
+    sh:property [
+        sh:path :hasFeatureDescription ;
+        sh:hasValue true ;
+        sh:message "A datasheet must provide a detailed description of the features in each instance"@en
+    ] ;
+    ################################
+    # Label or target
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasLabelOrTarget true .
+                $this :labelOrTargetValue ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :LabelPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+
+            CONSTRUCT {
+                $this :hasLabelOrTargetDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :LabelDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:path [
+        sh:path :hasLabelOrTarget ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether labels or targets are associated with instances"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :labelOrTargetValue ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasLabelOrTargetDescription ;
+                sh:hasValue true ;
+                sh:message "When a datasheet indicates that labels or targets are associated with instances, then there must be a description."@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Missing information
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasMissingInfoField true .
+                $this :missingInfo ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :MissingInfoPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+
+            CONSTRUCT {
+                $this :hasMissingInfoDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :MissingInfoDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasMissingInfoField ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether any information is missing from individual instances"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :missingInfo ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasMissingInfoDescription ;
+                sh:hasValue true ;
+                sh:message "If a datasheet indicates that there is missing information, details must also be provided about what information is missing and why."@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Relationships made explicit
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasRelationshipField true .
+                $this :relationshipExplicit ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :RelationshipPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+
+            CONSTRUCT {
+                $this :hasRelationshipDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :RelationshipDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasRelationshipField ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether relationships between individual instances are made explicit"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :relationshipExplicit ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasRelationshipDescription ;
+                sh:hasValue true ;
+                sh:message "When it is indicated that relationships between individuals are made explicit, then a description must be provided."@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Data splits
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            CONSTRUCT {
+                $this :hasDataSplitField true .
+                $this :hasRecommendedDataSplits ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataSplitPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+
+            CONSTRUCT {
+                ?this :hasRecommendedDataSplitsDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataSplitDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasDataSplitField ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether recommended data splits are provided"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :hasRecommendedDataSplits ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasRecommendedDataSplitsDescription ;
+                sh:hasValue true
+            ]
+        ]
+    ] ;
+    ################################
+    # Errors, noise, redundancies
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDataIssuesField true .
+                $this :dataIssues ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataIssuesPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+
+            CONSTRUCT {
+                $this :hasDataIssuesDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataIssuesDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasDataIssuesField ;
+        sh:hasValue true ;
+        sh:message "A dataset must indicate whether recommended data splits are provided"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :dataIssues ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasDataIssuesDescriptionField ;
+                sh:hasValue true
+            ]
+        ]
+    ] ;
+    ################################
+    # External resources
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasExternalResourceField true .
+                $this :externalResources ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ExternalResourcesDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+
+            CONSTRUCT {
+                $this :hasExternalResourcesDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ExternalResourcesDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+
+            CONSTRUCT {
+                $this :hasResourceGuaranteesDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ResourceGuaranteesDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+
+            CONSTRUCT {
+                $this :hasArchivalVersionsDescription true .
+            } 
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ArchivalVersionsDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasExternalResourceField ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether the dataset links to or relies on external resources"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :externalResources ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasExternalResourcesDescription ;
+                sh:hasValue true ;
+                sh:message "If a dataset links to or relies on external resources, then a datasheet must describe all external resources and any restrictions associated with them, as well as links or other access points as appropriate."@en
+            ] ;
+            sh:property [
+                sh:path :hasResourceGuaranteesDescription ;
+                sh:hasValue true ;
+                sh:message "If a dataset links to or relies on external resources, then it must specify whether there are guarantees they will exist, and remain constant, over time."@en
+            ] ;
+            sh:property [
+                sh:path :hasArchivalVersionsDescription ;
+                sh:hasValue true ;
+                sh:message "If a dataset links to or relies on external resources, then it must specify whether there are official archival verisons of the complete dataset (i.e., including the external resources as they existed at the time the dataset was created)"@en
+            ]
+        ]
     ] .

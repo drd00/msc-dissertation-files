@@ -48,7 +48,7 @@
 :SamplingDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Sampling information"@en ;
-	rdfs:comment "Indicates whether the dataset is complete or a sample"@en .
+	rdfs:comment "Indicates if the dataset is complete (i.e., not a sample (of a larger dataset)). In this implementation, 'complete' is interpreted as 'true' (xsd:boolean) and 'sample' is interpreted from 'false' (xsd:boolean)"@en .
 
 :RepresentativenessDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
@@ -137,8 +137,12 @@
 :ExternalResourcesDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "External resources"@en ;
-	rdfs:comment "Describes whether the dataset links to or relies on external resources"@en .
+	rdfs:comment "Indicates whether the dataset links to or relies on external resources"@en .
 
+:ExternalResourcesDescriptionDimension rdf:type dqv:Dimension ;
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "External resources description"@en ;
+	rdfs:comment "Descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate, if the dataset links to or relies on external resources" .
 :ResourceGuaranteesDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "External resource guarantees"@en ;
