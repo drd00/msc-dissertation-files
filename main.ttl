@@ -300,13 +300,13 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
     rdf:type owl:Restriction ;
     owl:onProperty :integerValue ;
     owl:cardinality "1"^^xsd:integer
-]
+] .
 
 :IntegerFail rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :integerValue ;
     owl:cardinality "1"^^xsd:integer
-]
+] .
 
 ######################################
 # Description of EU fundamental rights

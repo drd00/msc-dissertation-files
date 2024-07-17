@@ -18,11 +18,11 @@
 
 # Funded by
 :FundingPresenceDimension rdf:type dqv:Dimension ;
-    terms:title "" ;
-    terms:description "" .
+    terms:title "Funding presence" ;
+    terms:description "Indicates whether funding was received for a particular dataset" .
 
 :FundingDescriptionDimension rdf:type dqv:Dimension ;
-    terms:title "" ;
+    terms:title "Funding description" ;
     terms:description "" .
 
 # Comprised of instances
