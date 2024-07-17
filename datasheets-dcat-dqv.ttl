@@ -13,206 +13,206 @@
 
 # Has purpose
 :PurposeDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Purpose of dataset" ;
-	rdfs:comment "Describes for what purpose was the dataset created." .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Purpose of dataset"@en ;
+	rdfs:comment "Describes for what purpose was the dataset created."@en .
 
 
 # Funded by
 :FundingPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-    rdfs:label "Funding presence" ;
-    rdfs:comment "Indicates whether funding was received for a particular dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+    rdfs:label "Funding presence"@en ;
+    rdfs:comment "Indicates whether funding was received for a particular dataset"@en .
 
 :FundingDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-    rdfs:label "Funding description" ;
-    rdfs:comment "Describes dataset funding, if present." .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+    rdfs:label "Funding description"@en ;
+    rdfs:comment "Describes dataset funding, if present."@en .
 
 
 # Comprised of instances
 :InstanceTypesDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Instance types" ;
-	rdfs:comment "Describes the types of instances comprising the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Instance types"@en ;
+	rdfs:comment "Describes the types of instances comprising the dataset"@en .
 
 
 # Number of instances
 :InstanceCountDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Instance count" ;
-	rdfs:comment "Counts of instances in the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Instance count"@en ;
+	rdfs:comment "Counts of instances in the dataset"@en .
 
 
 # Instances subset or all
 :SamplingDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Sampling information" ;
-	rdfs:comment "Describes whether the dataset is complete or a sample" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Sampling information"@en ;
+	rdfs:comment "Describes whether the dataset is complete or a sample"@en .
 
 :RepresentativenessDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Representativeness" ;
-	rdfs:comment "Describes how representative the sample is of the larger set" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Representativeness"@en ;
+	rdfs:comment "Describes how representative the sample is of the larger set"@en .
 
 :SamplingMethodDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Sampling method" ;
-	rdfs:comment "Describes the method used for sampling" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Sampling method"@en ;
+	rdfs:comment "Describes the method used for sampling"@en .
 
 
 # Each instance consists of
 :InstanceCompositionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Instance composition" ;
-	rdfs:comment "Describes what each instance in the dataset consists of" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Instance composition"@en ;
+	rdfs:comment "Describes what each instance in the dataset consists of"@en .
 
 :FeatureDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Feature description" ;
-	rdfs:comment "Provides a detailed description of the features in each instance" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Feature description"@en ;
+	rdfs:comment "Provides a detailed description of the features in each instance"@en .
 
 
 # Label or target
 :LabelPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Label presence" ;
-	rdfs:comment "Indicates whether labels or targets are associated with instances." .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Label presence"@en ;
+	rdfs:comment "Indicates whether labels or targets are associated with instances."@en .
 
 :LabelDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Label description" ;
-	rdfs:comment "Provides a detailed description of the labels or targets associated with instances" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Label description"@en ;
+	rdfs:comment "Provides a detailed description of the labels or targets associated with instances"@en .
 
 
 # Missing information
 :MissingInfoPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Presence of missing information" ;
-	rdfs:comment "Indicates whether any information is missing from individual instances" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Presence of missing information"@en ;
+	rdfs:comment "Indicates whether any information is missing from individual instances"@en .
 
 :MissingInfoDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Description of missing information" ;
-	rdfs:comment "Provides details about what information is missing and why" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Description of missing information"@en ;
+	rdfs:comment "Provides details about what information is missing and why"@en .
 
 
 # Relationships made explicit
 :RelationshipPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Presence of Explicit Relationships" ;
-	rdfs:comment "Indicates whether relationships between individual instances are made explicit" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Presence of Explicit Relationships"@en ;
+	rdfs:comment "Indicates whether relationships between individual instances are made explicit"@en .
 
 :RelationshipDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Description of Relationships" ;
-	rdfs:comment "Provides detail about how relationships between instances are made explicit" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Description of Relationships"@en ;
+	rdfs:comment "Provides detail about how relationships between instances are made explicit"@en .
 
 
 # Data splits
 :DataSplitPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Presence of Recommended Data Splits" ;
-	rdfs:comment "Indicates whether recommended data splits are provided" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Presence of Recommended Data Splits"@en ;
+	rdfs:comment "Indicates whether recommended data splits are provided"@en .
 
 :DataSplitDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Description of Data Splits" ;
-	rdfs:comment "Provides details about recommended data splits and their rationale." .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Description of Data Splits"@en ;
+	rdfs:comment "Provides details about recommended data splits and their rationale."@en .
 
 
 # Errors, noise, redundancies
 :DataIssuesPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Presence of data issues" ;
-	rdfs:comment "Indicates whether there are known errors, sources of noise, or redunancies in the data" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Presence of data issues"@en ;
+	rdfs:comment "Indicates whether there are known errors, sources of noise, or redunancies in the data"@en .
 
 :DataIssuesDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Description of data issues" ;
 	rdfs:comment "Provides details about known errors, sources of noise, and redunancies in the dataset" .
 
 
 # External resources
 :ExternalResourcesDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "External resources" ;
-	rdfs:comment "Describes whether the dataset links to or relies on external resources" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "External resources"@en ;
+	rdfs:comment "Describes whether the dataset links to or relies on external resources"@en .
 
 :ResourceGuaranteesDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "External resource guarantees" ;
-	rdfs:comment "Describes guarantees about the existence and consistency of external resources over time" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "External resource guarantees"@en ;
+	rdfs:comment "Describes guarantees about the existence and consistency of external resources over time"@en .
 
 :ArchivalVersionsDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Archival versions" ;
-	rdfs:comment "Describes the availability of offical archival versions of the complete dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Archival versions"@en ;
+	rdfs:comment "Describes the availability of offical archival versions of the complete dataset"@en .
 
 :ExternalRestrictionsDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "External resource restrictions" ;
-	rdfs:comment "Describes any restrictions associated with the external resources" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "External resource restrictions"@en ;
+	rdfs:comment "Describes any restrictions associated with the external resources"@en .
 
 
 # Confidential data
 :ConfidentialDataPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Presence of confidential data" ;
-	rdfs:comment "Indicates whether the dataset contains data that might be considered confidential" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Presence of confidential data"@en ;
+	rdfs:comment "Indicates whether the dataset contains data that might be considered confidential"@en .
 
 :ConfidentialDataDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Description of confidential data" ;
-	rdfs:comment "Provides details about the nature of confidential data in the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Description of confidential data"@en ;
+	rdfs:comment "Provides details about the nature of confidential data in the dataset"@en .
 
 
 # Offensive data
 :SensitiveContentPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Presence of potentially offensive or anxiety-causing content" ;
-	rdfs:comment "Indicates whether the dataset contains data that might be offensive, insulting, threatening, or might cause anxiety if viewed directly" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Presence of potentially offensive or anxiety-causing content"@en ;
+	rdfs:comment "Indicates whether the dataset contains data that might be offensive, insulting, threatening, or might cause anxiety if viewed directly"@en .
 
 :SensitiveContentDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Description of potentially offensive or anxiety-causing content" ;
-	rdfs:comment "Provides details about the nature of potentially offensive or anxiety-causing content" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Description of potentially offensive or anxiety-causing content"@en ;
+	rdfs:comment "Provides details about the nature of potentially offensive or anxiety-causing content"@en .
 
 
 # Subpopulations
 :SubpopulationPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Presence of identified subpopulations" ;
-	rdfs:comment "Indicates whether the dataset identifies subpopulations" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Presence of identified subpopulations"@en ;
+	rdfs:comment "Indicates whether the dataset identifies subpopulations"@en .
 
 :SubpopulationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Description of subpopulations" ;
-	rdfs:comment "Provides details about how subpopulations are identified and their distributions within the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Description of subpopulations"@en ;
+	rdfs:comment "Provides details about how subpopulations are identified and their distributions within the dataset"@en .
 
 
 # Identifiable individuals
 :IndividualIdentificationPossibilityDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Possibility of individual identification" ;
-	rdfs:comment "Indicates whether it is possible to identify individuals from the dataset, either directly or indirectly" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Possibility of individual identification"@en ;
+	rdfs:comment "Indicates whether it is possible to identify individuals from the dataset, either directly or indirectly"@en .
 
 :IndividualIdentificationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Description of individual identification possibilities" ;
-	rdfs:comment "Provides details about how individuals might be identified from the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Description of individual identification possibilities"@en ;
+	rdfs:comment "Provides details about how individuals might be identified from the dataset"@en .
 
 
 # Sensitive data
 :SensitiveDataPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Presence of sensitive data" ;
-	rdfs:comment "Indicates the presence of data which might be considered sensitive" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Presence of sensitive data"@en ;
+	rdfs:comment "Indicates the presence of data which might be considered sensitive"@en .
 
 :SensitiveDataDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
-	rdfs:label "Description of sensitive data" ;
-	rdfs:comment "Provides details about how data might be considered sensitive." .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Description of sensitive data"@en ;
+	rdfs:comment "Provides details about how data might be considered sensitive."@en .
 
 
 # Instance data acquisition
@@ -238,282 +238,282 @@
 
 :InstanceAcquisitionDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
-	rdfs:label "Instance acquisition" ;
-	rdfs:comment "Indicates how the data was associated with each instance." .
+	rdfs:label "Instance acquisition"@en ;
+	rdfs:comment "Indicates how the data was associated with each instance."@en .
 
 :InstanceAcquisitionVerificationPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "".
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en.
 
 :InstanceAcquisitionVerificationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Data acquisition mechanisms
 :DataAcquisitionMechanismDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :DataAcquisitionMechanismValidationPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :DataAcquisitionMechanismValidationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Collection duration
 :DatespanDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :DatespanMatchesInstanceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :InstanceDateDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Ethical review
 :EthicalReviewPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :EthicalReviewDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Third-party
 :ThirdPartyDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Provided notification
 :ProvidedNotificationPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :ProvidedNotificationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Consent obtained
 :ConsentObtainedPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :ConsentObtainedDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Consent revokation mechanism
 :ConsentRevokationPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :ConsentRevokationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Impact analysis
 :ImpactAnalysisPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :ImpactAnalysisDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Preprocessing data
 :PreprocessingDataPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :PreprocessingDataDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Raw data saved
 :RawDataSavedPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :RawDataSavedDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Software available
 :SoftwareAvailablePresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :SoftwareAvailableDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Tasks used for
 :TasksUsedForPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :TasksUsedForDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Necessary links
 :RepositoryNecessaryLinksPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :RepositoryNecessaryLinksDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Other possible tasks
 :OtherPossibleTasksPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :OtherPossibleTasksDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Data collection / processing impact
 :CollectionProcessingImpactPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :CollectionProcessingImpactDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Not other possible tasks
 :NotToBeUsedForTaskPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :NotToBeUsedForTaskDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Third party distribution
 :ThirdPartyDistributionPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :ThirdPartyDistributionDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Distribution means
 :DistributionMeansDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :hasDOIDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Distribution date
 :DistributionDateDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # License
 :LicensePresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :LicenseDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Restrictions on instance data
 :InstanceDataRestrictionPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :InstanceDataRestrictionDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Export controls / regulatory restrictions
 :ExportControlRegulatoryRestrictionPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :ExportControlRegulatoryRestrictionDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 ####################################################
 # Consider maintainer and manager contact as
@@ -521,94 +521,100 @@
 ####################################################
 # Dataset maintainer
 :maintainer rdf:type owl:ObjectProperty ;
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en ;
 	rdfs:subPropertyOf dcat:contactPoint .
 
 
 # Manager contact
 :managerContact rdf:type owl:ObjectProperty ;
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en ;
 	rdfs:subPropertyOf dcat:contactPoint .
 
 
 # Erratum
 :ErratumPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :ErratumDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Update details
 :UpdatePresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :UpdateFrequencyDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :UpdateCommunicationDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Data retention limits
 :DataRetentionPresenceDimension rdf:type dqv:Dimension ;
-    terms:source "" ;
-    rdfs:comment "" ;
-	rdfs:label "" .
+    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :DataRetentionDescriptionDimension rdf:type dqv:Dimension ;
-    terms:source "" ;
-    rdfs:comment "" ;
-	rdfs:label "" .
+    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Legacy support
 :LegacySupportPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :LegacySupportDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 
 # Augmentation mechanism
 :AugmentationPossibilityPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :AugmentationPossibilityDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :AugmentationValidationPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :AugmentationValidationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :AugmentationCommunicationPresenceDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
 
 :AugmentationCommunicationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "" ;
-	rdfs:comment "" ;
-	rdfs:label "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:comment ""@en ;
+	rdfs:label ""@en .
