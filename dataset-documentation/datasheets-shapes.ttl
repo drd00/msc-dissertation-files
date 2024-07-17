@@ -15,7 +15,7 @@
 # TODO: reference the dimensions in `datasheets-dcat-dqv.ttl` using valid URIs.
 
 # Use SHACL SPARQL rules everywhere for consistency, even where no 'if/else' logic is required.
-:DatasetShape rdf:type sh:NodeShape ;
+:DatasheetShape rdf:type sh:NodeShape ;
     sh:targetClass dcat:Dataset ;
     ################################
     # Has purpose
