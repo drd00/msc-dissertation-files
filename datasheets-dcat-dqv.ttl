@@ -13,170 +13,206 @@
 
 # Has purpose
 :PurposeDimension rdf:type dqv:Dimension ;
-	terms:title "Purpose of dataset" ;
-	terms:description "Describes the purpose of the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Purpose of dataset" ;
+	rdfs:comment "Describes for what purpose was the dataset created." .
+
 
 # Funded by
 :FundingPresenceDimension rdf:type dqv:Dimension ;
-    terms:title "Funding presence" ;
-    terms:description "Indicates whether funding was received for a particular dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+    rdfs:label "Funding presence" ;
+    rdfs:comment "Indicates whether funding was received for a particular dataset" .
 
 :FundingDescriptionDimension rdf:type dqv:Dimension ;
-    terms:title "Funding description" ;
-    terms:description "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+    rdfs:label "Funding description" ;
+    rdfs:comment "Describes dataset funding, if present." .
+
 
 # Comprised of instances
 :InstanceTypesDimension rdf:type dqv:Dimension ;
-	terms:title "Instance types" ;
-	terms:description "Describes the types of instances comprising the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Instance types" ;
+	rdfs:comment "Describes the types of instances comprising the dataset" .
 
 
 # Number of instances
 :InstanceCountDimension rdf:type dqv:Dimension ;
-	terms:title "Instance count" ;
-	terms:description "Counts of instances in the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Instance count" ;
+	rdfs:comment "Counts of instances in the dataset" .
 
 
 # Instances subset or all
 :SamplingDimension rdf:type dqv:Dimension ;
-	terms:title "Sampling information" ;
-	terms:description "Describes whether the dataset is complete or a sample" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Sampling information" ;
+	rdfs:comment "Describes whether the dataset is complete or a sample" .
 
 :RepresentativenessDimension rdf:type dqv:Dimension ;
-	terms:title "Representativeness" ;
-	terms:description "Describes how representative the sample is of the larger set" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Representativeness" ;
+	rdfs:comment "Describes how representative the sample is of the larger set" .
 
 :SamplingMethodDimension rdf:type dqv:Dimension ;
-	terms:title "Sampling method" ;
-	terms:description "Describes the method used for sampling" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Sampling method" ;
+	rdfs:comment "Describes the method used for sampling" .
 
 
 # Each instance consists of
 :InstanceCompositionDimension rdf:type dqv:Dimension ;
-	terms:title "Instance composition" ;
-	terms:description "Describes what each instance in the dataset consists of" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Instance composition" ;
+	rdfs:comment "Describes what each instance in the dataset consists of" .
 
 :FeatureDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Feature description" ;
-	terms:description "Provides a detailed description of the features in each instance" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Feature description" ;
+	rdfs:comment "Provides a detailed description of the features in each instance" .
 
 
 # Label or target
 :LabelPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Label presence" ;
-	terms:description "Indicates whether labels or targets are associated with instances." .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Label presence" ;
+	rdfs:comment "Indicates whether labels or targets are associated with instances." .
 
 :LabelDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Label description" ;
-	terms:description "Provides a detailed description of the labels or targets associated with instances" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Label description" ;
+	rdfs:comment "Provides a detailed description of the labels or targets associated with instances" .
 
 
 # Missing information
 :MissingInfoPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Presence of missing information" ;
-	terms:description "Indicates whether any information is missing from individual instances" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Presence of missing information" ;
+	rdfs:comment "Indicates whether any information is missing from individual instances" .
 
 :MissingInfoDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of missing information" ;
-	terms:description "Provides details about what information is missing and why" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of missing information" ;
+	rdfs:comment "Provides details about what information is missing and why" .
 
 
 # Relationships made explicit
 :RelationshipPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Presence of Explicit Relationships" ;
-	terms:description "Indicates whether relationships between individual instances are made explicit" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Presence of Explicit Relationships" ;
+	rdfs:comment "Indicates whether relationships between individual instances are made explicit" .
 
 :RelationshipDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of Relationships" ;
-	terms:description "Provides detail about how relationships between instances are made explicit" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of Relationships" ;
+	rdfs:comment "Provides detail about how relationships between instances are made explicit" .
 
 
 # Data splits
 :DataSplitPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Presence of Recommended Data Splits" ;
-	terms:description "Indicates whether recommended data splits are provided" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Presence of Recommended Data Splits" ;
+	rdfs:comment "Indicates whether recommended data splits are provided" .
 
 :DataSplitDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of Data Splits" ;
-	terms:description "Provides details about recommended data splits and their rationale." .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of Data Splits" ;
+	rdfs:comment "Provides details about recommended data splits and their rationale." .
 
 
 # Errors, noise, redundancies
 :DataIssuesPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Presence of data issues" ;
-	terms:description "Indicates whether there are known errors, sources of noise, or redunancies in the data" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Presence of data issues" ;
+	rdfs:comment "Indicates whether there are known errors, sources of noise, or redunancies in the data" .
 
 :DataIssuesDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of data issues" ;
-	terms:description "Provides details about known errors, sources of noise, and redunancies in the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of data issues" ;
+	rdfs:comment "Provides details about known errors, sources of noise, and redunancies in the dataset" .
 
 
 # External resources
 :ExternalResourcesDimension rdf:type dqv:Dimension ;
-	terms:title "External resources" ;
-	terms:description "Describes whether the dataset links to or relies on external resources" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "External resources" ;
+	rdfs:comment "Describes whether the dataset links to or relies on external resources" .
 
 :ResourceGuaranteesDimension rdf:type dqv:Dimension ;
-	terms:title "External resource guarantees" ;
-	terms:description "Describes guarantees about the existence and consistency of external resources over time" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "External resource guarantees" ;
+	rdfs:comment "Describes guarantees about the existence and consistency of external resources over time" .
 
 :ArchivalVersionsDimension rdf:type dqv:Dimension ;
-	terms:title "Archival versions" ;
-	terms:description "Describes the availability of offical archival versions of the complete dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Archival versions" ;
+	rdfs:comment "Describes the availability of offical archival versions of the complete dataset" .
 
 :ExternalRestrictionsDimension rdf:type dqv:Dimension ;
-	terms:title "External resource restrictions" ;
-	terms:description "Describes any restrictions associated with the external resources" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "External resource restrictions" ;
+	rdfs:comment "Describes any restrictions associated with the external resources" .
 
 
 # Confidential data
 :ConfidentialDataPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Presence of confidential data" ;
-	terms:description "Indicates whether the dataset contains data that might be considered confidential" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Presence of confidential data" ;
+	rdfs:comment "Indicates whether the dataset contains data that might be considered confidential" .
 
 :ConfidentialDataDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of confidential data" ;
-	terms:description "Provides details about the nature of confidential data in the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of confidential data" ;
+	rdfs:comment "Provides details about the nature of confidential data in the dataset" .
 
 
 # Offensive data
 :SensitiveContentPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Presence of potentially offensive or anxiety-causing content" ;
-	terms:description "Indicates whether the dataset contains data that might be offensive, insulting, threatening, or might cause anxiety if viewed directly" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Presence of potentially offensive or anxiety-causing content" ;
+	rdfs:comment "Indicates whether the dataset contains data that might be offensive, insulting, threatening, or might cause anxiety if viewed directly" .
 
 :SensitiveContentDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of potentially offensive or anxiety-causing content" ;
-	terms:description "Provides details about the nature of potentially offensive or anxiety-causing content" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of potentially offensive or anxiety-causing content" ;
+	rdfs:comment "Provides details about the nature of potentially offensive or anxiety-causing content" .
 
 
 # Subpopulations
 :SubpopulationPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Presence of identified subpopulations" ;
-	terms:description "Indicates whether the dataset identifies subpopulations" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Presence of identified subpopulations" ;
+	rdfs:comment "Indicates whether the dataset identifies subpopulations" .
 
 :SubpopulationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of subpopulations" ;
-	terms:description "Provides details about how subpopulations are identified and their distributions within the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of subpopulations" ;
+	rdfs:comment "Provides details about how subpopulations are identified and their distributions within the dataset" .
 
 
 # Identifiable individuals
 :IndividualIdentificationPossibilityDimension rdf:type dqv:Dimension ;
-	terms:title "Possibility of individual identification" ;
-	terms:description "Indicates whether it is possible to identify individuals from the dataset, either directly or indirectly" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Possibility of individual identification" ;
+	rdfs:comment "Indicates whether it is possible to identify individuals from the dataset, either directly or indirectly" .
 
 :IndividualIdentificationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of individual identification possibilities" ;
-	terms:description "Provides details about how individuals might be identified from the dataset" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of individual identification possibilities" ;
+	rdfs:comment "Provides details about how individuals might be identified from the dataset" .
 
 
 # Sensitive data
 :SensitiveDataPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "Presence of sensitive data" ;
-	terms:description "Indicates the presence of data which might be considered sensitive" .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Presence of sensitive data" ;
+	rdfs:comment "Indicates the presence of data which might be considered sensitive" .
 
 :SensitiveDataDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "Description of sensitive data" ;
-	terms:description "Provides details about how data might be considered sensitive." .
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010." ;
+	rdfs:label "Description of sensitive data" ;
+	rdfs:comment "Provides details about how data might be considered sensitive." .
 
 
 # Instance data acquisition
@@ -185,7 +221,6 @@
 	rdfs:comment "Indicates a category to describe how the data associate with instances was acquired"@en ;
 	rdfs:label "Instance acquisition means"@en .
 
-# Declare instances instead of subclasses.
 :DirectlyObservable rdf:type :InstanceAcquisitionMeans ;
 	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
 	rdfs:comment "Indicates that a dataset instance was acquired from a directly observable source, e.g. raw text or movie ratings"@en ;
@@ -193,321 +228,387 @@
 
 :SubjectReported rdf:type :InstanceAcquisitionMeans ;
 	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
-	rdfs:comment ""@en ;
-	rdfs:label ""@en .
+	rdfs:comment "Indicates that a dataset instance was acquired via reports from subjects (e.g., survey responses)"@en ;
+	rdfs:label "Subject reported"@en .
 
 :IndirectInferenceDerived rdf:type :InstanceAcquisitionMeans ;
 	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
-	rdfs:comment ""@en ;
-	rdfs:label ""@en .
+	rdfs:comment "Indicates that a dataset instance was acquired via indirect infererence / derivation from other data (e.g., part-of-speech tags, model-based guesses for age or language)"@en ;
+	rdfs:label "Indirectly inferred/derived"@en .
 
 :InstanceAcquisitionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+	rdfs:label "Instance acquisition" ;
+	rdfs:comment "Indicates how the data was associated with each instance." .
 
 :InstanceAcquisitionVerificationPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "".
 
 :InstanceAcquisitionVerificationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Data acquisition mechanisms
 :DataAcquisitionMechanismDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
+
 :DataAcquisitionMechanismValidationPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
+
 :DataAcquisitionMechanismValidationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Collection duration
 :DatespanDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :DatespanMatchesInstanceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :InstanceDateDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Ethical review
 :EthicalReviewPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :EthicalReviewDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Third-party
 :ThirdPartyDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Provided notification
 :ProvidedNotificationPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :ProvidedNotificationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Consent obtained
 :ConsentObtainedPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :ConsentObtainedDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Consent revokation mechanism
 :ConsentRevokationPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :ConsentRevokationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Impact analysis
 :ImpactAnalysisPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :ImpactAnalysisDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Preprocessing data
 :PreprocessingDataPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :PreprocessingDataDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Raw data saved
 :RawDataSavedPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :RawDataSavedDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Software available
 :SoftwareAvailablePresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :SoftwareAvailableDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Tasks used for
 :TasksUsedForPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :TasksUsedForDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Necessary links
 :RepositoryNecessaryLinksPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :RepositoryNecessaryLinksDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Other possible tasks
 :OtherPossibleTasksPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :OtherPossibleTasksDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Data collection / processing impact
 :CollectionProcessingImpactPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :CollectionProcessingImpactDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Not other possible tasks
 :NotToBeUsedForTaskPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :NotToBeUsedForTaskDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Third party distribution
 :ThirdPartyDistributionPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :ThirdPartyDistributionDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Distribution means
 :DistributionMeansDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :hasDOIDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Distribution date
 :DistributionDateDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # License
 :LicensePresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :LicenseDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Restrictions on instance data
 :InstanceDataRestrictionPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :InstanceDataRestrictionDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Export controls / regulatory restrictions
 :ExportControlRegulatoryRestrictionPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :ExportControlRegulatoryRestrictionDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 ####################################################
 # Consider maintainer and manager contact as
 # Subproperties of the dcat:contactPoint property.
 ####################################################
 # Dataset maintainer
-:maintainer rdfs:subPropertyOf dcat:contactPoint .
+:maintainer rdf:type owl:ObjectProperty ;
+	rdfs:subPropertyOf dcat:contactPoint .
 
 
 # Manager contact
-:managerContact rdfs:subPropertyOf dcat:contactPoint .
+:managerContact rdf:type owl:ObjectProperty ;
+	rdfs:subPropertyOf dcat:contactPoint .
 
 
 # Erratum
 :ErratumPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :ErratumDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Update details
 :UpdatePresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :UpdateFrequencyDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :UpdateCommunicationDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Data retention limits
 :DataRetentionPresenceDimension rdf:type dqv:Dimension ;
-    terms:title "" ;
-    terms:description "" .
+    terms:source "" ;
+    rdfs:comment "" ;
+	rdfs:label "" .
 
 :DataRetentionDescriptionDimension rdf:type dqv:Dimension ;
-    terms:title "" ;
-    terms:description "" .
+    terms:source "" ;
+    rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Legacy support
 :LegacySupportPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :LegacySupportDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 
 # Augmentation mechanism
 :AugmentationPossibilityPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :AugmentationPossibilityDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :AugmentationValidationPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :AugmentationValidationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :AugmentationCommunicationPresenceDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
 
 :AugmentationCommunicationDescriptionDimension rdf:type dqv:Dimension ;
-	terms:title "" ;
-	terms:description "" .
+	terms:source "" ;
+	rdfs:comment "" ;
+	rdfs:label "" .
