@@ -90,6 +90,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+            """
+    ];
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasFundingDescription true .
@@ -201,6 +210,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasRepresentativenessDimension true .
@@ -212,6 +230,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasSamplingMethodDimension true .
@@ -223,6 +250,7 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
+
         """
     ] ;
     sh:property [
@@ -271,6 +299,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasFeatureDescription true .
@@ -316,6 +353,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasLabelOrTargetDescription true .
@@ -371,6 +417,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasMissingInfoDescription true .
@@ -426,6 +481,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasRelationshipDescription true .
@@ -465,6 +529,11 @@
     sh:rule [
         rdf:type sh:SPARQLRule ;
         sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
             CONSTRUCT {
                 $this :hasDataSplitField true .
                 $this :hasRecommendedDataSplits ?value .
@@ -476,6 +545,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 ?this :hasRecommendedDataSplitsDescription true .
@@ -530,6 +608,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasDataIssuesDescriptionField true .
@@ -584,6 +671,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasExternalResourcesDescription true .
@@ -595,6 +691,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasResourceGuaranteesDescription true .
@@ -606,6 +711,15 @@
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasArchivalVersionsDescription true .
