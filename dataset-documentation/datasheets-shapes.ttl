@@ -633,7 +633,7 @@
     sh:property [
         sh:path :hasDataIssuesField ;
         sh:hasValue true ;
-        sh:message "A dataset must indicate whether recommended data splits are provided"@en
+        sh:message "A datasheet must indicate whether recommended data splits are provided"@en
     ] ;
     sh:rule [
         sh:if [
@@ -709,7 +709,7 @@
                     rdf:type dqv:QualityMeasurement ;
                     dqv:inDimension :ResourceGuaranteesDimension ;
                     dqv:value ?value .
-                FILTER(datatype(?value) = xsd:boolean)
+                FILTER(datatype(?value) = xsd:string)
             }
         """
     ] ;
@@ -728,6 +728,26 @@
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
                     dqv:inDimension :ArchivalVersionsDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasExternalRestrictionsDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ExternalRestrictionsDimension ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -759,7 +779,331 @@
             sh:property [
                 sh:path :hasArchivalVersionsDescription ;
                 sh:hasValue true ;
-                sh:message "If a dataset links to or relies on external resources, then it must specify whether there are official archival verisons of the complete dataset (i.e., including the external resources as they existed at the time the dataset was created)"@en
+                sh:message "If a dataset links to or relies on external resources, then it must specify whether there are official archival versions of the complete dataset (i.e., including the external resources as they existed at the time the dataset was created)"@en
+            ] ;
+            sh:property [
+                sh:path :hasExternalRestrictionsDescription ;
+                sh:hasValue true ;
+                sh:message "If a dataset links to or relies on external resources, then it must describe any restrictions associated with the external resources"@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Confidental data
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasConfidentialDataField true .
+                $this :confidentialData ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ConfidentialDataPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasConfidentialDataDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ConfidentialDataDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasConfidentialDataField ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether the dataset contains data that might be considered confidential"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :confidentialData ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasConfidentialDataDescription ;
+                sh:hasValue true ;
+                sh:message "If a datasheet indicates that there is confidential data, then it must also contain a description about the nature of confidential data in the dataset"@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Offensive data
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasSensitiveContentField true .
+                $this :sensitiveContent ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :SensitiveContentPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasSensitiveContentDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :SensitiveContentDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasSensitiveContentField ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether the dataset contains potentially offensive or anxiety-causing content"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :sensitiveContent ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasSensitiveContentDescription ;
+                sh:hasValue true ;
+                sh:message "If a datasheet indicates that there is potentially offensive or anxiety-causing content, then it must also provide details about the nature of this content"@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Subpopulations
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasSubpopulationsField true .
+                $this :subPopulations ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :SubpopulationPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasSubpopulationsDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :SubpopulationDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasSubpopulationsField ;
+        sh:hasValue true ;
+        sh:message "A datasheet must indicate whether the dataset identifies subpopulations"@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :subPopulations ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasSubpopulationsDescription ;
+                sh:hasValue true ;
+                sh:message "If a datasheet indicates that the dataset identifies subpopulations, then it must also provide details about how subpopulations are identified and their distributions within the dataset"@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Identifiable individuals
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasIndividualIdentificationField true .
+                $this :individualIdentification ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :IndividualIdentificationPossibilityDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasIndividualIdentificationDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :IndividualIdentificationDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasIndividualIdentificationField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :individualIdentification ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasIndividualIdentificationDescriptionField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Sensitive data
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasSensitiveDataField true .
+                $this :sensitiveData ?value . 
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :SensitiveDataPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this hasSensitiveDataDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :SensitiveDataDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasSensitiveDataField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :sensitiveData ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasSensitiveDataDescription ;
+                sh:hasValue true
             ]
         ]
     ] .
