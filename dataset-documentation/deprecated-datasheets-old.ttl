@@ -20,7 +20,7 @@
 ###########################################################
 # Extensions to DCAT represented as properties on a datasheet class
 :Datasheet rdf:type owl:Class ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "A datasheet for a dataset, as described in the paper 'Datasheets for datasets' by Gebru et al. (2020)"@en ;
     rdfs:label "Datasheet"@en .
 
@@ -38,7 +38,7 @@
     # (5) Uses, (6) Distribution, (7) Maintenance
 
 :MotivationComponent rdf:type owl:Class ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en  ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en  ;
     rdfs:comment "The questions in this section are primarily intended to encourage dataset creators to clearly articulate their reasons for creating the dataset and to promote transparency about funding interests. The latter may be particularly relevant for datasets created for research purposes"@en ;
     rdfs:label "Motivation component of a Datasheet"@en .
 
@@ -49,7 +49,7 @@
     rdfs:range :MotivationComponent .
 
 :CompositionComponent rdf:type owl:Class ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Dataset creators should read through these questions prior to any data collection and then provide answers once data collection is complete. Most of the questions in this section are intended to provide dataset consumers with the information they need to make informed decisions about using the dataset for their chosen tasks. Some of the questions are designed to elicit information about compliance with the EU’s General Data Protection Regulation (GDPR) or comparable regulations in other jurisdictions. Questions that apply only to datasets that relate to people are grouped together at the end of the section. We recommend taking a broad interpretation of whether a dataset relates to people. For example, any dataset containing text that was written by people relates to people"@en ;
     rdfs:label "Composition component of a Datasheet"@en .
 
@@ -58,7 +58,7 @@
     rdfs:range :CompositionComponent .
 
 :CollectionComponent rdf:type owl:Class ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "As with the questions in the previous section, dataset creators should read through these questions prior to any data collection to flag potential issues and then provide answers once collection is complete. In addition to the goals outlined in the previous section, the questions in this section are designed to elicit information that may help researchers and practitioners to create alternative datasets with similar characteristics. Again, questions that apply Datasheets for Datasets only to datasets that relate to people are grouped together at the end of the section"@en ;
     rdfs:label "Collection component of a Datasheet"@en .
 
@@ -67,7 +67,7 @@
     rdfs:range :CollectionComponent .
 
 :PreprocessingComponent rdf:type owl:Class ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Dataset creators should read through these questions prior to any preprocessing, cleaning, or labeling and then provide answers once these tasks are complete. The questions in this section are intended to provide dataset consumers with the information they need to determine whether the “raw” data has been processed in ways that are compatible with their chosen tasks. For example, text that has been converted into a “bag-of-words” is not suitable for tasks involving word order"@en ;
     rdfs:label "Preprocessing component of a Datasheet"@en .
 
@@ -78,7 +78,7 @@
     rdfs:label "has preprocessing component"@en .
 
 :UseComponent rdf:type owl:Class ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "The questions in this section are intended to encourage dataset creators to reflect on the tasks for which the dataset should and should not be used. By explicitly highlighting these tasks, dataset creators can help dataset consumers to make informed decisions, thereby avoiding potential risks or harms"@en ;
     rdfs:label "Use component of a Datasheet"@en .
 
@@ -89,7 +89,7 @@
     rdfs:label "has use component"@en .
 
 :DistributionComponent rdf:type owl:Class ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Dataset creators should provide answers to these questions prior to distributing the dataset either internally within the entity on behalf of which the dataset was created or externally to third parties"@en ;
     rdfs:label "Distribution component of a Datasheet"@en .
 
@@ -100,7 +100,7 @@
     rdfs:label "has distribution component"@en .
 
 :MaintenanceComponent rdf:type owl:Class ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "As with the question in the previous section, dataset creators should provide answers to these questions prior to distributing the dataset. The questions in this section are intended to encourage dataset creators to plan for dataset maintenance and communicate this plan to dataset consumers."@en ;
     rdfs:label "Maintenance component of a Datasheet"@en .
 
@@ -125,7 +125,7 @@
 :purposeOf rdf:type owl:ObjectProperty ;
     rdfs:domain :MotivationComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description"@en ;
     rdfs:label "purpose of"@en .
 
@@ -133,7 +133,7 @@
     rdfs:domain :MotivationComponent ;
     rdfs:range foaf:Agent , foaf:Person ,
     foaf:Organization , foaf:Group , airo:Stakeholder ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution organization)?"@en ;
     rdfs:label "created by"@en .
 
@@ -141,7 +141,7 @@
     rdfs:domain :MotivationComponent ;
     rdfs:range foaf:Agent , foaf:Person ,
     foaf:Organization , foaf:Group , airo:Stakeholder ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Who funded the creation of the dataset?"@en ;
     rdfs:label "funded by"@en .
 
@@ -152,84 +152,84 @@
 :comprisedOfInstances rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "What do the instances that comprise the dataset represent (e.g., documents, photos, people, countries)? Are there multiple types of instances (e.g., movies, users, and ratings; people and interactions between them; nodes and edges)? Please provide a description."@en ;
     rdfs:label "comprised of instances"@en .
 
 :numberOfInstances rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "How many instances are there in total (of each type, if appropriate)?"@en ;
     rdfs:label "number of instances"@en .
 
 :instancesSubsetOrAll rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set? If the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (e.g., geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (e.g., to cover a more diverse range of instances, because instances were withheld or unavailable)."@en ;
     rdfs:label "instances subset of or representative of all"@en .
 
 :eachInstanceConsistsOf rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "What does each instance consist of? “Raw” data (e.g., unprocessed text or images) or features? In either case, please provide a description."@en ;
     rdfs:label "each instance consists of"@en .
 
 :labelOrTarget rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Is there a label or target associated with each instance? If so, please provide a description."@en ;
     rdfs:label "label or target"@en .
 
 :missingInformation rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Is any information missing from individual instances? If so, please provide a description explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g., redacted text."@en ;
     rdfs:label "missing information"@en .
 
 :relationshipsMadeExplicit rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Are relationships between individual instances made explicit (e.g., users’ movie ratings, social network links)? If so, please describe how these relationships are made explicit."@en ;
     rdfs:label "relationships made explicit"@en .
 
 :dataSplits rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Are there recommended data splits (e.g., training, development / validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them."@en ;
     rdfs:label "data splits"@en .
 
 :errorsNoiseRedundancies rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Are there any errors, sources of noise, or redundancies in the dataset? If so, please provide a description."@en ;
     rdfs:label "errors, noise, redundancies"@en .
 
 :externalResources rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g., websites, tweets, other datasets)? If it links to or relies on external resources, a) are there guarantees that they will exist, and remain constant, over time; b) are there official archival versions of the complete dataset (i.e., including all external resources as they existed at the time the dataset was created); c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a dataset consumer? Please provide descriptions of all external resources and any restrictions associated with them."@en ;
     rdfs:label "external resources"@en .
 
 :confidentialData rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Does the dataset contain data that might be considered confidential (e.g., data that is protected by legal privilege or by doctor-patient confidentiality, data that includes the content of individuals' non-public communications)? If so, please provide a description."@en ;
     rdfs:label "confidential data"@en .
 
 :offensiveData rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety? If so, please describe why."@en ;
     rdfs:label "offensive data"@en .
 
@@ -237,21 +237,21 @@
 :subpopulations rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Does the dataset identify any subpopulations (e.g., by age, gender)? If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset."@en ;
     rdfs:label "subpopulations"@en .
 
 :identifiableIndividuals rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset? If so, please describe how."@en ;
     rdfs:label "identifiable individuals"@en .
 
 :sensitiveData rdf:type owl:ObjectProperty ;
     rdfs:domain :CompositionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Does the dataset contain data that might be considered sensitive in any way (e.g., data that reveals race or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)? If so, please provide a description."@en ;
     rdfs:label "sensitive data"@en .
 
@@ -262,7 +262,7 @@
 :instanceDataAcquisition rdf:type owl:ObjectProperty ;
     rdfs:domain :CollectionComponent ;
     rdfs:range xsd:string ;
-    terms:source "Datasheets for datasets, https://arxiv.org/abs/2006.11316"@en ;
+    terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "How was the data associated with each instance acquired? Was the data directly observable (e.g., raw text, movie ratings), reported by subjects (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses for age or language)? If the data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how."@en ;
     rdfs:label "instance data acquisition"@en .
 
