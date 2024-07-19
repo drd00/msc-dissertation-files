@@ -371,7 +371,7 @@
 
 ######################################################
 # Raw data saved and software used only required if 
-# Preprocessing / cleaning / labelling was carred out
+# Preprocessing / cleaning / labelling was carried out
 ######################################################
 # Raw data saved
 :RawDataSavedPresenceDimension rdf:type dqv:Dimension ;
