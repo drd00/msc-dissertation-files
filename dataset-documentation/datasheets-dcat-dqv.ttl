@@ -305,7 +305,7 @@
 # Third-party
 :ThirdPartyDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
-	rdfs:comment "Indicates whether data was collected from individuals directly, or obtained via third parties or other sources? (e.g. websites)"@en ;
+	rdfs:comment "Indicates whether data was collected from individuals directly, or obtained via third parties or other sources (e.g. websites)"@en ;
 	rdfs:label "Obtained directly or via third-party"@en .
 
 

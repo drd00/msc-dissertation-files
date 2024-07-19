@@ -1120,9 +1120,362 @@
             PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
-
+                $this hasInstanceAcquisitionField true .
+                $this instanceAcquisition ?value .
             }
             WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceAcquisitionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = :InstanceAcquisitionMeans)
             }
         """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasInstanceAcquisitionVerificationField true .
+                $this :instanceVerification ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceAcquisitionVerificationPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasInstanceVerificationDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceAcquisitionVerificationDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasInstanceAcquisitionField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:or (
+                [
+                    sh:property [
+                        sh:path :instanceAcquisition ;
+                        sh:hasValue :IndirectInferenceDerived
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path :instanceAcquisition ;
+                        sh:hasValue :SubjectReported
+                    ]
+                ]
+            )
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasInstanceAcquisitionVerificationField ;
+                sh:hasValue true
+            ] ;
+            sh:property [
+                sh:path :hasInstanceVerificationDescription ;
+                sh:hasValue true
+            ]
+        ]
+    ] ;
+    ################################
+    # Data acquisition mechanisms
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDataAcquisitionMechanismField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataAcquisitionMechanismDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDataAcquisitionMechanismValidationField true .
+                :dataAcquisitionMechanismValidation ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataAcquisitionMechanismValidationPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDataAcquisitionMechanismValidationDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataAcquisitionMechanismValidationDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasDataAcquisitionMechanismField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:property [
+        sh:path :hasDataAcquisitionMechanismValidationField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :dataAcquisitionMechanismValidation ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasDataAcquisitionMechanismValidationDescription ;
+                sh:hasValue true
+            ]
+        ]
+    ] ;
+    ################################
+    # Collection duration
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX terms: <http://purl.org/dc/terms/>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDatespanField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DatespanDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = terms:temporal)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX terms: <http://purl.org/dc/terms/>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDatespanMatchesInstanceField true .
+                $this :dateSpanMatches ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DatespanMatchesInstanceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX terms: <http://purl.org/dc/terms/>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasInstanceDateDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceDateDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasDatespanField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:property [
+        sh:path :hasDatespanMatchesInstanceField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :dateSpanMatches ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:property [
+                    sh:path :hasInstanceDateDescriptionField ;
+                    sh:hasValue true
+                ]
+            ]
+        ]
+    ] ;
+    ################################
+    # Ethical review
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasEthicalReviewField true .
+                $this :ethicalReview ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :EthicalReviewPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasEthicalReviewDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :EthicalReviewDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasEthicalReviewField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :ethicalReview ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasEthicalReviewDescriptionField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Third-party
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasThirdPartyField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ThirdPartyDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasThirdPartyField ;
+        sh:hasValue true ;
+        sh:message ""@en
     ] .
