@@ -2296,5 +2296,841 @@
                 sh:message ""@en
             ]
         ]
-    ] .
+    ] ;
+    ################################
+    # Distribution means
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
 
+            CONSTRUCT {
+                $this :hasDistributionMeansField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DistributionMeansDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDOIField true .
+                $this :DOIpresent ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :hasDOIDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDOI true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DOIDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:anyURI)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasDistributionMeansField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:property [
+        sh:path :hasDOIField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :DOIpresent ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasDOI ;
+                sh:hasValue true
+            ]
+        ]
+    ] ;
+    ################################
+    # Distribution date
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDistributionDateField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DistributionDateDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:date)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasDistributionDateField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    ################################
+    # License
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasLicenseField true .
+                $this :hasLicense ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :LicensePresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasLicenseDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :LicenseDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasLicenseField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :hasLicense ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasLicenseDescriptionField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Restrictions on instance data
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasInstanceDataRestrictionsField true .
+                $this :instanceDataRestrictions ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceDataRestrictionPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasInstanceDataRestrictionsDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :InstanceDataRestrictionDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasInstanceDataRestrictionsField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :instanceDataRestrictions ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasInstanceDataRestrictionsDescription ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Export controls / regulatory restrictions
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasExportControlRegulatoryField true .
+                $this :exportControlRegulatory ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ExportControlRegulatoryRestrictionPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this hasExportControlRegulatoryDescription true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ExportControlRegulatoryRestrictionDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasExportControlRegulatoryField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :exportControlRegulatory ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasExportControlRegulatoryDescription ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Dataset maintainer
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasMaintainerField true .
+            }
+            WHERE {
+                $this :maintainer ?m .
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasMaintainerField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    ################################
+    # Manager contact means
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasManagerField true .
+            }
+            WHERE {
+                $this :managerContact ?m .
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasManagerField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    ################################
+    # Erratum
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasErratumField true .
+                $this :erratum ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ErratumPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasErratumAccessPointField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :ErratumAccessPointDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:anyURI)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasErratumField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :erratum ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasErratumAccessPointField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Update details
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasUpdateField true .
+                $this :willBeUpdated ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :UpdatePresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasUpdateFrequencyField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :UpdateFrequencyDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    # TODO: consider another more machine-readable type for UpdaterDimension than xsd:string
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasUpdaterField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :UpdaterDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasUpdateCommunicationMeansField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :UpdateCommunicationDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasUpdateField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :willBeUpdated ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasUpdateFrequencyField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ] ;
+            sh:property [
+                sh:path :hasUpdaterField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ] ;
+            sh:property [
+                sh:path :hasUpdateCommunicationMeansField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Data retention limits
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDataRetentionLimitField true .
+                $this :dataRetentionLimit ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataRetentionPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasDataRetentionLimitDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :DataRetentionDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasDataRetentionLimitField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :dataRetentionLimit ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasDataRetentionLimitDescriptionField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ]
+        ]
+    ] ;
+    ################################
+    # Legacy support
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasLegacySupportField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :LegacySupportPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasLegacySupportDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :LegacySupportDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasLegacySupportField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    # Because a description is required in either case, the description field is also mandatory
+    sh:property [
+        sh:path :hasLegacySupportDescriptionField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    ################################
+    # Augmentation mechanism
+    ################################
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasAugmentationPossibilityField true .
+                $this :augmentationPossible ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :AugmentationPossibilityPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasAugmentationPossibilityDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :AugmentationPossibilityDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasAugmentationValidationField true .
+                $this :augmentationValidation ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :AugmentationValidationPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasAugmentationValidationDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :AugmentationValidationDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasAugmentationCommunicationField true .
+                $this :augmentationCommunication ?value .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :AugmentationCommunicationPresenceDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:boolean)
+            }
+        """
+    ] ;
+    sh:rule [
+        rdf:type sh:SPARQLRule ;
+        sh:construct """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX dqv: <http://www.w3.org/ns/dqv#>
+            PREFIX : <https://example.org/ex#>
+
+            CONSTRUCT {
+                $this :hasAugmentationCommunicationDescriptionField true .
+            }
+            WHERE {
+                ?measurement dqv:computedOn $this ;
+                    rdf:type dqv:QualityMeasurement ;
+                    dqv:inDimension :AugmentationCommunicationDescriptionDimension ;
+                    dqv:value ?value .
+                FILTER(datatype(?value) = xsd:string)
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path :hasAugmentationPossibilityField ;
+        sh:hasValue true ;
+        sh:message ""@en
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:property [
+                sh:path :augmentationPossible ;
+                sh:hasValue true
+            ]
+        ] ;
+        sh:then [
+            sh:property [
+                sh:path :hasAugmentationPossibilityDescriptionField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ] ;
+            sh:property [
+                sh:path :hasAugmentationValidationField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ] ;
+            sh:property [
+                sh:path :hasAugmentationCommunicationField ;
+                sh:hasValue true ;
+                sh:message ""@en
+            ] ;
+
+            sh:if [
+                sh:property [
+                    sh:path :augmentationCommunication ;
+                    sh:hasValue true
+                ]
+            ] ;
+            sh:then [
+                sh:property [
+                    sh:path :hasAugmentationCommunicationDescriptionField ;
+                    sh:hasValue true ;
+                    sh:message ""@en
+                ]
+            ] ;
+
+            sh:if [
+                sh:property [
+                    sh:path :augmentationValidation ;
+                    sh:hasValue true
+                ]
+            ] ;
+            sh:then [
+                sh:property [
+                    sh:path :hasAugmentationValidationDescriptionField ;
+                    sh:hasValue true ;
+                    sh:message ""@en
+                ]
+            ]
+        ]
+    ] .

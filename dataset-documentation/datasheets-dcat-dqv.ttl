@@ -477,7 +477,7 @@
 
 :hasDOIDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
-	rdfs:comment "Indicates whether the datashet has a digital object identifier (DOI)"@en ;
+	rdfs:comment "Indicates whether the datasheet has a digital object identifier (DOI)"@en ;
 	rdfs:label "Has DOI"@en .
 
 :DOIDimension rdf:type dqv:Dimension ;
@@ -602,7 +602,7 @@
 # N.B. The following must be filled whether legacy support is enabled or not
 :LegacySupportDescriptionDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
-	rdfs:comment "Description of how legacy versions will or will not be supported / hosted / maintained"@en ;
+	rdfs:comment "Description of how legacy versions will or will not be supported / hosted / maintained."@en ;
 	rdfs:label "Legacy support description"@en .
 
 
