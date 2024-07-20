@@ -52,14 +52,14 @@
         rdf:type sh:SPARQLRule ;
         sh:construct """
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-            PREFIX dcat: <http://www.w3.org/ns/dcat#>
+            PREFIX terms: <http://purl.org/dc/terms/>
             PREFIX : <https://example.org/ex#>
 
             CONSTRUCT {
                 $this :hasCreatedBy true .
             }
             WHERE {
-                $this dcat:creator ?entity .
+                $this terms:creator ?entity .
             }
         """
     ] ;
