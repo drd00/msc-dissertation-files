@@ -239,6 +239,12 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
     rdfs:comment "Connects a bias audit with an assertion"@en ;
     rdfs:label "has assertion"@en .
 
+:testResultURI rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "URI pointing to the test result (e.g., GitHub link)."@en ;
+    rdfs:label "Result URI" .
+
 # TestSubject should be able to consider
 earl:test rdfs:range :Bias .    # any bias category should be representable as a test subject
 
@@ -307,6 +313,72 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
     owl:onProperty :integerValue ;
     owl:cardinality "1"^^xsd:integer
 ] .
+
+# Add possibility to describe bias metrics.
+:FairnessMetric rdf:type owl:Class ;
+    rdfs:comment ""@en .
+
+:hasFairnessMetric rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range :BiasMetric ;
+    rdfs:comment ""@en .
+
+# TODO: include fairness metrics included in IBM AI fairness 360
+
+:BiasMitigationMeasure rdf:type owl:Class ;
+    rdfs:comment ""@en .
+
+# Mitigation applied on tests
+:mitigationApplied rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+# Bias mitigation metrics in IBM AI fairness 360
+:OptimizedPreprocessing rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:DisparateImpactRemover rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:EqualizedOddsPostprocessing rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:Reweighing rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:RejectOptionClassification rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:PrejudiceRemoverRegularizer rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:CalibratedEqualizedOddsPostprocessing rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:LearningFairRepresentations rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:AdversarialDebiasing rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:MetaAlgorithmFairClassification rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:RichSubgroupFairness rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:ExponentiatedGradientReduction rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:GridSearchReduction rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:FairDataAdaptation rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
+
+:SensitiveSetInvarianceSensitiveSubspaceRobustness rdf:type :BiasMitigationMeasure ;
+    rdfs:comment ""@en .
 
 ######################################
 # Description of EU fundamental rights
