@@ -319,3 +319,33 @@
     dqv:value "false"^^xsd:boolean .
 
 # Instance data acquisition
+:InstanceAcquisitionMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Images and the associated reports were extracted from the Stanford Hospital DICOM and electronic medical records systems."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :InstanceAcquisitionMeans ;
+    dqv:value :DirectlyObservable .
+
+# Data acquisition mechanisms
+# N.B. Again not clear that this was answered sufficiently.
+:DataAcquisitionMechanismMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :DataAcquisitionMechanismDimension ;
+    dqv:value """
+        The images and associated reports were extracted from the hospital DICOM and PACS systems. 
+        
+        X-ray images come from a variety of X-ray devices used over the years at the hospital. The device used for each image is not available.
+    """^^xsd:string .
+
+:DataAcquisitionMechanismValidationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :DataAcquisitionMechanismValidationPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Sampling strategy
+:SamplingMethodMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :SamplingMethodDimension ;
+    dqv:value "Images that had protected health information (PHI) of any type were excluded from the dataset."^^xsd:string .
+
+# Collection duration
+
