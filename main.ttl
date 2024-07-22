@@ -224,9 +224,30 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
 # Implicitly in being a subclass of airo:Documentation, ANY airo:AIComponent can have a bias audit on it
 :BiasAudit rdf:type owl:Class ;
     rdfs:subClassOf airo:Documentation ;
-    rdfs:comment "An audit which focuses on measuring bias in the AI system"@en ;  # TODO: find referenceable definitions
+    rdfs:comment "An audit which focuses on measuring bias in the AI system"@en ;
     rdfs:label "Bias audit"@en .
 # :hasAudit property no longer required; use airo:hasDocumentation with a :BiasAudit.
+
+# Very important to store the date that the audit was conducted
+:auditDate rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAudit ;
+    rdfs:range xsd:date ;
+    rdfs:comment "Indicates the date that a bias audit was conducted"@en ;
+    rdfs:label "Bias audit date" .
+
+:BiasAudit rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :auditDate ;
+    owl:cardinality "1"^^xsd:integer
+] .
+
+# A particular bias assertion should consist of:
+#   1. A description of the groups involved in the test, and the reason for this test.
+#   2. Indication of the fairness metric used for the test.
+#   3. Indication of the test result (e.g., a float value)
+#   4. Indication of the threshold for passing / failure, justifying what this threshold is supposed to represent.
+#   5. Indication of whether the test passed or failed.
+#   6. Indication of biases implied by this test.
 
 :BiasAssertion rdf:type owl:Class ;
     rdfs:subClassOf earl:Assertion ;
@@ -245,6 +266,19 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
     rdfs:comment "URI pointing to the test result (e.g., GitHub link)."@en ;
     rdfs:label "Result URI" .
 
+:groupDescription rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
+
+:testThreshold rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range xsd:float , xsd:integer ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
 # TestSubject should be able to consider
 earl:test rdfs:range :Bias .    # any bias category should be representable as a test subject
 
@@ -253,7 +287,17 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
     rdf:type owl:Restriction ;
     owl:onProperty earl:test ;
     owl:allValuesFrom :Bias ;
-    owl:cardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ,
+[
+    rdf:type owl:Restriction ;
+    owl:onProperty :groupDescription ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ,
+[
+    rdf:type owl:Restriction ;
+    owl:Property :testThreshold ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
 ] .
 
 # Expand EARL to allow for numerical test results (not only pass / fail)
@@ -293,25 +337,25 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
 :FloatPass rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :floatValue ;
-    owl:cardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:nonNegativeInteger
 ] .
 
 :FloatFail rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :floatValue ;
-    owl:cardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:nonNegativeInteger
 ] .
 
 :IntegerPass rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :integerValue ;
-    owl:cardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:nonNegativeInteger
 ] .
 
 :IntegerFail rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :integerValue ;
-    owl:cardinality "1"^^xsd:integer
+    owl:cardinality "1"^^xsd:nonNegativeInteger
 ] .
 
 # Add possibility to describe bias metrics.
@@ -323,9 +367,122 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
     rdfs:range :BiasMetric ;
     rdfs:comment ""@en .
 
-# TODO: include fairness metrics included in IBM AI fairness 360
+:BiasAssertion rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :hasFairnessMetric ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+] .
 
-:BiasMitigationMeasure rdf:type owl:Class ;
+# Fairness metrics from IBM AIF360
+:StatisticalParityDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:DisparateImpact rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:EqualOpportunityDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:AverageOddsDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:AverageAbsOddsDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:ErrorRateDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:ErrorRateRatio rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:FalseDiscoveryRateDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:FalseDiscoveryRateRatio :rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:FalseNegativeRateRatio rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:FalseOmissionRateDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:FalseOmissionRateRatio rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:FalsePositiveRateRatio rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:TruePositiveRateRatio rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:FalseNegativeRateDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:FalsePositiveRateDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:TruePositiveRateDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:CoefficientOfVariation rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:TheilIndex rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:BetweenGroupTheilIndex rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:BetweenGroupCoefficientOfVariation rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:BetweenAllGroupsCoefficientOfVariation rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:BetweenAllGroupsGeneralisedEntropyIndex rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:ConsistencyMetric rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:GeneralisedEntropyIndex rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:BetweenGroupGeneralisedEntropyIndex rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:MeanEuclideanDistanceDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:MeanEuclideanDistanceRatio rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:MeanMahalanobisDistanceDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:MeanMahalanobisDistanceRatio rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:MeanManhattanDistanceDifference rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:MeanManhattanDistanceRatio rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:BaseRateMetric rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:SmoothedEmpiricalDifferentialFairness rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:RichSubgroupMetric rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:DifferentialFairnessBiasAmplification rdf:type :FairnessMetric ;
+    rdfs:comment ""@en .
+
+:MDSSBiasScore rdf:type :FairnessMetric ;   # from score_groups of MDSSClassificationMetric
     rdfs:comment ""@en .
 
 # Mitigation applied on tests
