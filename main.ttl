@@ -260,12 +260,14 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
     rdfs:comment "Connects a bias audit with an assertion"@en ;
     rdfs:label "has assertion"@en .
 
+# A URI pointing to where the results reside
 :testResultURI rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAssertion ;
     rdfs:range xsd:anyURI ;
     rdfs:comment "URI pointing to the test result (e.g., GitHub link)."@en ;
     rdfs:label "Result URI" .
 
+# Description of the groups being tested in a bias assertion
 :groupDescription rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAssertion ;
     rdfs:range xsd:string ;
@@ -273,11 +275,64 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
     rdfs:label ""@en .
 
 
+# Test thresholds
+:Threshold rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
 :testThreshold rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAssertion ;
+    rdfs:range :Threshold;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
+:ThresholdRange rdf:type owl:Class ;
+    rdfs:subClassOf :Threshold ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
+:ThresholdBinary rdf:type owl:Class ;
+    rdfs:subClassOf :Threshold ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
+:thresholdBegin rdf:type owl:ObjectProperty ;
+    rdfs:domain :ThresholdRange ;
     rdfs:range xsd:float , xsd:integer ;
     rdfs:comment ""@en ;
     rdfs:label ""@en .
+
+:thresholdEnd rdf:type owl:ObjectProperty ;
+    rdfs:domain :ThresholdRange ;
+    rdfs:range xsd:float , xsd:integer ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
+:binaryThreshold rdf:type owl:ObjectProperty ;
+    rdfs:domain :ThresholdBinary ;
+    rdfs:range xsd:float , xsd:integer ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
+# OWL constraints on threshold objects
+:ThresholdRange rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :thresholdBegin ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ,
+[
+    rdf:type owl:Restriction ;
+    owl:onProperty :thresholdEnd ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+
+:ThresholdBinary rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :binaryThreshold ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+
+# Test pass or fail indicates the nature of the thresholds
 
 # TestSubject should be able to consider
 earl:test rdfs:range :Bias .    # any bias category should be representable as a test subject
@@ -489,7 +544,13 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
 :mitigationApplied rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAssertion ;
     rdfs:range :BiasMitigationMeasure ;
-    rdfs:comment ""@en .
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
+
+:BiasMitigationMeasure rdf:type owl:Class ;
+    rdfs:subClassOf airo:Control ;
+    rdfs:comment ""@en ;
+    rdfs:label ""@en .
 
 # Bias mitigation metrics in IBM AI fairness 360
 :OptimizedPreprocessing rdf:type :BiasMitigationMeasure ;
