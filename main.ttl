@@ -10,6 +10,7 @@
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix vair: <https://w3id.org/vair#> .
 @prefix earl: <http://www.w3.org/ns/earl#> .
+@prefix aio: <https://w3id.org/aio/> .
 
 @prefix : <https://example.org/ex#> .   # for new declarations
 
@@ -20,7 +21,6 @@ airo:hasComponent rdfs:domain airo:AISystem ;
 # Describe a model's intended purpose.
 airo:hasPurpose rdfs:domain airo:MLModel ;
     rdfs:range airo:Purpose .
-
 
 ######################################
 # Description of bias
@@ -596,6 +596,289 @@ earl:test rdfs:range :Bias .    # any bias category should be representable as a
 
 :SensitiveSetInvarianceSensitiveSubspaceRobustness rdf:type :BiasMitigationMeasure ;
     rdfs:comment ""@en .
+
+
+# Expand with AIO categories --- should the AIO namespace be used?
+# TODO add descriptions and terms:source fields from AI ontology
+:ComputationalBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "computational bias"@en ;
+    rdfs:subClassOf :Bias .
+
+:ProcessingBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "processing bias"@en ;
+    rdfs:subClassOf :ComputationalBias .
+
+:AmplificationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "amplification bias"@en ;
+    rdfs:subClassOf :ProcessingBias .
+
+:ErrorPropagationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "error propagation bias"@en ;
+    rdfs:subClassOf :ProcessingBias .
+
+:InheritedBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "inherited bias"@en ;
+    rdfs:subClassOf :ProcessingBias .
+
+:ModelSelectionBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "model selection bias"@en ;
+    rdfs:subClassOf :ComputationalBias .
+
+:SurvivorshipBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "survivorship bias"@en ;
+    rdfs:subClassOf :ComputationalBias .
+
+:SelectionAndSamplingBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "selection and sampling bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:DataGenerationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "data generation bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:DetectionBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "detection bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:EcologicalFallacyBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "ecological fallacy bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:EvaluationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "evaluation bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:ExclusionBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "exclusion bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:MeasurementBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "measurement bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:PopularityBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "popularity bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:PopulationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "population bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:RepresentationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "representation bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:TemporalBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "temporal bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:UncertaintyBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "uncertainty bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:UseAndInterpretationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "use and interpretation bias"@en ;
+    rdfs:subClassOf :Bias .
+
+:ActivityBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "activity bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:ConceptDriftBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "concept drift bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:ContentProductionBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "content production bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:DataDredgingBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "data dredging bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:EmergentBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "emergent bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:FeedbackLoopBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "feedback loop bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:HostileAttributionBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "hostile attribution bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:LinkingBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "linking bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:GroupBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "group bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:DeploymentBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "deployment bias"@en ;
+    rdfs:subClassOf :GroupBias .
+
+:FundingBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "funding bias"@en ;
+    rdfs:subClassOf :GroupBias .
+
+:GroupthinkBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "Groupthink bias"@en ;
+    rdfs:subClassOf :GroupBias .
+
+:IndividualBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "individual bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:AnchoringBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "anchoring bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:RankingBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "ranking bias"@en ;
+    rdfs:subClassOf :AnchoringBias .
+
+:AnnotatorReportingBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "annotator reporting bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:AutomationComplacencyBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "automation complacency bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:AvailabilityHeuristicBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "availability heuristic bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:BehaviouralBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "behavioural bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:ConfirmationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "confirmation bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:DunningKrugerEffectBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "Dunning-Kruger effect bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:ConsumerBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "consumer bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:HumanReportingBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "human reporting bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:ImplicitBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "implicit bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:InterpretationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "interpretation bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:LossOfSituationalAwarenessBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "loss of situational awareness bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:ModeConfusionBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "mode confusion bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:PresentationBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "presentation bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:RashomonEffectBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "Rashomon effect bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:SelectiveAdherenceBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "selective adherence bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:StreetlightEffectBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "streetlight effect bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:UserInteractionBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "user interaction bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:InstitutionalBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "institutional bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:SunkCostFallacybias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "sunk cost fallacy bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:SystemicBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "systemic bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:HistoricalBias rdf:type owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "historical bias"@en ;
+    rdfs:subClassOf :DataBias .
 
 ######################################
 # Description of EU fundamental rights

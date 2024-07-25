@@ -1314,7 +1314,7 @@
                     rdf:type dqv:QualityMeasurement ;
                     dqv:inDimension :DatespanDimension ;
                     dqv:value ?value .
-                FILTER(datatype(?value) = terms:temporal)
+                FILTER(datatype(?value) = terms:PeriodOfTime)
             }
         """
     ] ;
@@ -1687,7 +1687,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ImpactAnalysisDimension ;
+                    dqv:inDimension :ImpactAnalysisPresenceDimension ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }

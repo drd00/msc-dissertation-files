@@ -347,5 +347,59 @@
     dqv:inDimension :SamplingMethodDimension ;
     dqv:value "Images that had protected health information (PHI) of any type were excluded from the dataset."^^xsd:string .
 
+# TODO: who was involved in the data collection process?
+
 # Collection duration
+:DataspanMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :DatespanDimension ;
+    dqv:value [
+        rdf:type terms:PeriodOfTime ;
+        terms:start "2002-10-01"^^xsd:date ;
+        terms:end "2017-07-31"^^xsd:date
+    ] .
+
+# Ethical review
+:EthicalReviewPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :EthicalReviewPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:EthicalReviewDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :EthicalReviewDescriptionDimension ;
+    dqv:value """
+        The Stanford Hospital Institutional Review Board (IRB) reviewed and approved the work
+    """^^xsd:string .
+
+# Third-party
+:ThirdPartyMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ThirdPartyDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Provided notification
+:ProvidedNotificationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "No direct notification, but the Stanford Hospital, being a research institution, notifies all patients that their information may be shared with researchers, subject to privacy laws and approval from an independent review process."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ProvidedNotificationPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Consent obtained
+:ConsentObtainedPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "It's noted that individual patient consent is waived for de-identified data in compliance with institutional IRB and federal guidelines."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ConsentObtainedPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Impact analysis
+:ImpactAnalysisPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ImpactAnalysisPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:ImpactAnalysisDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ImpactAnalysisDescriptionDimension ;
+    dqv:value "All instances in the dataset were anonymized. There is no personally identifiable data in the dataset."^^xsd:string .
 
