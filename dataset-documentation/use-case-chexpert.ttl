@@ -17,7 +17,7 @@
 # Purpose
 :PurposeMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :PurposeDimension ;
+    dqv:isMeasurementOf :PurposeMetric ;
     dqv:value """
         Chest radiography is the most common imaging examination
         globally, critical for screening, diagnosis, and management of

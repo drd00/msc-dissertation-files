@@ -17,6 +17,10 @@
 	rdfs:label "Purpose of dataset"@en ;
 	rdfs:comment "Describes for what purpose was the dataset created."@en .
 
+:PurposeMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :PurposeDimension .
+
 
 # Funded by
 :FundingPresenceDimension rdf:type dqv:Dimension ;
@@ -29,6 +33,14 @@
     rdfs:label "Funding description"@en ;
     rdfs:comment "Describes dataset funding, if present."@en .
 
+:FundingPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :FundingPresenceDimension .
+
+:FundingDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :FundingDescriptionDimension .
+
 
 # Comprised of instances
 :InstanceTypesDimension rdf:type dqv:Dimension ;
@@ -36,12 +48,20 @@
 	rdfs:label "Instance types"@en ;
 	rdfs:comment "Describes the types of instances comprising the dataset"@en .
 
+:InstanceTypesMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :InstanceTypesDimension .
+
 
 # Number of instances
 :InstanceCountDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Instance count"@en ;
 	rdfs:comment "Counts of instances in the dataset"@en .
+
+:InstanceCountMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :InstanceCountDimension .
 
 
 # Instances subset or all
@@ -60,6 +80,18 @@
 	rdfs:label "Sampling method"@en ;
 	rdfs:comment "Describes the method used for sampling"@en .
 
+:SamplingMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SamplingDimension .
+
+:RepresentativenessMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :RepresentativenessDimension .
+
+:SamplingMethodMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SamplingMethodDimension .
+
 
 # Each instance consists of
 :InstanceCompositionDimension rdf:type dqv:Dimension ;
@@ -71,6 +103,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Feature description"@en ;
 	rdfs:comment "Provides a detailed description of the features in each instance"@en .
+
+:InstanceCompositionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :InstanceCompositionDimension .
+
+:FeatureDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :FeatureDescriptionDimension .
 
 
 # Label or target
@@ -84,6 +124,14 @@
 	rdfs:label "Label description"@en ;
 	rdfs:comment "Provides a detailed description of the labels or targets associated with instances"@en .
 
+:LabelPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :LabelPresenceDimension .
+
+:LabelDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :LabelDescriptionDimension .
+
 
 # Missing information
 :MissingInfoPresenceDimension rdf:type dqv:Dimension ;
@@ -95,6 +143,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Description of missing information"@en ;
 	rdfs:comment "Provides details about what information is missing and why"@en .
+
+:MissingInfoPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :MissingInfoPresenceDimension .
+
+:MissingInfodescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :MissingInfoDescriptionDimension .
 
 
 # Relationships made explicit
@@ -108,6 +164,14 @@
 	rdfs:label "Description of Relationships"@en ;
 	rdfs:comment "Provides detail about how relationships between instances are made explicit"@en .
 
+:RelationshipPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :RelationshipPresenceDimension .
+
+:RelationshipDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :RelationshipDescriptionDimension .
+
 
 # Data splits
 :DataSplitPresenceDimension rdf:type dqv:Dimension ;
@@ -119,6 +183,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Description of Data Splits"@en ;
 	rdfs:comment "Provides details about recommended data splits and their rationale."@en .
+
+:DataSplitPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataSplitPresenceDimension .
+
+:DataSplitDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataSplitDescriptionDimension .
 
 
 # Errors, noise, redundancies
@@ -132,6 +204,14 @@
 	rdfs:label "Description of data issues" ;
 	rdfs:comment "Provides details about known errors, sources of noise, and redunancies in the dataset" .
 
+:DataIssuesPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataIssuesPresenceDimension .
+
+:DataIssuesDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataIssuesDescriptionDimension .
+
 
 # External resources
 :ExternalResourcesDimension rdf:type dqv:Dimension ;
@@ -143,6 +223,7 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "External resources description"@en ;
 	rdfs:comment "Descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate, if the dataset links to or relies on external resources" .
+
 :ResourceGuaranteesDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "External resource guarantees"@en ;
@@ -158,6 +239,26 @@
 	rdfs:label "External resource restrictions"@en ;
 	rdfs:comment "Describes any restrictions associated with the external resources"@en .
 
+:ExternalResourcesMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ExternalResourcesDimension .
+
+:ExternalResourcesDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ExternalResourcesDescriptionDimension .
+
+:ResourceGuaranteesMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ResourceGuaranteesDimension .
+
+:ArchivalVersionsMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ArchivalVersionsDimension .
+
+:ExternalRestrictionsMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ExternalRestrictionsDimension .
+
 
 # Confidential data
 :ConfidentialDataPresenceDimension rdf:type dqv:Dimension ;
@@ -169,6 +270,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Description of confidential data"@en ;
 	rdfs:comment "Provides details about the nature of confidential data in the dataset"@en .
+
+:ConfidentialDataPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ConfidentialDataDescriptionDimension .
+
+:ConfidentialDataDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ConfidentialDataDescriptionDimension .
 
 
 # Offensive data
@@ -182,6 +291,14 @@
 	rdfs:label "Description of potentially offensive or anxiety-causing content"@en ;
 	rdfs:comment "Provides details about the nature of potentially offensive or anxiety-causing content"@en .
 
+:SensitiveContentPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SensitiveContentPresenceDimension .
+
+:SensitiveContentDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SensitiveContentDescriptionDimension .
+
 
 # Subpopulations
 :SubpopulationPresenceDimension rdf:type dqv:Dimension ;
@@ -193,6 +310,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Description of subpopulations"@en ;
 	rdfs:comment "Provides details about how subpopulations are identified and their distributions within the dataset"@en .
+
+:SubpopulationPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SubpopulationPresenceDimension .
+
+:SubpopulationDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SubpopulationDescriptionDimension .
 
 
 # Identifiable individuals
@@ -206,6 +331,14 @@
 	rdfs:label "Description of individual identification possibilities"@en ;
 	rdfs:comment "Provides details about how individuals might be identified from the dataset"@en .
 
+:IndividualIdentificationPossibilityMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :IndividualIdentificationPossibilityDimension .
+
+:IndividualIdentificationDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :IndividualIdentificationDescriptionDimension .
+
 
 # Sensitive data
 :SensitiveDataPresenceDimension rdf:type dqv:Dimension ;
@@ -217,6 +350,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Description of sensitive data"@en ;
 	rdfs:comment "Provides details about how data might be considered sensitive."@en .
+
+:SensitiveDataPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SensitiveDataPresenceDimension .
+
+:SensitiveDataDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SensitiveDataDescriptionDimension .
 
 
 # Instance data acquisition
@@ -255,6 +396,18 @@
 	rdfs:comment "Describes how the data was associated with each instance"@en ;
 	rdfs:label "Instance acquisition verification description"@en .
 
+:InstanceAcquisitionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :InstanceAcquisitionDimension .
+
+:InstanceAcquisitionVerificationPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :InstanceAcquisitionVerificationPresenceDimension .
+
+:InstanceAcquisitionVerificationDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:coment ""@en ;
+	dqv:inDimension :InstanceAcquisitionVerificationDescriptionDimension .
+
 
 # Data acquisition mechanisms
 :DataAcquisitionMechanismDimension rdf:type dqv:Dimension ;
@@ -271,6 +424,18 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Describes how the data acquisition mechanism was verified"@en ;
 	rdfs:label "Data acquisition mechanism validation description"@en .
+
+:DataAcquisitionMechanismMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataAcquisitionMechanismDimension .
+
+:DataAcquisitionMechanismValidationPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataAcquisitionMechanismValidationPresenceDimension .
+
+:DataAcquisitionMechanismValidationDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataAcquisitionMechanismValidationDescriptionDimension .
 
 
 # Collection duration
@@ -289,6 +454,18 @@
 	rdfs:comment "Describes the timeframe in which the data associated with the instances was created, if the data associated with the instances does not matches the timeframe over which the data was collected"@en ;
 	rdfs:label "Instance data creation timeframe"@en .
 
+:DatespanMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DatespanDimension .
+
+:DatespanMatchesInstanceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DatespanMatchesInstanceDimension .
+
+:InstanceDateDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :InstanceDateDescriptionDimension .
+
 
 # Ethical review
 :EthicalReviewPresenceDimension rdf:type dqv:Dimension ;
@@ -301,12 +478,24 @@
 	rdfs:comment "Describes the ethical review processes, including the outcomes, as well as a link or other access point to any supporting documentation, if an ethical review was conducted on the dataset."@en ;
 	rdfs:label "Ethical review description"@en .
 
+:EthicalReviewPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :EthicalReviewPresenceDimension .
+
+:EthicalReviewDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :EthicalReviewDescriptionDimension .
+
 
 # Third-party
 :ThirdPartyDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Indicates whether data was collected from individuals directly, or obtained via third parties or other sources (e.g. websites)"@en ;
 	rdfs:label "Obtained directly or via third-party"@en .
+
+:ThirdPartyMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ThirdPartyDimension .
 
 
 # Provided notification
@@ -320,6 +509,14 @@
 	rdfs:comment "Describes how the individuals in question were notified about the data collection, if they were notified"@en ;
 	rdfs:label "Notification provided description"@en .
 
+:ProvidedNotificationPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ProvidedNotificationPresenceDimension .
+
+:ProvidedNotificationDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ProvidedNotificationDescriptionDimension .
+
 
 # Consent obtained
 :ConsentObtainedPresenceDimension rdf:type dqv:Dimension ;
@@ -331,6 +528,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "If consent was obtained, describes how consent was requested and provided, providing a link or other access point to, or otherwise reproducing, the exact language to which the individuals consented."@en ;
 	rdfs:label "Consent obtained description"@en .
+
+:ConsentObtainedPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ConsentObtainedPresenceDimension .
+
+:ConsentObtainedDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ConsentObtainedDescriptionDimension .
 
 
 # Consent revokation mechanism
@@ -344,6 +549,14 @@
 	rdfs:comment "Describes the consent revokation mechanism provided to individuals if present, as well as a link or other access point to the mechanism (if appropriate)"@en ;
 	rdfs:label "Consent revokation description"@en .
 
+:ConsentRevokationPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ConsentRevokationPresenceDimension .
+
+:ConsentRevokationDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ConsentRevokationDescriptionDimension .
+
 
 # Impact analysis
 :ImpactAnalysisPresenceDimension rdf:type dqv:Dimension ;
@@ -356,6 +569,14 @@
 	rdfs:comment "Describes the impact analysis, if present, including the outcomes, as well as a link or other access point to any supporting documentation"@en ;
 	rdfs:label "Impact analysis description"@en .
 
+:ImpactAnalysisPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ImpactAnalysisPresenceDimension .
+
+:ImpactAnalysisDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ImpactAnalysisDescriptionDimension .
+
 
 # Preprocessing data
 :PreprocessingDataPresenceDimension rdf:type dqv:Dimension ;
@@ -367,6 +588,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Describes the preprocessing / cleaning / labelling which was carried out on the dataset."@en ;
 	rdfs:label "Describes how data was preprocessed / cleaned / labelled, if this was done"@en .
+
+:PreprocessingDataPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :PreprocessingDataPresenceDimension .
+
+:PreprocessingDataDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :PreprocessingDataDescriptionDimension .
 
 
 ######################################################
@@ -384,6 +613,14 @@
 	rdfs:comment "Provides a link or other access point to the 'raw' data, if raw data was saved"@en ;
 	rdfs:label "Raw data link or other access point"@en .
 
+:RawDataSavedPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :RawDataSavedPresenceDimension .
+
+:RawDataSavedAccessPointMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :RawDataSavedAccessPointDimension .
+
 
 # Software available
 :SoftwareAvailablePresenceDimension rdf:type dqv:Dimension ;
@@ -395,6 +632,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Provides a link or other access point to the software used."@en ;
 	rdfs:label "Preprocessing software access point"@en .
+
+:SoftwareAvailablePresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SoftwareAvailablePresenceDimension .
+
+:SoftwareAvailableAccessPointMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :SoftwareAvailableAccessPointDimension .
 
 
 # Tasks used for
@@ -408,6 +653,14 @@
 	rdfs:comment "Describes the tasks which the dataset has already been used for, if applicable"@en ;
 	rdfs:label "Description of previous tasks"@en .
 
+:TasksUsedForPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :TasksUsedForPresenceDimension .
+
+:TasksUsedForDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :TasksUsedForDescriptionDimension .
+
 
 # Links to papers or systems
 :RepositoryLinksPresenceDimension rdf:type dqv:Dimension ;
@@ -419,6 +672,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Provides a link or other access point to the repository linking any or all papers or systems that use the dataset"@en ;
 	rdfs:label "Links repository access point"@en .
+
+:RepositoryLinksPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :RepositoryLinksPresenceDimension .
+
+:RepositoryLinksAccessPointMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :RepositoryLinksAccessPointDimension .
 
 
 # Other possible tasks
@@ -432,6 +693,14 @@
 	rdfs:comment "Describes (other) possible tasks, if there are (other) tasks which the dataset could be used for"@en ;
 	rdfs:label "Other possible tasks description"@en .
 
+:OtherPossibleTasksPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :OtherPossibleTasksPresenceDimension .
+
+:OtherPossibleTasksDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :OtherPossibleTasksDescriptionDimension .
+
 
 # Data composition, collection / processing impact
 :CompositionCollectionProcessingFutureImpactPresenceDimension rdf:type dqv:Dimension ;
@@ -443,6 +712,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Describes anything about the composition of the dataset or the way it was collected and preprocessing/cleaned/labelled that migth impact future uses, if applicable"@en ;
 	rdfs:label "Description of composition / collectiong / processing future impact"@en .
+
+:CompositionCollectionProcessingFutureImpactPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :CompositionCollectionProcessingFutureImpactPresenceDimension .
+
+:CompositionCollectionProcessingFutureImpactDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :CompositionCollectionProcessingFutureImpactDescriptionDimension .
 
 
 # Not other possible tasks
@@ -456,6 +733,14 @@
 	rdfs:comment "Describes the tasks for which the dataset should not be used, if applicable"@en ;
 	rdfs:label "Tasks not to be used for description"@en .
 
+:NotToBeUsedForTaskPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :NotToBeUsedForTaskPresenceDimension .
+
+:NotToBeUsedForTaskDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :NotToBeUsedForTaskDescriptionDimension .
+
 
 # Third party distribution
 :ThirdPartyDistributionPresenceDimension rdf:type dqv:Dimension ;
@@ -467,6 +752,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Describes how the dataset will be distributed to third parties outside of the entity (e.g., company, institution, organisation) on behalf of which the dataset was created, if applicable"@en ;
 	rdfs:label "Third party distribution description"@en .
+
+:ThirdPartyDistributionPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ThirdPartyDistributionPresenceDimension .
+
+:ThirdPartyDistributionDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ThirdPartyDistributionDescriptionDimension .
 
 
 # Distribution means
@@ -485,11 +778,28 @@
 	rdfs:comment "Specifies the DOI for the dataset, if applicable"@en ;
 	rdfs:label "Dataset DOI"@en .
 
+:DistributionMeansMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DistributionMeansDimension .
+
+:hasDOIMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :hasDOIDimension .
+
+:DOIMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DOIDimension .
+
+
 # Distribution date
 :DistributionDateDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Indicates the date that the dataset will be distributed"@en ;
 	rdfs:label "Distribution date"@en .
+
+:DistributionDateMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DistributionDateDimension .
 
 
 # License
@@ -503,6 +813,14 @@
 	rdfs:comment "Description of the license and/or ToU, including a link or other access point to, or otherwise reproducing, any relevant licensing terms or ToU, as well as any fees associated with these restrictions"@en ;
 	rdfs:label "Description of licesning and/or ToU, including a link or other access point, if applicable"@en .
 
+:LicensePresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :LicensePresenceDimension .
+
+:LicenseDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :LicenseDescriptionDimension .
+
 
 # Restrictions on instance data
 :InstanceDataRestrictionPresenceDimension rdf:type dqv:Dimension ;
@@ -515,6 +833,14 @@
 	rdfs:comment "Describes how third parties impose IP-based or other restrictions on the data associated with the instances, if applicable"@en ;
 	rdfs:label "Description of third party restrictions on instance data"@en .
 
+:InstanceDataRestrictionPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :InstanceDataRestrictionPresenceDimension .
+
+:InstanceDataRestrictionDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :InstanceDataRestrictionDescriptionDimension .
+
 
 # Export controls / regulatory restrictions
 :ExportControlRegulatoryRestrictionPresenceDimension rdf:type dqv:Dimension ;
@@ -526,6 +852,15 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Describes these restrictions, providing a link or other access point to, or otherwise reproducing, any supporting documentation"@en ;
 	rdfs:label "Description of export controls / regulatory restrictions, if applicable"@en .
+
+:ExportControlRegulatoryRestrictionPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ExportControlRegulatoryRestrictionPresenceDimension .
+
+:ExportControlRegulatoryRestrictionDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ExportControlRegulatoryRestrictionDescriptionDimension .
+
 
 ####################################################
 # Consider maintainer and manager contact as
@@ -558,6 +893,14 @@
 	rdfs:comment "Provides a link or other access point to the erratum, if applicable"@en ;
 	rdfs:label "Erratum access point"@en .
 
+:ErratumPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ErratumPresenceDimension .
+
+:ErratumAccessPointMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :ErratumAccessPointDimension .
+
 
 # Update details
 :UpdatePresenceDimension rdf:type dqv:Dimension ;
@@ -580,6 +923,22 @@
 	rdfs:comment "Describes how updates will be communicated to dataset consumers, if applicable"@en ;
 	rdfs:label "Dataset communication means"@en .
 
+:UpdatePresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :UpdatePresenceDimension .
+
+:UpdateFrequencyMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :UpdateFrequencyDimension .
+
+:UpdaterMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :UpdaterDimension .
+
+:UpdateCommunicationMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :UpdateCommunicationDimension .
+
 
 # Data retention limits
 :DataRetentionPresenceDimension rdf:type dqv:Dimension ;
@@ -591,6 +950,14 @@
     terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
     rdfs:comment "Describes data retention limits and how they will be enforced, if applicable"@en ;
 	rdfs:label "Data retention description"@en .
+
+:DataRetentionPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataRetentionPresenceDimension .
+
+:DataRetentionDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :DataRetentionDescriptionDimension .
 
 
 # Legacy support
@@ -604,6 +971,14 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Description of how legacy versions will or will not be supported / hosted / maintained."@en ;
 	rdfs:label "Legacy support description"@en .
+
+:LegacySupportPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :LegacySupportPresenceDimension .
+
+:LegacySupportDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :LegacySupportDescriptionDimension .
 
 
 # Augmentation mechanism
@@ -637,3 +1012,28 @@
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Description of the process for communicating / distributing contributions to dataset consumers"@en ;
 	rdfs:label "Augmentation communication description"@en .
+
+:AugmentationPossibilityPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :AugmentationPossibilityPresenceDimension .
+
+:AugmentationPossibilityDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :AugmentationPossibilityDescriptionDimension .
+
+:AugmentationValidationPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :AugmentationValidationPresenceDimension .
+
+:AugmentationValidationDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :AugmentationValidationDescriptionDimension .
+
+:AugmentationCommunicationPresenceMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :AugmentationCommunicationPresenceDimension .
+
+:AugmentationCommunicationDescriptionMetric rdf:type dqv:Metric ;
+	rdfs:comment ""@en ;
+	dqv:inDimension :AugmentationCommunicationDescriptionDimension .
+
