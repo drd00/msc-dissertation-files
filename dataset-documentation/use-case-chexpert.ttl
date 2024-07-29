@@ -7,6 +7,7 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix airo: <https://w3id.org/airo#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 @prefix : <https://example.org/ex#> .
 
@@ -403,3 +404,252 @@
     dqv:inDimension :ImpactAnalysisDescriptionDimension ;
     dqv:value "All instances in the dataset were anonymized. There is no personally identifiable data in the dataset."^^xsd:string .
 
+# Data preprocessing
+:PreprocessingDataPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :PreprocessingDataPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:PreprocessingDataDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :PreprocessingDataDescriptionDimension ;
+    dqv:value """
+        Images in the large and small datasets have their grayscale reduced to 256 levels.
+        The small images have been downsized from the original size to approximately 390 x 320 pixels.
+    """^^xsd:string .
+
+# Raw data
+:RawDataSavedPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :RawDataSavedPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:RawDataSavedAccessPointDimension rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "No access point was provided."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :RawDataSavedAccessPointDimension ;
+    dqv:value ""^^xsd:anyURI .
+
+# Software used
+:SoftwareAvailablePresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Ambiguous case --- some of the software is available, other software is not. Marked as true because some of the software is available."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :SoftwareAvailablePresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:SoftwareAvailableAccessPointMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :SoftwareAvailableAccessPointDimension ;
+    dqv:value "https://github.com/stanfordmlgroup/chexpert-labeler"^^xsd:anyURI .
+
+# Other tasks
+:TasksUsedForPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :TasksUsedForPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:TasksUsedForDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :TasksUsedForDescriptionDimension ;
+    dqv:value """
+    Several models to detect the labels in images were published together with the dataset in [1]. The “models . . . take as input a single-view chest radiograph and output the probability of each of the 14 observations. When more than one view is available, the models output the maximum probability of the observations across the views.” 
+    
+    The models explore different approaches to the “uncertain” label: ignore the label, binary mapping (map all uncertain instances to one in one model and zero in another model), self-training (treat as unlabeled instances), and treat the label as its own class. The results are available in [1]. The dataset has also been used by multiple teams to submit entries to the leaderboard in [3]. As of March 2021, there were 167 submissions and 6,430 dataset downloads with unique email addresses. 
+    
+    CheXpert is the primary source for CheXphoto, “a dataset of smartphone photos and synthetic photographic transformations of chest x-rays” [10]. The goal of this dataset is to advance the use of machine learning in clinical workflows that use photos of x-ray films, instead of digital x-ray images. This workflow, taking pictures of x-ray films and forwarding to other clinicians, is common in developing regions.
+    """^^xsd:string .
+
+# Links to papers or systems
+:RepositoryLinksPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :RepositoryLinksPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:RepositoryLinksAccessPointMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :RepositoryLinksAccessPointDimension ;
+    dqv:value "https://stanfordmlgroup.github.io/competitions/chexpert/"^^xsd:anyURI .
+
+# Other possible tasks
+:OtherPossibleTasksPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :OtherPossibleTasksPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:OtherPossibleTasksDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :OtherPossibleTasksDescriptionDimension ;
+    dqv:value """
+        The presence of the “uncertain” label in the dataset can be exploited in the training process in different ways. For example, in can be used a form of semi-supervised training, as explained in [1].
+
+        The presence of frontal and lateral X-rays for the same patient can also be used for experiments in pathology identification.
+    """^^xsd:string .
+
+# Data composition, collection / processing impact
+:CompositionCollectionProcessingFutureImpactPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :CompositionCollectionProcessingFutureImpactPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:CompositionCollectionProcessingFutureImpactDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :CompositionCollectionProcessingFutureImpactDescriptionDimension ;
+    dqv:value """
+        The dataset was created from images that come from one institution, the Stanford Hospital. It is known that models trained with images from one institution may perform worse with images from other institutions. Because the images come from one institution, they also come from a limited number of X-ray devices. It is known that the device used to capture images affects the model performance. [11] [12] [13]
+
+        There are indications in the literature that the sex and age of patients may affect the performance of models [14] [15]. The distribution of sex in CheXpert images is generally well-balanced. However, there are few images of infants and adolescents. Models trained on this dataset may not perform well with pediatric images.
+
+        A small number of patients with large numbers of images reduce the dataset variability. The “6 to 10 images” row in Table II shows that approximately 85% of the patients account for 50% of the images, thus about half of the images in the dataset come from 15% of the patients. This may reduce the effective size of the dataset, affecting some applications [16].
+    """^^xsd:string .
+
+# Not other possible tasks
+:NotToBeUsedForTaskPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :NotToBeUsedForTaskPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:NotToBeUsedForTaskDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :NotToBeUsedForTaskDescriptionDimension ;
+    dqv:value """
+        According to the license terms, the dataset must be used only for non-clinical, non-commercial research. The dataset has not been reviewed or approved by the Food and Drug Administration (FDA). The dataset is not suitable for diagnosing the pathologies. It can be used to determine the probability of the presence of the pathologies in research projects.
+    """^^xsd:string .
+
+# Third party distribution
+:ThirdPartyDistributionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ThirdPartyDistributionPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:ThirdPartyDistributionDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ThirdPartyDistributionDescriptionDimension ;
+    dqv:value """
+        The dataset is publicly available on Stanford's Center for Artificial Intelligence in Medicine & Imaging public datasets page.
+    """^^xsd:string .
+
+# Distribution means
+:DistributionMeansMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :DistributionMeansDimension ;
+    dqv:value """The dataset is distributed as a compressed (.zip) file that contains all images and two comma-separated (.csv) files describing the training and the validation sets. 
+    
+    There are two versions of the dataset, each is a .zip file. One version has the downscaled version of the images (about 11 GB), the other has the original images (about 440 GB)"""^^xsd:string .
+
+:hasDOIMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Not mentioned whether there is a dataset DOI, so assumed not the case."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :hasDOIDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Distribution date
+# N.B. handle cases where the dataset has already been distributed, as here?
+:DistributionDateMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Already distributed"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :DistributionDateDimension ;
+    dqv:value ""^^xsd:date .
+
+# License
+:LicensePresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :LicensePresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+# N.B. Does it make sense to include a field specifically for links to the license, in cases such as this?
+:LicenseDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :LicenseDescriptionDimension ;
+    dqv:value """
+        The license is available on the Stanford’s Machine Learning GitHub [3]. The main terms of the license are: for personal, non- commercial, non-clinical research use. Refer to the license for other terms of use.
+    """^^xsd:string .
+
+# Restrictions on instance data
+:InstanceDataRestrictionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :InstanceDataRestrictionPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Export controls / regulatory restrictions
+:ExportControlRegulatoryRestrictionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ExportControlRegulatoryRestrictionPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Maintenance
+:StanfordMedicalGroup rdf:type vcard:Organization ;
+    vcard:fn "Stanford Medical Group" . # specify full name
+
+:ChexpertDataset :maintainer :StanfordMedicalGroup .
+
+# Manager contact point
+:ManagerContactPoint rdf:type vcard:Kind ;
+    vcard:fn "Manager contact page" ;
+    vcard:hasURL <https://stanfordmlgroup.github.io/competitions/chexpert/> .
+
+:ChexpertDataset :managerContact :ManagerContactPoint .
+
+# Erratum
+:ErratumPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :ErratumPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Update details
+:UpdatePresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :UpdatePresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# Data retention limits
+:DataRetentionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :DataRetentionPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:DataRetentionDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :DataRetentionDescriptionDimension ;
+    dqv:value """
+        The images and reports used to build the dataset are subject to retention policies of medical records in the Stanford Hospital. There are no limits on the retention of the information in the dataset.
+    """^^xsd:string .
+
+# Legacy version support
+:LegacySupportPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :LegacySupportPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+# N.B. this question is supposed to be answered, but wasn't answered.
+:LegacySupportDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "This question was not answered, even though an answer was required for this field."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :LegacySupportDescriptionDimension ;
+    dqv:value """
+    """^^xsd:string .
+
+# Augmentation mechanism
+:AugmentationPossibilityPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :AugmentationPossibilityPresenceDimension ;
+    dqv:value "true"^^xsd:boolean .
+
+:AugmentationPossibilityDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :AugmentationPossibilityDescriptionDimension ;
+    dqv:value """
+        Contributions to the labeler can be submitted directly to its GitHub site.
+    """^^xsd:string .
+
+# N.B. not indicated explicitly in the datasheet --- assumed not present
+:AugmentationValidationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :AugmentationValidationPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
+
+
+# N.B. not indicated explicitly in the datasheet --- assumed not present
+:AugmentationCommunicationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:inDimension :AugmentationCommunicationPresenceDimension ;
+    dqv:value "false"^^xsd:boolean .
