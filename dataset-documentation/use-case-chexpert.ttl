@@ -56,18 +56,18 @@
 # Funding
 :FundingPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :FundingPresenceDimension ;
+    dqv:isMeasurementOf :FundingPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :FundingDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :FundingDescriptionDimension ;
+    dqv:isMeasurementOf :FundingDescriptionMetric ;
     dqv:value "The work was supported by the Stanford center for artificial intelligence in medicine and imaging"^^xsd:string .
 
 # Instance composition
 :InstanceCompositionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceTypesDimension ;
+    dqv:isMeasurementOf :InstanceTypesMetric ;
     dqv:value """
         Each instance in the dataset is a frontal or lateral chest X-ray image, patient information, and labels for fourteen observations
     """^^xsd:string .
@@ -75,61 +75,61 @@
 :ImageInstanceCountMeasurementTraining rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Count of image instances in the training dataset"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceCountDimension ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
     dqv:value "223414"^^xsd:nonNegativeInteger .
 
 :PatientInstanceCountMeasurementTraining rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Count of patient instances in the training dataset"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceCountDimension ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
     dqv:value "64540"^^xsd:nonNegativeInteger .
 
 :ImageInstanceCountMeasurementValidation rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Count of image instances in the validation dataset"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceCountDimension ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
     dqv:value "234"^^xsd:nonNegativeInteger .
 
 :PatientInstanceCountMeasurementValidation rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Count of patient instances in the validation dataset"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceCountDimension ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
     dqv:value "200"^^xsd:nonNegativeInteger .
 
 :ImageInstanceCountMeasurementTesting rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Count of image instances in the testing dataset"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceCountDimension ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
     dqv:value "668"^^xsd:nonNegativeInteger .
 
 :PatientInstanceCountMeasurementTesting rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Count of patient instances in the testing dataset"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceCountDimension ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
     dqv:value "500"^^xsd:nonNegativeInteger .
 
 # Instances subset or all
 :SamplingMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :SamplingDimension ;
+    dqv:isMeasurementOf :SamplingMetric ;
     dqv:value "false"^^xsd:boolean .    # not representative of all instances, subset
 
 # N.B.: they do not answer this question correctly, so the closest thing to a description of representativeness is filled.
 :RepresentativenessMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "This field was not unambiguously answered"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :RepresentativenessDimension ;
+    dqv:isMeasurementOf :RepresentativenessMetric ;
     dqv:value "The dataset contains studies from patients that visited the inpatient and outpatient centers of the Stanford Hospital between October 2002 and July 2017 and had a chest X-ray taken."^^xsd:string .
 
 # Each instance consists of
 :InstanceCompositionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceCompositionDimension ;
+    dqv:isMeasurementOf :InstanceCompositionMetric ;
     dqv:value "Each instance is a frontal or lateral X-ray image"^^xsd:string .
 
 :FeatureDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :FeatureDescriptionDimension ;
+    dqv:isMeasurementOf :FeatureDescriptionMetric ;
     dqv:value """
         Each instance is a frontal or lateral X-ray image. There are two versions of each image:
             - Large: Original size from DICOM, grayscale downsampled to 256 levels. Images are stored in JPEG format.
@@ -148,14 +148,14 @@
 # Label or target
 :LabelTargetMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :LabelPresenceDimension ;
+    dqv:isMeasurementOf :LabelPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 
 # N.B. note: a significant limitation to this representation is that tables, figures and references which are mentioned in the original report are not captured.
 :LabelTargetDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :LabelDescriptionDimension ;
+    dqv:isMeasurementOf :LabelDescriptionMetric ;
     dqv:value """
     Observations
     Each image has labels assigned to fourteen observations. Eleven of these observations are pathologies. The remainder observations indicate other findings in the report, or “no finding”. The eleven pathologies are as follows (the terms are based on the “Fleischner Society: Glossary of Terms for Thoracic Imaging” [5] whenever applicable).
@@ -219,24 +219,24 @@
 # Missing info
 :MissingInfoPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :MissingInfoPresenceDimension ;
+    dqv:isMeasurementOf :MissingInfoPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Relationships between instances
 :RelationshipPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :RelationshipPresenceDimension ;
+    dqv:isMeasurementOf :RelationshipPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Recommended data splits
 :DataSplitPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DataSplitPresenceDimension ;
+    dqv:isMeasurementOf :DataSplitPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :DataSplitDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DataSplitDescriptionDimension ;
+    dqv:isMeasurementOf :DataSplitDescriptionMetric ;
     dqv:value """
         The public dataset is split into test and validation sets, each in one folder. The list of training images is described in train.csv 
         and the list of validation images is described in valid.csv (both files are delivered with the dataset). See tables I, IV, and V
@@ -257,12 +257,12 @@
 # Errors, sources of noise, redunancies
 :DataIssuesPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DataIssuesPresenceDimension ;
+    dqv:isMeasurementOf :DataIssuesPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :DataIssuesDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DataIssuesDescriptionDimension ;
+    dqv:isMeasurementOf :DataIssuesDescriptionMetric ;
     dqv:value """
         Training set
         Extracting labels from reports with text-parsing tools is inherently imprecise. To reduce the errors in the extraction process, the following measures were taken to develop and test the labeler:
@@ -276,31 +276,31 @@
 # External resources or self-contained
 :ExternalResourcesMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ExternalResourcesDimension ;
+    dqv:isMeasurementOf :ExternalResourcesMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Confidential data
 :ConfidentialDataPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Personally identifiable information has been removed from the data"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ConfidentialDataPresenceDimension ;
+    dqv:isMeasurementOf :ConfidentialDataPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Offensive data
 :SensitiveContentPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :SensitiveContentPresenceDimension ;
+    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Subpopulations
 :SubpopulationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :SensitiveContentPresenceDimension ;
+    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :SubpopulationDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :SubpopulationDescriptionMeasurement ;
+    dqv:isMeasurementOf :SubpopulationDescriptionMetric ;
     dqv:value """
         The patient biological sex and age (in complete years) at the time the image was taken are available for each image. 
         
@@ -310,27 +310,27 @@
 # Identifiable individuals
 :IndividualIdentificationPossibilityMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :IndividualIdentificationPossibilityDimension ;
+    dqv:isMeasurementOf :IndividualIdentificationPossibilityMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Sensitive data
 :SensitiveDataPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :SensitiveDataPresenceDimension ;
+    dqv:isMeasurementOf :SensitiveDataPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Instance data acquisition
 :InstanceAcquisitionMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Images and the associated reports were extracted from the Stanford Hospital DICOM and electronic medical records systems."@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceAcquisitionMeans ;
+    dqv:isMeasurementOf :InstanceAcquisitionMetric ;
     dqv:value :DirectlyObservable .
 
 # Data acquisition mechanisms
 # N.B. Again not clear that this was answered sufficiently.
 :DataAcquisitionMechanismMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DataAcquisitionMechanismDimension ;
+    dqv:isMeasurementOf :DataAcquisitionMechanismMetric ;
     dqv:value """
         The images and associated reports were extracted from the hospital DICOM and PACS systems. 
         
@@ -339,13 +339,13 @@
 
 :DataAcquisitionMechanismValidationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DataAcquisitionMechanismValidationPresenceDimension ;
+    dqv:isMeasurementOf :DataAcquisitionMechanismValidationPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Sampling strategy
 :SamplingMethodMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :SamplingMethodDimension ;
+    dqv:isMeasurementOf :SamplingMethodMetric ;
     dqv:value "Images that had protected health information (PHI) of any type were excluded from the dataset."^^xsd:string .
 
 # TODO: who was involved in the data collection process?
@@ -353,7 +353,7 @@
 # Collection duration
 :DataspanMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DatespanDimension ;
+    dqv:isMeasurementOf :DatespanMetric ;
     dqv:value [
         rdf:type terms:PeriodOfTime ;
         terms:start "2002-10-01"^^xsd:date ;
@@ -363,12 +363,12 @@
 # Ethical review
 :EthicalReviewPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :EthicalReviewPresenceDimension ;
+    dqv:isMeasurementOf :EthicalReviewPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :EthicalReviewDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :EthicalReviewDescriptionDimension ;
+    dqv:isMeasurementOf :EthicalReviewDescriptionMetric ;
     dqv:value """
         The Stanford Hospital Institutional Review Board (IRB) reviewed and approved the work
     """^^xsd:string .
@@ -376,43 +376,43 @@
 # Third-party
 :ThirdPartyMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ThirdPartyDimension ;
+    dqv:isMeasurementOf :ThirdPartyMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Provided notification
 :ProvidedNotificationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "No direct notification, but the Stanford Hospital, being a research institution, notifies all patients that their information may be shared with researchers, subject to privacy laws and approval from an independent review process."@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ProvidedNotificationPresenceDimension ;
+    dqv:isMeasurementOf :ProvidedNotificationPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Consent obtained
 :ConsentObtainedPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "It's noted that individual patient consent is waived for de-identified data in compliance with institutional IRB and federal guidelines."@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ConsentObtainedPresenceDimension ;
+    dqv:isMeasurementOf :ConsentObtainedPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Impact analysis
 :ImpactAnalysisPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ImpactAnalysisPresenceDimension ;
+    dqv:isMeasurementOf :ImpactAnalysisPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :ImpactAnalysisDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ImpactAnalysisDescriptionDimension ;
+    dqv:isMeasurementOf :ImpactAnalysisDescriptionMetric ;
     dqv:value "All instances in the dataset were anonymized. There is no personally identifiable data in the dataset."^^xsd:string .
 
 # Data preprocessing
 :PreprocessingDataPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :PreprocessingDataPresenceDimension ;
+    dqv:isMeasurementOf :PreprocessingDataPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :PreprocessingDataDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :PreprocessingDataDescriptionDimension ;
+    dqv:isMeasurementOf :PreprocessingDataDescriptionMetric ;
     dqv:value """
         Images in the large and small datasets have their grayscale reduced to 256 levels.
         The small images have been downsized from the original size to approximately 390 x 320 pixels.
@@ -421,36 +421,36 @@
 # Raw data
 :RawDataSavedPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :RawDataSavedPresenceDimension ;
+    dqv:isMeasurementOf :RawDataSavedPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :RawDataSavedAccessPointDimension rdf:type dqv:QualityMeasurement ;
     rdfs:comment "No access point was provided."@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :RawDataSavedAccessPointDimension ;
+    dqv:isMeasurementOf :RawDataSavedAccessPointMetric ;
     dqv:value ""^^xsd:anyURI .
 
 # Software used
 :SoftwareAvailablePresenceMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Ambiguous case --- some of the software is available, other software is not. Marked as true because some of the software is available."@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :SoftwareAvailablePresenceDimension ;
+    dqv:isMeasurementOf :SoftwareAvailablePresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :SoftwareAvailableAccessPointMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :SoftwareAvailableAccessPointDimension ;
+    dqv:isMeasurementOf :SoftwareAvailableAccessPointMetric ;
     dqv:value "https://github.com/stanfordmlgroup/chexpert-labeler"^^xsd:anyURI .
 
 # Other tasks
 :TasksUsedForPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :TasksUsedForPresenceDimension ;
+    dqv:isMeasurementOf :TasksUsedForPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :TasksUsedForDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :TasksUsedForDescriptionDimension ;
+    dqv:isMeasurementOf :TasksUsedForDescriptionMetric ;
     dqv:value """
     Several models to detect the labels in images were published together with the dataset in [1]. The “models . . . take as input a single-view chest radiograph and output the probability of each of the 14 observations. When more than one view is available, the models output the maximum probability of the observations across the views.” 
     
@@ -462,23 +462,23 @@
 # Links to papers or systems
 :RepositoryLinksPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :RepositoryLinksPresenceDimension ;
+    dqv:isMeasurementOf :RepositoryLinksPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :RepositoryLinksAccessPointMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :RepositoryLinksAccessPointDimension ;
+    dqv:isMeasurementOf :RepositoryLinksAccessPointMetric ;
     dqv:value "https://stanfordmlgroup.github.io/competitions/chexpert/"^^xsd:anyURI .
 
 # Other possible tasks
 :OtherPossibleTasksPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :OtherPossibleTasksPresenceDimension ;
+    dqv:isMeasurementOf :OtherPossibleTasksPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :OtherPossibleTasksDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :OtherPossibleTasksDescriptionDimension ;
+    dqv:isMeasurementOf :OtherPossibleTasksDescriptionMetric ;
     dqv:value """
         The presence of the “uncertain” label in the dataset can be exploited in the training process in different ways. For example, in can be used a form of semi-supervised training, as explained in [1].
 
@@ -488,12 +488,12 @@
 # Data composition, collection / processing impact
 :CompositionCollectionProcessingFutureImpactPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :CompositionCollectionProcessingFutureImpactPresenceDimension ;
+    dqv:isMeasurementOf :CompositionCollectionProcessingFutureImpactPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :CompositionCollectionProcessingFutureImpactDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :CompositionCollectionProcessingFutureImpactDescriptionDimension ;
+    dqv:isMeasurementOf :CompositionCollectionProcessingFutureImpactDescriptionMetric ;
     dqv:value """
         The dataset was created from images that come from one institution, the Stanford Hospital. It is known that models trained with images from one institution may perform worse with images from other institutions. Because the images come from one institution, they also come from a limited number of X-ray devices. It is known that the device used to capture images affects the model performance. [11] [12] [13]
 
@@ -505,12 +505,12 @@
 # Not other possible tasks
 :NotToBeUsedForTaskPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :NotToBeUsedForTaskPresenceDimension ;
+    dqv:isMeasurementOf :NotToBeUsedForTaskPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :NotToBeUsedForTaskDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :NotToBeUsedForTaskDescriptionDimension ;
+    dqv:isMeasurementOf :NotToBeUsedForTaskDescriptionMetric ;
     dqv:value """
         According to the license terms, the dataset must be used only for non-clinical, non-commercial research. The dataset has not been reviewed or approved by the Food and Drug Administration (FDA). The dataset is not suitable for diagnosing the pathologies. It can be used to determine the probability of the presence of the pathologies in research projects.
     """^^xsd:string .
@@ -518,12 +518,12 @@
 # Third party distribution
 :ThirdPartyDistributionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ThirdPartyDistributionPresenceDimension ;
+    dqv:isMeasurementOf :ThirdPartyDistributionPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :ThirdPartyDistributionDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ThirdPartyDistributionDescriptionDimension ;
+    dqv:isMeasurementOf :ThirdPartyDistributionDescriptionMetric ;
     dqv:value """
         The dataset is publicly available on Stanford's Center for Artificial Intelligence in Medicine & Imaging public datasets page.
     """^^xsd:string .
@@ -531,7 +531,7 @@
 # Distribution means
 :DistributionMeansMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DistributionMeansDimension ;
+    dqv:isMeasurementOf :DistributionMeansMetric ;
     dqv:value """The dataset is distributed as a compressed (.zip) file that contains all images and two comma-separated (.csv) files describing the training and the validation sets. 
     
     There are two versions of the dataset, each is a .zip file. One version has the downscaled version of the images (about 11 GB), the other has the original images (about 440 GB)"""^^xsd:string .
@@ -539,7 +539,7 @@
 :hasDOIMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Not mentioned whether there is a dataset DOI, so assumed not the case."@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :hasDOIDimension ;
+    dqv:isMeasurementOf :hasDOIMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Distribution date
@@ -547,19 +547,19 @@
 :DistributionDateMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Already distributed"@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DistributionDateDimension ;
+    dqv:isMeasurementOf :DistributionDateMetric ;
     dqv:value ""^^xsd:date .
 
 # License
 :LicensePresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :LicensePresenceDimension ;
+    dqv:isMeasurementOf :LicensePresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 # N.B. Does it make sense to include a field specifically for links to the license, in cases such as this?
 :LicenseDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :LicenseDescriptionDimension ;
+    dqv:isMeasurementOf :LicenseDescriptionMetric ;
     dqv:value """
         The license is available on the Stanford’s Machine Learning GitHub [3]. The main terms of the license are: for personal, non- commercial, non-clinical research use. Refer to the license for other terms of use.
     """^^xsd:string .
@@ -567,13 +567,13 @@
 # Restrictions on instance data
 :InstanceDataRestrictionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :InstanceDataRestrictionPresenceDimension ;
+    dqv:isMeasurementOf :InstanceDataRestrictionPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Export controls / regulatory restrictions
 :ExportControlRegulatoryRestrictionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ExportControlRegulatoryRestrictionPresenceDimension ;
+    dqv:isMeasurementOf :ExportControlRegulatoryRestrictionPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Maintenance
@@ -592,24 +592,24 @@
 # Erratum
 :ErratumPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :ErratumPresenceDimension ;
+    dqv:isMeasurementOf :ErratumPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Update details
 :UpdatePresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :UpdatePresenceDimension ;
+    dqv:isMeasurementOf :UpdatePresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Data retention limits
 :DataRetentionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DataRetentionPresenceDimension ;
+    dqv:isMeasurementOf :DataRetentionPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :DataRetentionDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :DataRetentionDescriptionDimension ;
+    dqv:isMeasurementOf :DataRetentionDescriptionMetric ;
     dqv:value """
         The images and reports used to build the dataset are subject to retention policies of medical records in the Stanford Hospital. There are no limits on the retention of the information in the dataset.
     """^^xsd:string .
@@ -617,26 +617,26 @@
 # Legacy version support
 :LegacySupportPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :LegacySupportPresenceDimension ;
+    dqv:isMeasurementOf :LegacySupportPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # N.B. this question is supposed to be answered, but wasn't answered.
 :LegacySupportDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     rdfs:comment "This question was not answered, even though an answer was required for this field."@en ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :LegacySupportDescriptionDimension ;
+    dqv:isMeasurementOf :LegacySupportDescriptionMetric ;
     dqv:value """
     """^^xsd:string .
 
 # Augmentation mechanism
 :AugmentationPossibilityPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :AugmentationPossibilityPresenceDimension ;
+    dqv:isMeasurementOf :AugmentationPossibilityPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :AugmentationPossibilityDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :AugmentationPossibilityDescriptionDimension ;
+    dqv:isMeasurementOf :AugmentationPossibilityDescriptionMetric ;
     dqv:value """
         Contributions to the labeler can be submitted directly to its GitHub site.
     """^^xsd:string .
@@ -644,12 +644,12 @@
 # N.B. not indicated explicitly in the datasheet --- assumed not present
 :AugmentationValidationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :AugmentationValidationPresenceDimension ;
+    dqv:isMeasurementOf :AugmentationValidationPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 
 # N.B. not indicated explicitly in the datasheet --- assumed not present
 :AugmentationCommunicationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:inDimension :AugmentationCommunicationPresenceDimension ;
+    dqv:isMeasurementOf :AugmentationCommunicationPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
