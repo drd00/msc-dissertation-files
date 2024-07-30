@@ -148,7 +148,7 @@
 	rdfs:comment ""@en ;
 	dqv:inDimension :MissingInfoPresenceDimension .
 
-:MissingInfodescriptionMetric rdf:type dqv:Metric ;
+:MissingInfoDescriptionMetric rdf:type dqv:Metric ;
 	rdfs:comment ""@en ;
 	dqv:inDimension :MissingInfoDescriptionDimension .
 

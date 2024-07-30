@@ -34,7 +34,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :PurposeDimension ;
+                    dqv:isMeasurementOf :PurposeMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -86,7 +86,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :FundingPresenceDimension ;
+                    dqv:isMeasurementOf :FundingPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -106,7 +106,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :FundingDescriptionDimension ;
+                    dqv:isMeasurementOf :FundingDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -149,7 +149,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceTypesDimension ;
+                    dqv:isMeasurementOf :InstanceTypesMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -177,7 +177,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceCountDimension ;
+                    dqv:isMeasurementOf :InstanceCountMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:nonNegativeInteger)
             }
@@ -206,7 +206,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SamplingDimension ;
+                    dqv:isMeasurementOf :SamplingMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -226,7 +226,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :RepresentativenessDimension ;
+                    dqv:isMeasurementOf :RepresentativenessMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -246,7 +246,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SamplingMethodDimension ;
+                    dqv:isMeasurementOf :SamplingMethodMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -295,7 +295,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceCompositionDimension ;
+                    dqv:isMeasurementOf :InstanceCompositionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -315,7 +315,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :FeatureDescriptionDimension ;
+                    dqv:isMeasurementOf :FeatureDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -349,7 +349,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :LabelPresenceDimension ;
+                    dqv:isMeasurementOf :LabelPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -369,7 +369,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :LabelDescriptionDimension ;
+                    dqv:isMeasurementOf :LabelDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -413,7 +413,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :MissingInfoPresenceDimension ;
+                    dqv:isMeasurementOf :MissingInfoPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -433,7 +433,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :MissingInfoDescriptionDimension ;
+                    dqv:isMeasurementOf :MissingInfoDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -477,7 +477,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :RelationshipPresenceDimension ;
+                    dqv:isMeasurementOf :RelationshipPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -497,7 +497,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :RelationshipDescriptionDimension ;
+                    dqv:isMeasurementOf :RelationshipDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -541,7 +541,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataSplitPresenceDimension ;
+                    dqv:isMeasurementOf :DataSplitPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -561,7 +561,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataSplitDescriptionDimension ;
+                    dqv:isMeasurementOf :DataSplitDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -604,7 +604,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataIssuesPresenceDimension ;
+                    dqv:isMeasurementOf :DataIssuesPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -624,7 +624,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataIssuesDescriptionDimension ;
+                    dqv:isMeasurementOf :DataIssuesDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -667,7 +667,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ExternalResourcesDimension ;
+                    dqv:isMeasurementOf :ExternalResourcesMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -687,7 +687,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ExternalResourcesDescriptionDimension ;
+                    dqv:isMeasurementOf :ExternalResourcesDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -707,7 +707,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ResourceGuaranteesDimension ;
+                    dqv:isMeasurementOf :ResourceGuaranteesMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -727,7 +727,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ArchivalVersionsDimension ;
+                    dqv:isMeasurementOf :ArchivalVersionsMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -747,7 +747,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ExternalRestrictionsDimension ;
+                    dqv:isMeasurementOf :ExternalRestrictionsMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -806,7 +806,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ConfidentialDataPresenceDimension ;
+                    dqv:isMeasurementOf :ConfidentialDataPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -826,7 +826,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ConfidentialDataDescriptionDimension ;
+                    dqv:isMeasurementOf :ConfidentialDataDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -870,7 +870,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SensitiveContentPresenceDimension ;
+                    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -890,7 +890,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SensitiveContentDescriptionDimension ;
+                    dqv:isMeasurementOf :SensitiveContentDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -934,7 +934,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SubpopulationPresenceDimension ;
+                    dqv:isMeasurementOf :SubpopulationPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -954,7 +954,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SubpopulationDescriptionDimension ;
+                    dqv:isMeasurementOf :SubpopulationDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -998,7 +998,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :IndividualIdentificationPossibilityDimension ;
+                    dqv:isMeasurementOf :IndividualIdentificationPossibilityMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1018,7 +1018,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :IndividualIdentificationDescriptionDimension ;
+                    dqv:isMeasurementOf :IndividualIdentificationDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1062,7 +1062,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SensitiveDataPresenceDimension ;
+                    dqv:isMeasurementOf :SensitiveDataPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1082,7 +1082,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SensitiveDataDescriptionDimension ;
+                    dqv:isMeasurementOf :SensitiveDataDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1126,7 +1126,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceAcquisitionDimension ;
+                    dqv:isMeasurementOf :InstanceAcquisitionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = :InstanceAcquisitionMeans)
             }
@@ -1147,7 +1147,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceAcquisitionVerificationPresenceDimension ;
+                    dqv:isMeasurementOf :InstanceAcquisitionVerificationPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1167,7 +1167,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceAcquisitionVerificationDescriptionDimension ;
+                    dqv:isMeasurementOf :InstanceAcquisitionVerificationDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1223,7 +1223,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataAcquisitionMechanismDimension ;
+                    dqv:isMeasurementOf :DataAcquisitionMechanismMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1244,7 +1244,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataAcquisitionMechanismValidationPresenceDimension ;
+                    dqv:isMeasurementOf :DataAcquisitionMechanismValidationPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1264,7 +1264,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataAcquisitionMechanismValidationDescriptionDimension ;
+                    dqv:isMeasurementOf :DataAcquisitionMechanismValidationDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1312,7 +1312,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DatespanDimension ;
+                    dqv:isMeasurementOf :DatespanMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = terms:PeriodOfTime)
             }
@@ -1334,7 +1334,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DatespanMatchesInstanceDimension ;
+                    dqv:isMeasurementOf :DatespanMatchesInstanceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1355,7 +1355,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceDateDescriptionDimension ;
+                    dqv:isMeasurementOf :InstanceDateDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1405,7 +1405,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :EthicalReviewPresenceDimension ;
+                    dqv:isMeasurementOf :EthicalReviewPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1425,7 +1425,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :EthicalReviewDescriptionDimension ;
+                    dqv:isMeasurementOf :EthicalReviewDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1468,7 +1468,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ThirdPartyDimension ;
+                    dqv:isMeasurementOf :ThirdPartyMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1497,7 +1497,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ProvidedNotificationPresenceDimension ;
+                    dqv:isMeasurementOf :ProvidedNotificationPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1517,7 +1517,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ProvidedNotificationDescriptionDimension ;
+                    dqv:isMeasurementOf :ProvidedNotificationDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1560,7 +1560,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ConsentObtainedPresenceDimension ;
+                    dqv:isMeasurementOf :ConsentObtainedPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1580,7 +1580,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ConsentObtainedDescriptionDimension ;
+                    dqv:isMeasurementOf :ConsentObtainedDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1624,7 +1624,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ConsentRevokationPresenceDimension ;
+                    dqv:isMeasurementOf :ConsentRevokationPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1644,7 +1644,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ConsentRevokationDescriptionDimension ;
+                    dqv:isMeasurementOf :ConsentRevokationDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1687,7 +1687,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ImpactAnalysisPresenceDimension ;
+                    dqv:isMeasurementOf :ImpactAnalysisPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1707,7 +1707,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ImpactAnalysisDescriptionDimension
+                    dqv:isMeasurementOf :ImpactAnalysisDescriptionMetric
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1751,7 +1751,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :PreprocessingDataPresenceDimension ;
+                    dqv:isMeasurementOf :PreprocessingDataPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1771,7 +1771,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :PreprocessingDataDescriptionDimension ;
+                    dqv:isMeasurementOf :PreprocessingDataDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1792,7 +1792,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :RawDataSavedPresenceDimension ;
+                    dqv:isMeasurementOf :RawDataSavedPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1812,7 +1812,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :RawDataSavedAccessPointDimension ;
+                    dqv:isMeasurementOf :RawDataSavedAccessPointMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:anyURI)
             }
@@ -1833,7 +1833,7 @@
             WHERE 
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SoftwareAvailablePresenceDimension ;
+                    dqv:isMeasurementOf :SoftwareAvailablePresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1853,7 +1853,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :SoftwareAvailableAccessPointDimension ;
+                    dqv:isMeasurementOf :SoftwareAvailableAccessPointMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:anyURI)
             }
@@ -1933,7 +1933,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :TasksUsedForPresenceDimension ;
+                    dqv:isMeasurementOf :TasksUsedForPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -1953,7 +1953,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :TasksUsedForDescriptionDimension ;
+                    dqv:isMeasurementOf :TasksUsedForDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -1997,7 +1997,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :RepositoryLinksPresenceDimension ;
+                    dqv:isMeasurementOf :RepositoryLinksPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2017,7 +2017,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :RepositoryLinksAccessPointDimension ;
+                    dqv:isMeasurementOf :RepositoryLinksAccessPointMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:anyURI)
             }
@@ -2061,7 +2061,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :OtherPossibleTasksPresenceDimension ;
+                    dqv:isMeasurementOf :OtherPossibleTasksPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2081,7 +2081,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :OtherPossibleTasksDescriptionDimension ;
+                    dqv:isMeasurementOf :OtherPossibleTasksDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2124,7 +2124,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :CompositionCollectionProcessingFutureImpactPresenceDimension ;
+                    dqv:isMeasurementOf :CompositionCollectionProcessingFutureImpactPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2144,7 +2144,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :CompositionCollectionProcessingFutureImpactDescriptionDimension ;
+                    dqv:isMeasurementOf :CompositionCollectionProcessingFutureImpactDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2187,7 +2187,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :NotToBeUsedForTaskPresenceDimension ;
+                    dqv:isMeasurementOf :NotToBeUsedForTaskPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2207,7 +2207,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :NotToBeUsedForTaskDescriptionDimension ;
+                    dqv:isMeasurementOf :NotToBeUsedForTaskDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2251,7 +2251,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ThirdPartyDistributionPresenceDimension ;
+                    dqv:isMeasurementOf :ThirdPartyDistributionPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2271,7 +2271,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ThirdPartyDistributionDescriptionDimension ;
+                    dqv:isMeasurementOf :ThirdPartyDistributionDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2314,7 +2314,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DistributionMeansDimension ;
+                    dqv:isMeasurementOf :DistributionMeansMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2335,7 +2335,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :hasDOIDimension ;
+                    dqv:isMeasurementOf :hasDOIMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2355,7 +2355,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DOIDimension ;
+                    dqv:isMeasurementOf :DOIMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:anyURI)
             }
@@ -2402,7 +2402,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DistributionDateDimension ;
+                    dqv:isMeasurementOf :DistributionDateMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:date)
             }
@@ -2431,7 +2431,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :LicensePresenceDimension ;
+                    dqv:isMeasurementOf :LicensePresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2451,7 +2451,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :LicenseDescriptionDimension ;
+                    dqv:isMeasurementOf :LicenseDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2495,7 +2495,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceDataRestrictionPresenceDimension ;
+                    dqv:isMeasurementOf :InstanceDataRestrictionPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2515,7 +2515,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :InstanceDataRestrictionDescriptionDimension ;
+                    dqv:isMeasurementOf :InstanceDataRestrictionDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2559,7 +2559,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ExportControlRegulatoryRestrictionPresenceDimension ;
+                    dqv:isMeasurementOf :ExportControlRegulatoryRestrictionPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2579,7 +2579,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ExportControlRegulatoryRestrictionDescriptionDimension ;
+                    dqv:isMeasurementOf :ExportControlRegulatoryRestrictionDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2671,7 +2671,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ErratumPresenceDimension ;
+                    dqv:isMeasurementOf :ErratumPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2691,7 +2691,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :ErratumAccessPointDimension ;
+                    dqv:isMeasurementOf :ErratumAccessPointMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:anyURI)
             }
@@ -2735,7 +2735,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :UpdatePresenceDimension ;
+                    dqv:isMeasurementOf :UpdatePresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2755,7 +2755,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :UpdateFrequencyDimension ;
+                    dqv:isMeasurementOf :UpdateFrequencyMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2776,7 +2776,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :UpdaterDimension ;
+                    dqv:isMeasurementOf :UpdaterMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2796,7 +2796,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :UpdateCommunicationDimension ;
+                    dqv:isMeasurementOf :UpdateCommunicationMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2850,7 +2850,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataRetentionPresenceDimension ;
+                    dqv:isMeasurementOf :DataRetentionPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2870,7 +2870,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :DataRetentionDescriptionDimension ;
+                    dqv:isMeasurementOf :DataRetentionDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2913,7 +2913,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :LegacySupportPresenceDimension ;
+                    dqv:isMeasurementOf :LegacySupportPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2933,7 +2933,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :LegacySupportDescriptionDimension ;
+                    dqv:isMeasurementOf :LegacySupportDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -2968,7 +2968,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :AugmentationPossibilityPresenceDimension ;
+                    dqv:isMeasurementOf :AugmentationPossibilityPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -2988,7 +2988,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :AugmentationPossibilityDescriptionDimension ;
+                    dqv:isMeasurementOf :AugmentationPossibilityDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -3009,7 +3009,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :AugmentationValidationPresenceDimension ;
+                    dqv:isMeasurementOf :AugmentationValidationPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -3029,7 +3029,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :AugmentationValidationDescriptionDimension ;
+                    dqv:isMeasurementOf :AugmentationValidationDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
@@ -3050,7 +3050,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :AugmentationCommunicationPresenceDimension ;
+                    dqv:isMeasurementOf :AugmentationCommunicationPresenceMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:boolean)
             }
@@ -3070,7 +3070,7 @@
             WHERE {
                 ?measurement dqv:computedOn $this ;
                     rdf:type dqv:QualityMeasurement ;
-                    dqv:inDimension :AugmentationCommunicationDescriptionDimension ;
+                    dqv:isMeasurementOf :AugmentationCommunicationDescriptionMetric ;
                     dqv:value ?value .
                 FILTER(datatype(?value) = xsd:string)
             }
