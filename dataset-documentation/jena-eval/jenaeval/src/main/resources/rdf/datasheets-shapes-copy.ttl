@@ -1,0 +1,211 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Example namespace for any new types.
+@prefix : <https://example.org/ex#> .
+
+# TODO: reference the dimensions in `datasheets-dcat-dqv.ttl` using valid URIs.
+
+# Use SHACL SPARQL rules everywhere for consistency, even where no 'if/else' logic is required.
+:DatasheetShape rdf:type sh:NodeShape ;
+    sh:targetClass dcat:Dataset ;
+    ################################
+    # Has purpose
+    ################################
+    sh:sparql [
+        sh:message "Dataset must have a purpose measurement with a string value"@en ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "" ;
+                sh:namespace "https://example.org/ex#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "dqv" ;
+                sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "xsd" ;
+                sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI
+            ]
+        ] ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                FILTER NOT EXISTS {
+                    ?measurement dqv:computedOn $this ;
+                        rdf:type dqv:QualityMeasurement ;
+                        dqv:isMeasurementOf :PurposeMetric ;
+                        dqv:value ?value .
+                    FILTER(datatype(?value) = xsd:string)
+                }
+            }
+        """
+    ] ;
+    ################################
+    # Created by
+    ################################
+    sh:sparql [
+        sh:message "Dataset must have a creator property"@en ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "" ;
+                sh:namespace "https://example.org/ex#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "dqv" ;
+                sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "xsd" ;
+                sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "terms" ;
+                sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI
+            ]
+        ] ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                FILTER NOT EXISTS {
+                    $this terms:creator ?entity .
+                }
+            }
+        """
+    ] ;
+    ################################
+    # Funded by
+    ################################
+    sh:sparql [
+        sh:message "A datasheet must indicate whether funding was received"@en ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "" ;
+                sh:namespace "https://example.org/ex#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "dqv" ;
+                sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "xsd" ;
+                sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI
+            ] ;
+            sh:declare [
+                sh:prefix "terms" ;
+                sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI
+            ]
+        ] ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                FILTER NOT EXISTS {
+                    ?measurement dqv:computedOn $this ;
+                        rdf:type dqv:QualityMeasurement ;
+                        dqv:isMeasurementOf :FundingPresenceMetric ;
+                        dqv:value ?value .
+                    FILTER(datatype(?value) = xsd:boolean)
+                }
+            }
+        """
+    ] ;
+    sh:rule [
+        sh:if [
+            sh:sparql [
+                sh:prefixes [
+                    sh:declare [
+                        sh:prefix "rdf" ;
+                        sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI
+                    ] ;
+                    sh:declare [
+                        sh:prefix "" ;
+                        sh:namespace "https://example.org/ex#"^^xsd:anyURI
+                    ] ;
+                    sh:declare [
+                        sh:prefix "dqv" ;
+                        sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI
+                    ] ;
+                    sh:declare [
+                        sh:prefix "xsd" ;
+                        sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI
+                    ] ;
+                    sh:declare [
+                        sh:prefix "terms" ;
+                        sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI
+                    ]
+                ] ;
+                sh:select """
+                    SELECT $this
+                    WHERE {
+                        FILTER NOT EXISTS {
+                            ?measurement dqv:computedOn $this ;
+                                rdf:type dqv:QualityMeasurement ;
+                                dqv:isMeasurementOf :FundingPresenceMetric ;
+                                dqv:value ?value .
+                            FILTER(datatype(?value) = xsd:boolean)
+                        }
+                    }
+                """
+            ]
+        ] ;
+        sh:then [
+            sh:sparql [
+                sh:message "Because it was indicated that funding was provided, a string description must be provided also."@en ;
+                sh:prefixes [
+                    sh:declare [
+                        sh:prefix "rdf" ;
+                        sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI
+                    ] ;
+                    sh:declare [
+                        sh:prefix "" ;
+                        sh:namespace "https://example.org/ex#"^^xsd:anyURI
+                    ] ;
+                    sh:declare [
+                        sh:prefix "dqv" ;
+                        sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI
+                    ] ;
+                    sh:declare [
+                        sh:prefix "xsd" ;
+                        sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI
+                    ] ;
+                    sh:declare [
+                        sh:prefix "terms" ;
+                        sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI
+                    ]
+                ] ;
+                sh:select """
+                    SELECT $this
+                    WHERE {
+                        FILTER NOT EXISTS {
+                            ?measurement dqv:computedOn $this ;
+                                rdf:type dqv:QualityMeasurement ;
+                                dqv:isMeasurementOf :FundingDescriptionMetric ;
+                                dqv:value ?value .
+                            FILTER(datatype(?value) = xsd:string)
+                        }
+                    }
+                """
+            ]
+        ]
+    ] .
+

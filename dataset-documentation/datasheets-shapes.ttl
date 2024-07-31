@@ -1601,7 +1601,7 @@
         sh:then [
             sh:property [
                 sh:path :hasConsentObtainedDescriptionField ;
-                sh:hasValue true;
+                sh:hasValue true ;
                 sh:message ""@en
             ]
         ]

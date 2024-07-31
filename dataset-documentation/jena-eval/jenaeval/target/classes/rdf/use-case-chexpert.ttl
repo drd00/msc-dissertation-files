@@ -1,0 +1,655 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+@prefix : <https://example.org/ex#> .
+
+:ChexpertDataset rdf:type dcat:Dataset ;
+    terms:creator "J. Irvin, P. Rajpurkar, M. Ko, Y. Yu, S. Ciurea-Ilcus, C. Chute, H. Marklund, B. Haghgoo, R. Ball, K. Shpanskaya, J. Seekins, D. A. Mong, S. S. Halabi, J. K. Sandberg, R. Jones, D. B. Larson, C. P. Langlotz, B. N. Patel, M. P. Lungren, and A. Y. Ng"^^xsd:string .
+
+# Purpose
+:PurposeMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :PurposeMetric ;
+    dqv:value """
+        Chest radiography is the most common imaging examination
+        globally, critical for screening, diagnosis, and management of
+        many life threatening diseases. Automated chest radiograph 
+        interpretation at the level of practicing radiologists could provide
+        substantial benefit in many medical settings, from improved
+        workflow prioritization and clinical decision support to large-
+        scale screening and global population health initiatives. For
+        progress, there is a need for labeled datasets that 
+        (1) are large,
+        (2) have strong reference standards, and 
+        (3) provide expert human performance metrics for comparison.
+        
+        One of the main obstacles in the development of chest radiograph 
+        interpretation models has been the lack of datasets with strong 
+        radiologist-annotated groundtruth and expert scores against which 
+        researchers can compare their models.
+
+        There are few chest radiographic imaging datasets that are
+        publicly available, but none of them have test sets with strong
+        ground truth or radiologist performances.
+        Compared to existing chest X-ray datasets, CheXpert has
+        the following advantages:
+        - Well-founded ground truth: the validation and test
+        sets were labeled by multiple board-certified radiologists,
+        providing a strong ground truth to evaluate models.
+        - Accurate label extraction: a refined label extractor, capable of 
+        determining positive, negative, and uncertain mentions in 
+        radiology reports. The labeler uses 
+        [a] large list of phrases manually curated by multiple board-certified 
+        radiologists to match various ways observations are mentioned in the reports. 
+        The labeler was evaluated against labels manually extracted by board-certified 
+        radiologists.
+    """^^xsd:string .
+
+# Funding
+:FundingPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :FundingPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:FundingDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :FundingDescriptionMetric ;
+    dqv:value "The work was supported by the Stanford center for artificial intelligence in medicine and imaging"^^xsd:string .
+
+# Instance composition
+:InstanceCompositionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceTypesMetric ;
+    dqv:value """
+        Each instance in the dataset is a frontal or lateral chest X-ray image, patient information, and labels for fourteen observations
+    """^^xsd:string .
+
+:ImageInstanceCountMeasurementTraining rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Count of image instances in the training dataset"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
+    dqv:value "223414"^^xsd:nonNegativeInteger .
+
+:PatientInstanceCountMeasurementTraining rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Count of patient instances in the training dataset"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
+    dqv:value "64540"^^xsd:nonNegativeInteger .
+
+:ImageInstanceCountMeasurementValidation rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Count of image instances in the validation dataset"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
+    dqv:value "234"^^xsd:nonNegativeInteger .
+
+:PatientInstanceCountMeasurementValidation rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Count of patient instances in the validation dataset"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
+    dqv:value "200"^^xsd:nonNegativeInteger .
+
+:ImageInstanceCountMeasurementTesting rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Count of image instances in the testing dataset"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
+    dqv:value "668"^^xsd:nonNegativeInteger .
+
+:PatientInstanceCountMeasurementTesting rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Count of patient instances in the testing dataset"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceCountMetric ;
+    dqv:value "500"^^xsd:nonNegativeInteger .
+
+# Instances subset or all
+:SamplingMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :SamplingMetric ;
+    dqv:value "false"^^xsd:boolean .    # not representative of all instances, subset
+
+# N.B.: they do not answer this question correctly, so the closest thing to a description of representativeness is filled.
+:RepresentativenessMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "This field was not unambiguously answered"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :RepresentativenessMetric ;
+    dqv:value "The dataset contains studies from patients that visited the inpatient and outpatient centers of the Stanford Hospital between October 2002 and July 2017 and had a chest X-ray taken."^^xsd:string .
+
+# Each instance consists of
+:InstanceCompositionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceCompositionMetric ;
+    dqv:value "Each instance is a frontal or lateral X-ray image"^^xsd:string .
+
+:FeatureDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :FeatureDescriptionMetric ;
+    dqv:value """
+        Each instance is a frontal or lateral X-ray image. There are two versions of each image:
+            - Large: Original size from DICOM, grayscale downsampled to 256 levels. Images are stored in JPEG format.
+            - Small: Size downsampled to approximately 390 × 320 pixels (images size vary because they were downsampled to 320 pixels preserving ratio of dimensions), grayscale downsampled to 256 levels. Images are stored in JPEG format.
+            
+            The large and small versions can be downloaded separately. The size of the large dataset is 440 GB, the size of the small one is 11 GB. Images are grouped by patient and, within each patient, by study.
+            
+            Each image is accompanied by a description:
+            - The patient’s biological sex: “Female”, “Male”, or “Unknown”.
+            - The patient’s age at the time the study was done, in number of complete years. Note that, although a rare occurrence, the same patient may have had studies done at different ages (see, for example, patient 11). 
+            - Whether the image is frontal or lateral.
+            - For frontal images, whether the image is anteriorposterior (“AP”), or posterioranterior (“PA”).
+            - Fourteen columns with observations extracted from the image report (training set) or the images (validation set).
+    """^^xsd:string .
+
+# Label or target
+:LabelTargetMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :LabelPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+
+# N.B. note: a significant limitation to this representation is that tables, figures and references which are mentioned in the original report are not captured.
+:LabelTargetDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :LabelDescriptionMetric ;
+    dqv:value """
+    Observations
+    Each image has labels assigned to fourteen observations. Eleven of these observations are pathologies. The remainder observations indicate other findings in the report, or “no finding”. The eleven pathologies are as follows (the terms are based on the “Fleischner Society: Glossary of Terms for Thoracic Imaging” [5] whenever applicable).
+        - Atelectasis
+        - Cardiomegaly
+        - Consolidation
+        - Edema
+        - Enlarged Cardiomediastinum
+        - Fracture (recent or healed)
+        - Lung Lesion
+        - Lung Opacity
+        - Pleural Effusion
+        - Pleural Other
+        - Pneumonia (“despite being a clinical diagnosis, [it] was included as a label in order to represent the images that suggested primary infection as the diagnosis”)
+        - Pneumothorax
+
+    In addition to the pathologies, each image has labels for the following observations.
+        - No Finding: captures the absence of pathologies. The “No Finding” observation is assigned a positive label (1) if there is no pathology classified as positive or uncertain. The list of pathologies analyzed extends beyond the pathologies used for labels (list above). The list of pathologies is in this file on GitHub. If none of the pathologies in that list is mentioned in the medical report, the image is assigned the “No Finding” label. The only other label that may appear together with “No Finding” is “Support Devices”.
+        
+        - Support Devices: a support medical device, e.g. a tube, valve, pacemaker, among others, is present in the image.
+
+        Label for each observation
+        Labels were generated as follows for each observation.
+        - Training set: a rule-based labeler extracted labels from the Impression section of X-ray reports, using a large list of phrases manually curated by board-certified radiologists.
+        - Validation set: three board-certified radiologists annotated each of the studies separately, “classifying each observation into one of present, uncertain likely, uncertain unlikely, and absent. Their annotations were binarized such that all present and uncertain likely cases are treated as positive and all absent and uncertain unlikely cases are treated as negative (i.e. there is no “uncertain” label in this set). The majority vote of these binarized annotations is used to define a strong ground truth”. The radiologists worked with the images, not with the reports.
+        - Test set: eight board-certified radiologists annotated the studies separately. The majority vote of five radiologists, three of them from the validation set and two selected randomly from the other five, is used as ground truth (the remainder three radiologists were used to evaluate the models in [1]). The same binarization process used in the validation set was used here (also resulting in no “uncertain” label in this set). The radiologists worked with the images, not with the reports.
+        
+        In addition to the training, validation, and test sets, a “report evaluation set” was used to test the labeler. See details later in this section. Figure 1 summarizes how the training, validation and test sets were created. The figure highlights where the board- certified radiologists participated, ensuring a strong ground truth for the validation and test sets, as well as for the set used to validate the CheXpert labeler. The labels annotated by the radiologists followed a hierarchical structure. For example, both “atelectasis” and “con- solidation” also result in the higher-level label “lung opacity” being assigned to the image. Possible values for the labels are described in Table III. Note that the “’uncertain’ label can capture both the uncer- tainty of a radiologist in the diagnosis as well as ambiguity inherent in the report (“heart size is stable”).”
+        
+        Labels are encoded as follows in the .csv files that accompany the dataset.
+        - Positive: 1.0
+        - Negative: 0.0
+        - Uncertain: -1.0
+        - No mention: ” (the empty string)
+        
+        Tables IV and V show the count and percentage of labels for each observation in the training and validation sets, respectively. Percentages add up to 100% across rows. They do not add up to 100% across columns because an image may have more than one observation with the same label (for example, an image may be positive for “pleural effusion” and “lung opacity”). Also note that the validation set does not use the “uncertain” and “no mention” labels because “present” and “uncertain likely” cases are treated as positive and “absent” and “uncertain unlikely” cases are treated as negative, as explained in Table III. Table VI shows the coincidence of positive labels for each observation, i.e. how many times an observation was mentioned (labeled “positive”) with another observation in the same report.
+
+        Rule-based label extraction process for the training set
+        The label extraction for the training set is a three-step process described in detail in [1]. A summarized description of the steps in the process is as follows. 
+        - Mention extraction: using a large list of phrases manually curated by radiologists, extract mentions from the Impression section of the radiology reports. 
+        - Mention classification: classify the extracted mentions as negative, uncertain, or positive. “The mention classification stage is a 3-phase pipeline consisting of pre-negation uncertainty, negation, and post-negation uncertainty. Each phase consists of rules which are matched against the mention; if a match is found, then the mention is classified accordingly (as uncertain in the first or third phase, and as negative in the second phase). If a mention is not matched in any of the phases, it is classified as positive.”
+        - Mention aggregation: “Observations with at least one mention that is positively classified in the report is assigned a positive (1) label. An observation is assigned an uncertain (u) label if it has no positively classified mentions and at least one uncertain mention, and a negative label if there is at least one negatively classified mention. We assign (blank) if there is no mention of an observation.” 
+        
+        Before being used to generate the labels in the training set, the labeler was evaluated against labels manually extracted from 1000 radiologist reports by two board-certified radiologists (this set of labels is referred to as the "report evaluation set" in Figure 1). "[W]ithout access to additional patient information, [the two radiologists] annotated the reports to label whether each observation was mentioned as confidently present (1), confidently absent (0), uncertainly present (u), or not mentioned (blank), after curating a list of labeling conventions to adhere to. After both radiologists independently labeled each of the 1000 reports, disagreements were resolved by consensus discussion. The resulting annotations serve as ground truth on the report evaluation set." The performance of the labeler against this ground truth is available in Table 2 [1].
+
+        The source code for the labeler is available in this GitHub repository.
+
+        Of interest for medical experts, these items are available in the GitHub repository:
+            - Phrases used to extract the observations from the reports.
+            - Phrases used to determine "no finding". Phrases in this list are considered findings, i.e. a report must not have any of these terms to be labeled as "no finding". Note that the list is larger than the list of diseases labeled in the dataset.
+            - Negation and uncertainty patterns.
+
+        Other uses and improvements of the labeler
+        The CheXpert labeler was used to label the MIMIC-CXR dataset, comprised of 377,110 chest X-ray images [6].
+
+        CheXbert is a BERT-based labeler developed after the CheXPert labeler, with the participation of some of the CheXpert team members [7]. We recommend reviewing CheXbert to understand some of the limitations of the rule-based method used in CheXpert.
+
+        VisualCheXbert "uses a biomedically-pretrained BERT model to directly map from a radiology report to the iamge labels, with a supervisory signal determined by a computer vision model trained to detected medical conditions from chest X-ray images" [8]. This method significantly improves the agreement between the labeler and radiologists labeling X-ray images.
+    """^^xsd:string .
+
+# Missing info
+:MissingInfoPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :MissingInfoPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Relationships between instances
+:RelationshipPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :RelationshipPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Recommended data splits
+:DataSplitPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataSplitPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:DataSplitDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataSplitDescriptionMetric ;
+    dqv:value """
+        The public dataset is split into test and validation sets, each in one folder. The list of training images is described in train.csv 
+        and the list of validation images is described in valid.csv (both files are delivered with the dataset). See tables I, IV, and V
+        for details of the split between the training and the validation sets.
+        
+        A test set is used to score submissions to the leaderboard. This set is not publicly available. Each patient is present in only one of the sets.
+        
+        Training paradigms to handle uncertain observation
+        A significant innovation of the labeler used in CheXpert is the ability to label observations as “uncertain”. Uncertain observations can be handled in different ways when training a classifier:
+            - Ignore the uncertain labels. Because the uncertain label is quite prevalent in the training set, this may reduce the effective size of the set. 
+            - Binary map the uncertain label to either positive or negative. Because the uncertainty label captures semantically useful information, this approach may degrade the classifier’s performance.
+            - Self-train a classifier, using the uncertain label as “unlabeled”.
+            - Treat uncertain as its own class and train a three-class classifier.
+            
+            The paper [1]explores these approaches. Refer to the “Model” section in that paper for details.
+    """^^xsd:string .
+
+# Errors, sources of noise, redunancies
+:DataIssuesPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataIssuesPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:DataIssuesDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataIssuesDescriptionMetric ;
+    dqv:value """
+        Training set
+        Extracting labels from reports with text-parsing tools is inherently imprecise. To reduce the errors in the extraction process, the following measures were taken to develop and test the labeler:
+            - Development: the list of phrases used in the extraction phase “was manually curated by multiple board-certified radiologists to match various ways observations are mentioned in the reports”. The list of phrases is available in these files on GitHub. The list of negation and uncertainty patterns is available in these files on GitHub.
+            - Evaluation: the labeler was evaluated against 1000 radiology reports that were manually processed by two board-certified radiologists. These reports were used as ground truth for the labeler. The F1 scores for the labeler on this reference set are available in Table 2 in [1]. The labeler is described in detail in the section “Label Extraction from Radiology Reports” of [1]. The code is available in this GitHub repository. 
+            
+            Validation and test sets
+            Labels in the validation and test sets were manually extracted from the images by a group of board-certified radiologists, using majority voting in case of disagreements. While this method cannot exclude errors, it is an accurate process to generate reliable labels from experts.
+    """^^xsd:string .
+
+# External resources or self-contained
+:ExternalResourcesMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ExternalResourcesMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Confidential data
+:ConfidentialDataPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Personally identifiable information has been removed from the data"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ConfidentialDataPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Offensive data
+:SensitiveContentPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Subpopulations
+:SubpopulationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:SubpopulationDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :SubpopulationDescriptionMetric ;
+    dqv:value """
+        The patient biological sex and age (in complete years) at the time the image was taken are available for each image. 
+        
+        Table VII shows the distribution of patients and images by sex in the training and validation sets. Table VIII shows the distributions of ages (grouped by MeSH age groups) across sex.
+    """^^xsd:string .
+
+# Identifiable individuals
+:IndividualIdentificationPossibilityMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :IndividualIdentificationPossibilityMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Sensitive data
+:SensitiveDataPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :SensitiveDataPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Instance data acquisition
+:InstanceAcquisitionMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Images and the associated reports were extracted from the Stanford Hospital DICOM and electronic medical records systems."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceAcquisitionMetric ;
+    dqv:value :DirectlyObservable .
+
+# Data acquisition mechanisms
+# N.B. Again not clear that this was answered sufficiently.
+:DataAcquisitionMechanismMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataAcquisitionMechanismMetric ;
+    dqv:value """
+        The images and associated reports were extracted from the hospital DICOM and PACS systems. 
+        
+        X-ray images come from a variety of X-ray devices used over the years at the hospital. The device used for each image is not available.
+    """^^xsd:string .
+
+:DataAcquisitionMechanismValidationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataAcquisitionMechanismValidationPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Sampling strategy
+:SamplingMethodMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :SamplingMethodMetric ;
+    dqv:value "Images that had protected health information (PHI) of any type were excluded from the dataset."^^xsd:string .
+
+# TODO: who was involved in the data collection process?
+
+# Collection duration
+:DataspanMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DatespanMetric ;
+    dqv:value [
+        rdf:type terms:PeriodOfTime ;
+        terms:start "2002-10-01"^^xsd:date ;
+        terms:end "2017-07-31"^^xsd:date
+    ] .
+
+# Ethical review
+:EthicalReviewPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :EthicalReviewPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:EthicalReviewDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :EthicalReviewDescriptionMetric ;
+    dqv:value """
+        The Stanford Hospital Institutional Review Board (IRB) reviewed and approved the work
+    """^^xsd:string .
+
+# Third-party
+:ThirdPartyMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ThirdPartyMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Provided notification
+:ProvidedNotificationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "No direct notification, but the Stanford Hospital, being a research institution, notifies all patients that their information may be shared with researchers, subject to privacy laws and approval from an independent review process."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ProvidedNotificationPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Consent obtained
+:ConsentObtainedPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "It's noted that individual patient consent is waived for de-identified data in compliance with institutional IRB and federal guidelines."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ConsentObtainedPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Impact analysis
+:ImpactAnalysisPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ImpactAnalysisPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:ImpactAnalysisDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ImpactAnalysisDescriptionMetric ;
+    dqv:value "All instances in the dataset were anonymized. There is no personally identifiable data in the dataset."^^xsd:string .
+
+# Data preprocessing
+:PreprocessingDataPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :PreprocessingDataPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:PreprocessingDataDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :PreprocessingDataDescriptionMetric ;
+    dqv:value """
+        Images in the large and small datasets have their grayscale reduced to 256 levels.
+        The small images have been downsized from the original size to approximately 390 x 320 pixels.
+    """^^xsd:string .
+
+# Raw data
+:RawDataSavedPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :RawDataSavedPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:RawDataSavedAccessPointDimension rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "No access point was provided."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :RawDataSavedAccessPointMetric ;
+    dqv:value ""^^xsd:anyURI .
+
+# Software used
+:SoftwareAvailablePresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Ambiguous case --- some of the software is available, other software is not. Marked as true because some of the software is available."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :SoftwareAvailablePresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:SoftwareAvailableAccessPointMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :SoftwareAvailableAccessPointMetric ;
+    dqv:value "https://github.com/stanfordmlgroup/chexpert-labeler"^^xsd:anyURI .
+
+# Other tasks
+:TasksUsedForPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :TasksUsedForPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:TasksUsedForDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :TasksUsedForDescriptionMetric ;
+    dqv:value """
+    Several models to detect the labels in images were published together with the dataset in [1]. The “models . . . take as input a single-view chest radiograph and output the probability of each of the 14 observations. When more than one view is available, the models output the maximum probability of the observations across the views.” 
+    
+    The models explore different approaches to the “uncertain” label: ignore the label, binary mapping (map all uncertain instances to one in one model and zero in another model), self-training (treat as unlabeled instances), and treat the label as its own class. The results are available in [1]. The dataset has also been used by multiple teams to submit entries to the leaderboard in [3]. As of March 2021, there were 167 submissions and 6,430 dataset downloads with unique email addresses. 
+    
+    CheXpert is the primary source for CheXphoto, “a dataset of smartphone photos and synthetic photographic transformations of chest x-rays” [10]. The goal of this dataset is to advance the use of machine learning in clinical workflows that use photos of x-ray films, instead of digital x-ray images. This workflow, taking pictures of x-ray films and forwarding to other clinicians, is common in developing regions.
+    """^^xsd:string .
+
+# Links to papers or systems
+:RepositoryLinksPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :RepositoryLinksPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:RepositoryLinksAccessPointMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :RepositoryLinksAccessPointMetric ;
+    dqv:value "https://stanfordmlgroup.github.io/competitions/chexpert/"^^xsd:anyURI .
+
+# Other possible tasks
+:OtherPossibleTasksPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :OtherPossibleTasksPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:OtherPossibleTasksDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :OtherPossibleTasksDescriptionMetric ;
+    dqv:value """
+        The presence of the “uncertain” label in the dataset can be exploited in the training process in different ways. For example, in can be used a form of semi-supervised training, as explained in [1].
+
+        The presence of frontal and lateral X-rays for the same patient can also be used for experiments in pathology identification.
+    """^^xsd:string .
+
+# Data composition, collection / processing impact
+:CompositionCollectionProcessingFutureImpactPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :CompositionCollectionProcessingFutureImpactPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:CompositionCollectionProcessingFutureImpactDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :CompositionCollectionProcessingFutureImpactDescriptionMetric ;
+    dqv:value """
+        The dataset was created from images that come from one institution, the Stanford Hospital. It is known that models trained with images from one institution may perform worse with images from other institutions. Because the images come from one institution, they also come from a limited number of X-ray devices. It is known that the device used to capture images affects the model performance. [11] [12] [13]
+
+        There are indications in the literature that the sex and age of patients may affect the performance of models [14] [15]. The distribution of sex in CheXpert images is generally well-balanced. However, there are few images of infants and adolescents. Models trained on this dataset may not perform well with pediatric images.
+
+        A small number of patients with large numbers of images reduce the dataset variability. The “6 to 10 images” row in Table II shows that approximately 85% of the patients account for 50% of the images, thus about half of the images in the dataset come from 15% of the patients. This may reduce the effective size of the dataset, affecting some applications [16].
+    """^^xsd:string .
+
+# Not other possible tasks
+:NotToBeUsedForTaskPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :NotToBeUsedForTaskPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:NotToBeUsedForTaskDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :NotToBeUsedForTaskDescriptionMetric ;
+    dqv:value """
+        According to the license terms, the dataset must be used only for non-clinical, non-commercial research. The dataset has not been reviewed or approved by the Food and Drug Administration (FDA). The dataset is not suitable for diagnosing the pathologies. It can be used to determine the probability of the presence of the pathologies in research projects.
+    """^^xsd:string .
+
+# Third party distribution
+:ThirdPartyDistributionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ThirdPartyDistributionPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:ThirdPartyDistributionDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ThirdPartyDistributionDescriptionMetric ;
+    dqv:value """
+        The dataset is publicly available on Stanford's Center for Artificial Intelligence in Medicine & Imaging public datasets page.
+    """^^xsd:string .
+
+# Distribution means
+:DistributionMeansMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DistributionMeansMetric ;
+    dqv:value """The dataset is distributed as a compressed (.zip) file that contains all images and two comma-separated (.csv) files describing the training and the validation sets. 
+    
+    There are two versions of the dataset, each is a .zip file. One version has the downscaled version of the images (about 11 GB), the other has the original images (about 440 GB)"""^^xsd:string .
+
+:hasDOIMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Not mentioned whether there is a dataset DOI, so assumed not the case."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :hasDOIMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Distribution date
+# N.B. handle cases where the dataset has already been distributed, as here?
+:DistributionDateMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Already distributed"@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DistributionDateMetric ;
+    dqv:value "2024-07-30"^^xsd:date .
+
+# License
+:LicensePresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :LicensePresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+# N.B. Does it make sense to include a field specifically for links to the license, in cases such as this?
+:LicenseDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :LicenseDescriptionMetric ;
+    dqv:value """
+        The license is available on the Stanford’s Machine Learning GitHub [3]. The main terms of the license are: for personal, non- commercial, non-clinical research use. Refer to the license for other terms of use.
+    """^^xsd:string .
+
+# Restrictions on instance data
+:InstanceDataRestrictionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceDataRestrictionPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Export controls / regulatory restrictions
+:ExportControlRegulatoryRestrictionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ExportControlRegulatoryRestrictionPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Maintenance
+:StanfordMedicalGroup rdf:type vcard:Organization ;
+    vcard:fn "Stanford Medical Group" . # specify full name
+
+:ChexpertDataset :maintainer :StanfordMedicalGroup .
+
+# Manager contact point
+:ManagerContactPoint rdf:type vcard:Kind ;
+    vcard:fn "Manager contact page" ;
+    vcard:hasURL <https://stanfordmlgroup.github.io/competitions/chexpert/> .
+
+:ChexpertDataset :managerContact :ManagerContactPoint .
+
+# Erratum
+:ErratumPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ErratumPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Update details
+:UpdatePresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :UpdatePresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# Data retention limits
+:DataRetentionPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataRetentionPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:DataRetentionDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataRetentionDescriptionMetric ;
+    dqv:value """
+        The images and reports used to build the dataset are subject to retention policies of medical records in the Stanford Hospital. There are no limits on the retention of the information in the dataset.
+    """^^xsd:string .
+
+# Legacy version support
+:LegacySupportPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :LegacySupportPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+# N.B. this question is supposed to be answered, but wasn't answered.
+:LegacySupportDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "This question was not answered, even though an answer was required for this field."@en ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :LegacySupportDescriptionMetric ;
+    dqv:value """
+    """^^xsd:string .
+
+# Augmentation mechanism
+:AugmentationPossibilityPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :AugmentationPossibilityPresenceMetric ;
+    dqv:value "true"^^xsd:boolean .
+
+:AugmentationPossibilityDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :AugmentationPossibilityDescriptionMetric ;
+    dqv:value """
+        Contributions to the labeler can be submitted directly to its GitHub site.
+    """^^xsd:string .
+
+# N.B. not indicated explicitly in the datasheet --- assumed not present
+:AugmentationValidationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :AugmentationValidationPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+
+# N.B. not indicated explicitly in the datasheet --- assumed not present
+:AugmentationCommunicationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :AugmentationCommunicationPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .

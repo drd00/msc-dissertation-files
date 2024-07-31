@@ -548,7 +548,7 @@
     rdfs:comment "Already distributed"@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :DistributionDateMetric ;
-    dqv:value ""^^xsd:date .
+    dqv:value "2024-07-31"^^xsd:date .    # placeholder value to taste shapes
 
 # License
 :LicensePresenceMeasurement rdf:type dqv:QualityMeasurement ;
