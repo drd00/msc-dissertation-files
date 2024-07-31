@@ -1196,13 +1196,17 @@
             )
         ] ;
         sh:then [
-            sh:property [
-                sh:path :hasInstanceAcquisitionVerificationField ;
-                sh:hasValue true
+            sh:if [
+                sh:property [
+                    sh:path :hasInstanceAcquisitionVerificationField ;
+                    sh:hasValue true
+                ]
             ] ;
-            sh:property [
-                sh:path :hasInstanceVerificationDescription ;
-                sh:hasValue true
+            sh:then [
+                sh:property [
+                    sh:path :hasInstanceVerificationDescription ;
+                    sh:hasValue true
+                ]
             ]
         ]
     ] ;

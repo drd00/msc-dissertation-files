@@ -284,18 +284,18 @@
     rdfs:comment "Personally identifiable information has been removed from the data"@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :ConfidentialDataPresenceMetric ;
-    dqv:value "false"^^xsd:boolean .
+    dqv:value "false"^^xsd:boolean . 
 
-# Offensive data
-:SensitiveContentPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+# Offensive / insulting / threatening / otherwise anxiety causing data
+:AnxietyContentPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
+    dqv:isMeasurementOf :AnxietyContentPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Subpopulations
 :SubpopulationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
+    dqv:isMeasurementOf :SubpopulationPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :SubpopulationDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
@@ -324,7 +324,20 @@
     rdfs:comment "Images and the associated reports were extracted from the Stanford Hospital DICOM and electronic medical records systems."@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :InstanceAcquisitionMetric ;
-    dqv:value :DirectlyObservable .
+    dqv:value :SubjectReported .
+
+:VerificationPresence rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Something" ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceAcquisitionVerificationPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+:VerificationDescription rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Something else" ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceAcquisitionVerificationDescriptionMetric ;
+    dqv:value "Something here"^^xsd:string .
+
 
 # Data acquisition mechanisms
 # N.B. Again not clear that this was answered sufficiently.

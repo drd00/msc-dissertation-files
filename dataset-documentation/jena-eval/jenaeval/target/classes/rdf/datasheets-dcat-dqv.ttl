@@ -280,24 +280,24 @@
 	dqv:inDimension :ConfidentialDataDescriptionDimension .
 
 
-# Offensive data
-:SensitiveContentPresenceDimension rdf:type dqv:Dimension ;
+# Offensive / insulting / threatening / otherwise anxiety causing data
+:AnxietyContentPresenceDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Presence of potentially offensive or anxiety-causing content"@en ;
 	rdfs:comment "Indicates whether the dataset contains data that might be offensive, insulting, threatening, or might cause anxiety if viewed directly"@en .
 
-:SensitiveContentDescriptionDimension rdf:type dqv:Dimension ;
+:AnxietyContentDescriptionDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Description of potentially offensive or anxiety-causing content"@en ;
 	rdfs:comment "Provides details about the nature of potentially offensive or anxiety-causing content"@en .
 
-:SensitiveContentPresenceMetric rdf:type dqv:Metric ;
+:AnxietyContentPresenceMetric rdf:type dqv:Metric ;
 	rdfs:comment ""@en ;
-	dqv:inDimension :SensitiveContentPresenceDimension .
+	dqv:inDimension :AnxietyContentPresenceDimension .
 
-:SensitiveContentDescriptionMetric rdf:type dqv:Metric ;
+:AnxietyContentDescriptionMetric rdf:type dqv:Metric ;
 	rdfs:comment ""@en ;
-	dqv:inDimension :SensitiveContentDescriptionDimension .
+	dqv:inDimension :AnxietyContentDescriptionDimension .
 
 
 # Subpopulations
