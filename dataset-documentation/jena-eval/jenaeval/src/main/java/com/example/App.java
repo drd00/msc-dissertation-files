@@ -11,10 +11,10 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "Checking compliance of datagraph with SHACL shape..." );
         
         Model dataGraph = RDFDataMgr.loadModel("rdf/use-case-chexpert.ttl");
-        Model shapeGraph = RDFDataMgr.loadModel("rdf/datasheets-shapes-copy.ttl");
+        Model shapeGraph = RDFDataMgr.loadModel("rdf/datasheets-shapes.ttl");
         Model classDefinitions = RDFDataMgr.loadModel("rdf/datasheets-dcat-dqv.ttl");
 
         dataGraph.add(classDefinitions);

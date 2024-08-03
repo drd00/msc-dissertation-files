@@ -326,6 +326,7 @@
     dqv:isMeasurementOf :InstanceAcquisitionMetric ;
     dqv:value :SubjectReported .
 
+# Todo: fix comments
 :VerificationPresence rdf:type dqv:QualityMeasurement ;
     rdfs:comment "Something" ;
     dqv:computedOn :ChexpertDataset ;
@@ -364,9 +365,29 @@
 # TODO: who was involved in the data collection process?
 
 # Collection duration
-:DataspanMeasurement rdf:type dqv:QualityMeasurement ;
+:DatespanMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :DatespanMetric ;
+    dqv:value [
+        rdf:type terms:PeriodOfTime ;
+        terms:start "2019-01-01"^^xsd:date ;
+        terms:end "2019-12-31"^^xsd:date
+    ] .
+
+:DatespanMatchesInstanceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DatespanMatchesInstanceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+
+# :InstanceDateDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+#     dqv:computedOn :ChexpertDataset ;
+#     dqv:isMeasurementOf :InstanceDateDescriptionMetric ;
+#     dqv:value "something"^^xsd:string .
+
+:InstanceDateDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceDateDescriptionMetric ;
     dqv:value [
         rdf:type terms:PeriodOfTime ;
         terms:start "2002-10-01"^^xsd:date ;
@@ -404,6 +425,11 @@
     rdfs:comment "It's noted that individual patient consent is waived for de-identified data in compliance with institutional IRB and federal guidelines."@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :ConsentObtainedPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+:ConsentRevokationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ConsentRevokationPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Impact analysis
