@@ -14,14 +14,6 @@
 
 @prefix : <https://example.org/ex#> .   # for new declarations
 
-# Allow AI systems to be described in terms of component AI systems.
-airo:hasComponent rdfs:domain airo:AISystem ;
-    rdfs:range airo:AISystem .
-
-# Describe a model's intended purpose.
-airo:hasPurpose rdfs:domain airo:MLModel ;
-    rdfs:range airo:Purpose .
-
 ######################################
 # Description of bias
 ######################################
@@ -277,6 +269,15 @@ airo:hasPurpose rdfs:domain airo:MLModel ;
     owl:onProperty :hasFairnessMetric ;
     owl:minCardinality "1"^^xsd:nonNegativeInteger
 ] .
+
+# A custom 'tests bias' type. Purpose: Simplifies documentation.
+# Avoids constructing specific conditions as in earl:TestCriterion ;
+# 'Pass' when the bias tested for is deemed present, 'fail' when the bias tested for is deemed not present.
+:testsBias rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range :Bias ;
+    rdfs:comment "Connects an Assertion with the bias type it is testing for."@en ;
+    rdfs:label "Tests bias"@en .
 
 :hasAssertion rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAudit ;
