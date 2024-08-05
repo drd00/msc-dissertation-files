@@ -39,7 +39,7 @@
             :floatValue -0.1104
         ]
     ] ;
-    :testResultURI "https://example.org/results/statistical_party_for_this_model" .
+    :testResultURI "https://example.org/results/statistical_party_for_this_model"^^xsd:anyURI .
 
 :EqualOpportunityAssertion rdf:type :BiasAssertion ;
     :groupDescription "Comparison between male and female groups" ;
@@ -57,7 +57,7 @@
             :floatValue 0.0910
         ]
     ] ;
-    :testResultURI "https://example.org/results/equal_opportunity_for_this_model" .
+    :testResultURI "https://example.org/results/equal_opportunity_for_this_model"^^xsd:anyURI .
 
 :AverageOddsAssertion rdf:type :BiasAssertion ;
     :groupDescription "Comparison between male and female groups" ;
@@ -75,7 +75,7 @@
             :floatValue 0.0786
         ]
     ] ;
-    :testResultURI "https://example.org/results/average_odds_for_this_model" .
+    :testResultURI "https://example.org/results/average_odds_for_this_model"^^xsd:anyURI .
 
 
 :AdultDatasetBiasAudit :hasAssertion :StatisticalParityAssertion , :EqualOpportunityAssertion , :AverageOddsAssertion .
@@ -109,8 +109,8 @@
             rdf:type :FloatFail ;
             :floatValue "0.3597"^^xsd:float
         ] ;
-        :testResultURI "https://example.org/results/disparate_impact_result_for_dataset"
-    ] .
+    ] ;
+    :testResultURI "https://example.org/results/disparate_impact_result_for_dataset"^^xsd:anyURI .
 
 :StatisticalParityDifferenceAssertion rdf:type :BiasAssertion ;
     :groupDescription "Difference in positive outcome rates between males and females for income prediction" ;
@@ -127,7 +127,7 @@
             :floatValue "0.1945"^^xsd:float
         ] ;
     ] ;
-    :testResultURI "https://example.org/results/statistical_parity_difference_result_for_dataset" .
+    :testResultURI "https://example.org/results/statistical_parity_difference_result_for_dataset"^^xsd:anyURI .
 
 # TODO: add type for Demographic parity ratio...
 
@@ -145,5 +145,5 @@
             :floatValue "0.0838"^^xsd:float
         ]
     ] ;
-    :testResultURI "https://example.org/results/theil_index_for_this_dataset" .
+    :testResultURI "https://example.org/results/theil_index_for_this_dataset"^^xsd:anyURI .
 
