@@ -1,12 +1,10 @@
-# Are there any bias audits which have been conducted on a model directly preceding the AI system?
+# Are there any bias audits where a test suite indicated racial bias (not just individual fairness metrics)?
 PREFIX airo: <https://w3id.org/airo#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX : <https://example.org/ex#>
 
 ASK WHERE {
-    ?system rdf:type airo:AISystem .    # assuming there is a single AI system
-    ?system airo:hasModel ?model .
-    ?model airo:hasDocumentation ?doc .
     ?doc rdf:type :BiasAudit .
+    ?doc :potentiatesSocietalBias :RacialBias .
 }
 

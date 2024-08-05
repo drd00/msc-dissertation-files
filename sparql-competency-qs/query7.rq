@@ -1,0 +1,30 @@
+# If a particular dataset has failed bias assertions, return if the dataset creation was funded.
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX airo: <https://w3id.org/airo#>
+PREFIX earl: <http://www.w3.org/ns/earl#>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX terms: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema>
+
+PREFIX : <https://example.org/ex#>
+
+SELECT DISTINCT ?dataset ?wasFunded
+WHERE {
+    {
+        ?dataset rdf:type dcat:Dataset .
+        ?dataset airo:hasDocumentation ?doc .
+        ?doc rdf:type :BiasAudit .
+        ?doc :hasAssertion ?biasassertion .
+        ?biasassertion earl:result ?testresult .
+        ?testresult earl:outcome ?testoutcome .
+        ?testoutcome rdf:type ?type .
+        FILTER (?type IN (:FloatFail , :IntFail , earl:Fail))
+
+        ?fundingMeasurement dqv:computedOn ?dataset ;
+            rdf:type dqv:QualityMeasurement ;
+            dqv:isMeasurementOf :FundingPresenceMetric ;
+            dqv:value ?wasFunded .
+        FILTER(datatype(?wasFunded) = xsd:boolean)
+    }
+}

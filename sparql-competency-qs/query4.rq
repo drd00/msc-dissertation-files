@@ -1,22 +1,15 @@
-# Provide a unique list of all potential fundamental rights violations arising from bias in the AI system
+# List all biases entailed by failed assertions, at any area of the AI development pipeline?
 PREFIX airo: <https://w3id.org/airo#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX : <https://example.org/ex#>
-PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX earl: <http://www.w3.org/ns/earl#>
+PREFIX : <https://example.org/ex#>
 
-SELECT DISTINCT ?potentialViolation
-WHERE {
-    {
-        ?doc rdf:type :BiasAudit .
-        ?doc :hasAssertion ?biasassertion .
-        ?biasassertion :testsBias ?bias .
-        ?bias rdf:type :SocietalBias .
-        ?bias :potentiallyViolates ?potentialViolation .
-    }
-    UNION {
-        ?doc rdf:type :BiasAudit .
-        ?doc :potentiatesSocietalBias ?socbias .
-        ?socbias :potentiallyViolates ?potentiallyViolation .
-    }
+SELECT DISTINCT ?biastype WHERE {
+    ?doc rdf:type :BiasAudit .
+    ?doc :hasAssertion ?biasassertion .
+    ?biasassertion earl:result ?testresult .
+    ?testresult earl:outcome ?testoutcome .
+    ?testoutcome rdf:type ?type .
+    FILTER(?type IN (:FloatFail , :IntFail , earl:Fail))
+    ?biasassertion :testsBias ?biastype
 }

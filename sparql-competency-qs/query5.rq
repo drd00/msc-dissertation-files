@@ -1,26 +1,22 @@
-# If a particular dataset has failed bias assertions, return all datasets created by the same entity
-PREFIX dcat: <http://www.w3.org/ns/dcat#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+# Provide a unique list of all potential fundamental rights violations arising from bias in the AI system
 PREFIX airo: <https://w3id.org/airo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <https://example.org/ex#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX earl: <http://www.w3.org/ns/earl#>
-PREFIX dqv: <http://www.w3.org/ns/dqv#>
-PREFIX terms: <http://purl.org/dc/terms/>
 
-SELECT DISTINCT ?relatedDataset
+SELECT DISTINCT ?potentialViolation
 WHERE {
     {
-        ?dataset rdf:type dcat:Dataset .
-        ?dataset airo:hasDocumentation ?doc .
         ?doc rdf:type :BiasAudit .
         ?doc :hasAssertion ?biasassertion .
-        ?biasassertion earl:result ?testresult .
-        ?testresult earl:outcome ?testoutcome .
-        ?testoutcome rdf:type ?type .
-        FILTER (?type IN (:FloatFail , :IntFail , earl:Fail))
-
-        ?dataset terms:creator ?creator .
+        ?biasassertion :testsBias ?bias .
+        ?bias rdf:type :SocietalBias .
+        ?bias :potentiallyViolates ?potentialViolation .
     }
-
-    ?relatedDataset rdf:type dcat:Dataset .
-    ?relatedDataset terms:creator ?creator .
+    UNION {
+        ?doc rdf:type :BiasAudit .
+        ?doc :potentiatesSocietalBias ?socbias .
+        ?socbias :potentiallyViolates ?potentiallyViolation .
+    }
 }

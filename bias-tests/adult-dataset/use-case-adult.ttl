@@ -129,8 +129,6 @@
     ] ;
     :testResultURI "https://example.org/results/statistical_parity_difference_result_for_dataset"^^xsd:anyURI .
 
-# TODO: add type for Demographic parity ratio...
-
 :TheilIndexAssertion rdf:type :BiasAssertion ;
     :groupDescription "Measure of inequality in outcome distribution between gender groups for income prediction" ;
     :hasFairnessMetric :TheilIndex ;
