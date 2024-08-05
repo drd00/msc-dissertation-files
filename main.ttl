@@ -357,10 +357,6 @@
 ] .
 # Test pass or fail indicates the nature of the thresholds
 
-# TestSubject should be able to consider
-earl:test rdfs:range :Bias .    # any bias category should be representable as a test subject
-
-
 # Expand EARL to allow for numerical test results (not only pass / fail)
 :FloatPass rdf:type owl:Class ;
     rdfs:subClassOf earl:Pass ;
