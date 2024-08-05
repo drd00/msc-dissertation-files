@@ -1,0 +1,8 @@
+# Are there any bias audits which have been conducted anywhere in the AI development pipeline?
+PREFIX airo: <https://w3id.org/airo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <https://example.org/ex#>
+
+ASK WHERE {
+    ?doc rdf:type :BiasAudit .
+}

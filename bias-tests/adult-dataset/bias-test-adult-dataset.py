@@ -23,9 +23,6 @@ disparate_impact = female_positive_rate / male_positive_rate
 # Statistical parity difference
 statistical_parity_difference = male_positive_rate - female_positive_rate
 
-# Demographic parity ratio
-demographic_parity_ratio = min(male_positive_rate, female_positive_rate) / max(male_positive_rate, female_positive_rate)
-
 # Theil index
 def theil_index(df, protected_attribute, outcome):
     groups = df.groupby(protected_attribute)
@@ -52,5 +49,4 @@ print(f"Male positive outcome rate: {male_positive_rate:.4f}")
 print(f"Female positive outcome rate: {female_positive_rate:.4f}")
 print(f"Disparate Impact: {disparate_impact:.4f}")
 print(f"Statistical Parity Difference: {statistical_parity_difference:.4f}")
-print(f"Demographic Parity Ratio: {demographic_parity_ratio:.4f}")
 print(f"Theil Index: {theil:.4f}")

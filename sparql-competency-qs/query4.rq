@@ -1,0 +1,22 @@
+# Provide a unique list of all potential fundamental rights violations arising from bias in the AI system
+PREFIX airo: <https://w3id.org/airo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <https://example.org/ex#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX earl: <http://www.w3.org/ns/earl#>
+
+SELECT DISTINCT ?potentialViolation
+WHERE {
+    {
+        ?doc rdf:type :BiasAudit .
+        ?doc :hasAssertion ?biasassertion .
+        ?biasassertion :testsBias ?bias .
+        ?bias rdf:type :SocietalBias .
+        ?bias :potentiallyViolates ?potentialViolation .
+    }
+    UNION {
+        ?doc rdf:type :BiasAudit .
+        ?doc :potentiatesSocietalBias ?socbias .
+        ?socbias :potentiallyViolates ?potentiallyViolation .
+    }
+}

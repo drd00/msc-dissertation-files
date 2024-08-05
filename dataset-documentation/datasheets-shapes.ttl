@@ -12,8 +12,6 @@
 # Example namespace for any new types.
 @prefix : <https://example.org/ex#> .
 
-# TODO: reference the dimensions in `datasheets-dcat-dqv.ttl` using valid URIs.
-
 # Use SHACL SPARQL rules everywhere for consistency, even where no 'if/else' logic is required.
 :DatasheetShape rdf:type sh:NodeShape ;
     sh:targetClass dcat:Dataset ;
