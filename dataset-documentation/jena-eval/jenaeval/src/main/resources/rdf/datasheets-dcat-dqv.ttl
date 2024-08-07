@@ -99,18 +99,9 @@
 	rdfs:label "Instance composition"@en ;
 	rdfs:comment "Describes what each instance in the dataset consists of"@en .
 
-:FeatureDescriptionDimension rdf:type dqv:Dimension ;
-	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
-	rdfs:label "Feature description"@en ;
-	rdfs:comment "Provides a detailed description of the features in each instance"@en .
-
 :InstanceCompositionMetric rdf:type dqv:Metric ;
 	rdfs:comment ""@en ;
 	dqv:inDimension :InstanceCompositionDimension .
-
-:FeatureDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
-	dqv:inDimension :FeatureDescriptionDimension .
 
 
 # Label or target

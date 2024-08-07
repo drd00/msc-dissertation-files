@@ -12,8 +12,6 @@
 # Example namespace for any new types.
 @prefix : <https://example.org/ex#> .
 
-# TODO: reference the dimensions in `datasheets-dcat-dqv.ttl` using valid URIs.
-
 # Use SHACL SPARQL rules everywhere for consistency, even where no 'if/else' logic is required.
 :DatasheetShape rdf:type sh:NodeShape ;
     sh:targetClass dcat:Dataset ;
@@ -386,44 +384,6 @@
                     FILTER(datatype(?value) = xsd:string)
                 }
             }
-        """
-    ] ;
-    sh:sparql [
-        sh:message "Feature description metric"@en ;
-        sh:prefixes [
-            sh:declare [
-                sh:prefix "rdf" ;
-                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI
-            ] ;
-            sh:declare [
-                sh:prefix "" ;
-                sh:namespace "https://example.org/ex#"^^xsd:anyURI
-            ] ;
-            sh:declare [
-                sh:prefix "dqv" ;
-                sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI
-            ] ;
-            sh:declare [
-                sh:prefix "xsd" ;
-                sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI
-            ] ;
-            sh:declare [
-                sh:prefix "terms" ;
-                sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI
-            ]
-        ] ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                FILTER NOT EXISTS {
-                    ?measurement dqv:computedOn $this ;
-                        rdf:type dqv:QualityMeasurement ;
-                        dqv:isMeasurementOf :FeatureDescriptionMetric;
-                        dqv:value ?value .
-                    FILTER(datatype(?value) = xsd:string)
-                }
-            }
-
         """
     ] ;
 

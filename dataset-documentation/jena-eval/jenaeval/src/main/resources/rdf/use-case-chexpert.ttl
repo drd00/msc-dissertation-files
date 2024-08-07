@@ -125,13 +125,8 @@
 :InstanceCompositionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :InstanceCompositionMetric ;
-    dqv:value "Each instance is a frontal or lateral X-ray image"^^xsd:string .
-
-:FeatureDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
-    dqv:computedOn :ChexpertDataset ;
-    dqv:isMeasurementOf :FeatureDescriptionMetric ;
     dqv:value """
-        Each instance is a frontal or lateral X-ray image. There are two versions of each image:
+            Each instance is a frontal or lateral X-ray image. There are two versions of each image:
             - Large: Original size from DICOM, grayscale downsampled to 256 levels. Images are stored in JPEG format.
             - Small: Size downsampled to approximately 390 × 320 pixels (images size vary because they were downsampled to 320 pixels preserving ratio of dimensions), grayscale downsampled to 256 levels. Images are stored in JPEG format.
             
@@ -143,6 +138,8 @@
             - Whether the image is frontal or lateral.
             - For frontal images, whether the image is anteriorposterior (“AP”), or posterioranterior (“PA”).
             - Fourteen columns with observations extracted from the image report (training set) or the images (validation set).
+
+    
     """^^xsd:string .
 
 # Label or target

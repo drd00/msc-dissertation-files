@@ -125,13 +125,8 @@
 :InstanceCompositionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :InstanceCompositionMetric ;
-    dqv:value "Each instance is a frontal or lateral X-ray image"^^xsd:string .
-
-:FeatureDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
-    dqv:computedOn :ChexpertDataset ;
-    dqv:isMeasurementOf :FeatureDescriptionMetric ;
     dqv:value """
-        Each instance is a frontal or lateral X-ray image. There are two versions of each image:
+            Each instance is a frontal or lateral X-ray image. There are two versions of each image:
             - Large: Original size from DICOM, grayscale downsampled to 256 levels. Images are stored in JPEG format.
             - Small: Size downsampled to approximately 390 × 320 pixels (images size vary because they were downsampled to 320 pixels preserving ratio of dimensions), grayscale downsampled to 256 levels. Images are stored in JPEG format.
             
@@ -143,6 +138,8 @@
             - Whether the image is frontal or lateral.
             - For frontal images, whether the image is anteriorposterior (“AP”), or posterioranterior (“PA”).
             - Fourteen columns with observations extracted from the image report (training set) or the images (validation set).
+
+    
     """^^xsd:string .
 
 # Label or target
@@ -284,18 +281,18 @@
     rdfs:comment "Personally identifiable information has been removed from the data"@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :ConfidentialDataPresenceMetric ;
-    dqv:value "false"^^xsd:boolean .
+    dqv:value "false"^^xsd:boolean . 
 
-# Offensive data
-:SensitiveContentPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+# Offensive / insulting / threatening / otherwise anxiety causing data
+:AnxietyContentPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
+    dqv:isMeasurementOf :AnxietyContentPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Subpopulations
 :SubpopulationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
-    dqv:isMeasurementOf :SensitiveContentPresenceMetric ;
+    dqv:isMeasurementOf :SubpopulationPresenceMetric ;
     dqv:value "true"^^xsd:boolean .
 
 :SubpopulationDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
@@ -324,7 +321,21 @@
     rdfs:comment "Images and the associated reports were extracted from the Stanford Hospital DICOM and electronic medical records systems."@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :InstanceAcquisitionMetric ;
-    dqv:value :DirectlyObservable .
+    dqv:value :SubjectReported .
+
+# Todo: fix comments
+:VerificationPresence rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Something" ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceAcquisitionVerificationPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+:VerificationDescription rdf:type dqv:QualityMeasurement ;
+    rdfs:comment "Something else" ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceAcquisitionVerificationDescriptionMetric ;
+    dqv:value "Something here"^^xsd:string .
+
 
 # Data acquisition mechanisms
 # N.B. Again not clear that this was answered sufficiently.
@@ -351,9 +362,29 @@
 # TODO: who was involved in the data collection process?
 
 # Collection duration
-:DataspanMeasurement rdf:type dqv:QualityMeasurement ;
+:DatespanMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :DatespanMetric ;
+    dqv:value [
+        rdf:type terms:PeriodOfTime ;
+        terms:start "2019-01-01"^^xsd:date ;
+        terms:end "2019-12-31"^^xsd:date
+    ] .
+
+:DatespanMatchesInstanceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DatespanMatchesInstanceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+
+# :InstanceDateDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+#     dqv:computedOn :ChexpertDataset ;
+#     dqv:isMeasurementOf :InstanceDateDescriptionMetric ;
+#     dqv:value "something"^^xsd:string .
+
+:InstanceDateDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :InstanceDateDescriptionMetric ;
     dqv:value [
         rdf:type terms:PeriodOfTime ;
         terms:start "2002-10-01"^^xsd:date ;
@@ -391,6 +422,11 @@
     rdfs:comment "It's noted that individual patient consent is waived for de-identified data in compliance with institutional IRB and federal guidelines."@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :ConsentObtainedPresenceMetric ;
+    dqv:value "false"^^xsd:boolean .
+
+:ConsentRevokationPresenceMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :ConsentRevokationPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 # Impact analysis
@@ -548,7 +584,7 @@
     rdfs:comment "Already distributed"@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :DistributionDateMetric ;
-    dqv:value "2024-07-31"^^xsd:date .    # placeholder value to taste shapes
+    dqv:value "2024-07-30"^^xsd:date .
 
 # License
 :LicensePresenceMeasurement rdf:type dqv:QualityMeasurement ;
