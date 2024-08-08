@@ -249,8 +249,7 @@
 # Constraint to ensure any :BiasAssertion has a :Bias test subject
 :BiasAssertion rdfs:subClassOf [
     rdf:type owl:Restriction ;
-    owl:onProperty earl:test ;
-    owl:allValuesFrom :Bias ;
+    owl:onProperty :testsBias ;
     owl:cardinality "1"^^xsd:nonNegativeInteger
 ] ,
 [
@@ -1133,11 +1132,11 @@
     rdfs:comment "No one shall be liable to be tried or punished again in criminal proceedings for an offence for which he or she has already been finally acquitted or convicted within the Union in accordance with the law."@en ;
     rdfs:label "Right not to be tried or punished twice in criminal proceedings for the same criminal offence"@en .
 
-:potentiatesSocietalBias rdf:type owl:ObjectProperty ;
+:interpretedBias rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAudit ;
     rdfs:range :SocietalBias ;
     rdfs:comment ""@en ;
-    rdfs:label "Indicates that another bias type map"@en .
+    rdfs:label "Indicates a bias type interpreted from a bias audit"@en .
 
 # 'Potentially violates' to associate bias assertions with potential breaches of EU fundamental rights
 :potentiallyViolates rdf:type owl:ObjectProperty ;
