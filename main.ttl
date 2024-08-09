@@ -603,7 +603,7 @@
 
 # Mitigation applied on tests
 :mitigationApplied rdf:type owl:ObjectProperty ;
-    rdfs:domain :BiasAssertion ;
+    rdfs:domain :BiasAssertion , :BiasAudit ;
     rdfs:range :BiasMitigationMeasure ;
     rdfs:comment "Indicates a mitigation measure applied to a bias assertion"@en ;
     rdfs:label "Mitigation applied"@en .
