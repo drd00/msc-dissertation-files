@@ -493,7 +493,7 @@
 
 :FalsePositiveRateDifference rdf:type :FairnessMetric ;
     terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
-    rdfs:comment "(False positive rate for unprivileged group) minus (False positive rate for privileged group)"@en .   # FPRu-FPRp
+    rdfs:comment "(False positive rate for unprivileged group) minus (False positive rate for privileged group)"@en ;   # FPRu-FPRp
     rdfs:label "False positive rate difference"@en .
 
 :TruePositiveRateDifference rdf:type :FairnessMetric ;
