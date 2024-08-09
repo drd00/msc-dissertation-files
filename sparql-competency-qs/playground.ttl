@@ -1132,7 +1132,7 @@
     rdfs:comment "No one shall be liable to be tried or punished again in criminal proceedings for an offence for which he or she has already been finally acquitted or convicted within the Union in accordance with the law."@en ;
     rdfs:label "Right not to be tried or punished twice in criminal proceedings for the same criminal offence"@en .
 
-:potentiatesSocietalBias rdf:type owl:ObjectProperty ;
+:interpretedBias rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAudit ;
     rdfs:range :SocietalBias ;
     rdfs:comment ""@en ;
@@ -2339,7 +2339,7 @@
 
 
 :BiasAuditModel1 :hasAssertion :StatisticalParityAssertionModel1 , :EqualOpportunityAssertionModel1 , :AverageOddsAssertionModel1 .
-:BiasAuditModel1 :potentiatesSocietalBias :GenderBias .   # indicate the interpreted bias outcome
+:BiasAuditModel1 :interpretedBias :GenderBias .   # indicate the interpreted bias outcome
 
 :StatisticalParityAssertionModel2 rdf:type :BiasAssertion ;
     :groupDescription "Comparison between male and female groups" ;
@@ -2452,7 +2452,7 @@
     :testResultURI "https://example.org/results/average_odds_for_this_model"^^xsd:anyURI .
 
 :BiasAuditModel3 :hasAssertion :StatisticalParityAssertionModel1 , :EqualOpportunityAssertionModel3 , :AverageOddsAssertionModel3 .
-:BiasAuditModel3 :potentiatesSocietalBias :GenderBias .
+:BiasAuditModel3 :interpretedBias :GenderBias .
 
 :DisparateImpactAssertionDS1 rdf:type :BiasAssertion ;
     :groupDescription "Comparison of positive outcomes rates between females and males for income prediction" ;

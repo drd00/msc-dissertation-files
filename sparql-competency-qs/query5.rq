@@ -16,7 +16,7 @@ WHERE {
     }
     UNION {
         ?doc rdf:type :BiasAudit .
-        ?doc :potentiatesSocietalBias ?socbias .
+        ?doc :interpetedBias ?socbias .
         ?socbias :potentiallyViolates ?potentialViolation .
     }
 }

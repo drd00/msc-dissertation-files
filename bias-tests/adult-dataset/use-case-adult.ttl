@@ -80,7 +80,7 @@
 
 :AdultDatasetBiasAudit :hasAssertion :StatisticalParityAssertion , :EqualOpportunityAssertion , :AverageOddsAssertion .
 
-:AdultDatasetBiasAudit :potentiatesSocietalBias :GenderBias .   # indicate the interpreted bias outcome
+:AdultDatasetBiasAudit :interpretedBias :GenderBias .   # indicate the interpreted bias outcome
 
 # Represent tests on the dataset
 :AdultDatasetTrainingData rdf:type dcat:Dataset ;

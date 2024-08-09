@@ -5,6 +5,6 @@ PREFIX : <https://example.org/ex#>
 
 ASK WHERE {
     ?doc rdf:type :BiasAudit .
-    ?doc :potentiatesSocietalBias :RacialBias .
+    ?doc :interpetedBias :RacialBias .
 }
 

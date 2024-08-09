@@ -5,5 +5,5 @@ PREFIX : <https://example.org/ex#>
 
 ASK WHERE {
     ?doc rdf:type :BiasAudit .
-    ?doc :potentiatesSocietalBias :GenderBias .
+    ?doc :interpetedBias :GenderBias .
 }

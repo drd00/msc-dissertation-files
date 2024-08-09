@@ -1273,7 +1273,7 @@
 
 :interpretedBias rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAudit ;
-    rdfs:range :SocietalBias ;
+    rdfs:range :Bias ;
     rdfs:comment "Indicates a bias type interpreted from a bias audit"@en ;
     rdfs:label "Interpreted bias"@en .
 
@@ -1281,7 +1281,7 @@
 :potentiallyViolates rdf:type owl:ObjectProperty ;
     rdfs:domain :SocietalBias ;
     rdfs:range :EUFundamentalRight ;
-    rdfs:comment "Connects a bias assertion with a potential violation of an EU fundamental right." ;
+    rdfs:comment "Connects a societal bias with a potential violation of an EU fundamental right." ;
     rdfs:label "potentially violates" .
 
 # Some potential violations of EU fundamental rights.
