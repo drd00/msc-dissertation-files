@@ -260,7 +260,7 @@
 :BiasAssertion rdfs:subClassOf [
     rdf:type owl:Restriction ;
     owl:onProperty :hasFairnessMetric ;
-    owl:minCardinality "1"^^xsd:nonNegativeInteger
+    owl:cardinality "1"^^xsd:nonNegativeInteger
 ] .
 
 # A custom 'tests bias' type. Purpose: Simplifies documentation.
@@ -480,7 +480,6 @@
     terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric"@en ;
     rdfs:comment "(False omission rate for unprivileged group) divided by (False omission rate for privileged group)"@en ; # FORu/FORp
     rdfs:label "False omission rate ratio"@en .
-
 
 :FalsePositiveRateRatio rdf:type :FairnessMetric ;
     terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
