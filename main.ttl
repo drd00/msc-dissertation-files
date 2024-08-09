@@ -416,7 +416,7 @@
 
 :hasFairnessMetric rdf:type owl:ObjectProperty ;
     rdfs:domain :BiasAssertion ;
-    rdfs:range :BiasMetric ;
+    rdfs:range :FairnessMetric ;
     rdfs:comment "Indicates that a test uses a particular fairness metric."@en ;
     rdfs:label "has fairness metric"@en .
 
