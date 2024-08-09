@@ -18,9 +18,9 @@
 	rdfs:comment "Describes for what purpose was the dataset created."@en .
 
 :PurposeMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the purpose dimension of a dataset"@en ;
+	rdfs:label "se metric"@en ;
 	dqv:inDimension :PurposeDimension .
-
 
 # Funded by
 :FundingPresenceDimension rdf:type dqv:Dimension ;
@@ -34,11 +34,13 @@
     rdfs:comment "Describes dataset funding, if present."@en .
 
 :FundingPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the funding presence dimension of a dataset"@en ;
+	rdfs:label "Funding presence metric"@en ;
 	dqv:inDimension :FundingPresenceDimension .
 
 :FundingDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the funding description dimension of a dataset"@en ;
+	rdfs:label "Funding description metric"@en ;
 	dqv:inDimension :FundingDescriptionDimension .
 
 
@@ -49,7 +51,8 @@
 	rdfs:comment "Describes the types of instances comprising the dataset"@en .
 
 :InstanceTypesMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the instance types dimension of a dataset"@en ;
+	rdfs:label "Instance types metric"@en ;
 	dqv:inDimension :InstanceTypesDimension .
 
 
@@ -60,7 +63,8 @@
 	rdfs:comment "Counts of instances in the dataset"@en .
 
 :InstanceCountMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the instance count dimension of a dataset"@en ;
+	rdfs:label "Instance count metric"@en ;
 	dqv:inDimension :InstanceCountDimension .
 
 
@@ -81,15 +85,18 @@
 	rdfs:comment "Describes the method used for sampling"@en .
 
 :SamplingMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the sampling dimension of a dataset"@en ;
+	rdfs:label "Sampling metric"@en ;
 	dqv:inDimension :SamplingDimension .
 
 :RepresentativenessMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the representativeness dimension of a dataset"@en ;
+	rdfs:label "Representativeness metric"@en ;
 	dqv:inDimension :RepresentativenessDimension .
 
 :SamplingMethodMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the sampling method dimension of a dataset"@en ;
+	rdfs:label "Sampling method metric"@en ;
 	dqv:inDimension :SamplingMethodDimension .
 
 
@@ -100,7 +107,8 @@
 	rdfs:comment "Describes what each instance in the dataset consists of"@en .
 
 :InstanceCompositionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the instance composition dimension of a dataset"@en ;
+	rdfs:label "Instance composition metric"@en ;
 	dqv:inDimension :InstanceCompositionDimension .
 
 
@@ -116,11 +124,13 @@
 	rdfs:comment "Provides a detailed description of the labels or targets associated with instances"@en .
 
 :LabelPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the label presence dimension of a dataset"@en ;
+	rdfs:label "Label presence metric"@en ;
 	dqv:inDimension :LabelPresenceDimension .
 
 :LabelDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the label description dimension of a dataset"@en ;
+	rdfs:label "Label description metric"@en ;
 	dqv:inDimension :LabelDescriptionDimension .
 
 
@@ -136,11 +146,13 @@
 	rdfs:comment "Provides details about what information is missing and why"@en .
 
 :MissingInfoPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the missing info presence dimension of a dataset"@en ;
+	rdfs:label "Missing info presence metric"@en ;
 	dqv:inDimension :MissingInfoPresenceDimension .
 
 :MissingInfoDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the missing info description dimension of a dataset"@en ;
+	rdfs:label "Missing info description metric"@en ;
 	dqv:inDimension :MissingInfoDescriptionDimension .
 
 
@@ -156,11 +168,13 @@
 	rdfs:comment "Provides detail about how relationships between instances are made explicit"@en .
 
 :RelationshipPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the relationship presence dimension of a dataset"@en ;
+	rdfs:label "Relationship presence metric"@en ;
 	dqv:inDimension :RelationshipPresenceDimension .
 
 :RelationshipDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the relationship description dimension of a dataset"@en ;
+	rdfs:label "Relationship description metric"@en ;
 	dqv:inDimension :RelationshipDescriptionDimension .
 
 
@@ -176,11 +190,13 @@
 	rdfs:comment "Provides details about recommended data splits and their rationale."@en .
 
 :DataSplitPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data split presence dimension of a dataset"@en ;
+	rdfs:label "Data split presence metric"@en ;
 	dqv:inDimension :DataSplitPresenceDimension .
 
 :DataSplitDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data split description dimension of a dataset"@en ;
+	rdfs:label "Data split description metric"@en ;
 	dqv:inDimension :DataSplitDescriptionDimension .
 
 
@@ -196,11 +212,13 @@
 	rdfs:comment "Provides details about known errors, sources of noise, and redunancies in the dataset" .
 
 :DataIssuesPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data issues presence dimension of a dataset"@en ;
+	rdfs:label "Data issues presence metric"@en ;
 	dqv:inDimension :DataIssuesPresenceDimension .
 
 :DataIssuesDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data issues description dimension of a dataset"@en ;
+	rdfs:label "Data issues description metric"@en ;
 	dqv:inDimension :DataIssuesDescriptionDimension .
 
 
@@ -231,23 +249,28 @@
 	rdfs:comment "Describes any restrictions associated with the external resources"@en .
 
 :ExternalResourcesMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the external resources dimension of a dataset"@en ;
+	rdfs:label "External resources metric"@en ;
 	dqv:inDimension :ExternalResourcesDimension .
 
 :ExternalResourcesDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the external resources description dimension of a dataset"@en ;
+	rdfs:label "External resources description metric"@en ;
 	dqv:inDimension :ExternalResourcesDescriptionDimension .
 
 :ResourceGuaranteesMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the resource guarantees dimension of a dataset"@en ;
+	rdfs:label "Resource guarantees metric"@en ;
 	dqv:inDimension :ResourceGuaranteesDimension .
 
 :ArchivalVersionsMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the archival versions dimension of a dataset"@en ;
+	rdfs:label "Archival versions metric"@en ;
 	dqv:inDimension :ArchivalVersionsDimension .
 
 :ExternalRestrictionsMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the external restrictions dimension of a dataset"@en ;
+	rdfs:label "External restrictions metric"@en ;
 	dqv:inDimension :ExternalRestrictionsDimension .
 
 
@@ -263,11 +286,13 @@
 	rdfs:comment "Provides details about the nature of confidential data in the dataset"@en .
 
 :ConfidentialDataPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the confidential data presence dimension of a dataset"@en ;
+	rdfs:label "Confidential data presence metric"@en ;
 	dqv:inDimension :ConfidentialDataDescriptionDimension .
 
 :ConfidentialDataDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the confidential data description dimension of a dataset"@en ;
+	rdfs:label "Confidential data description metric"@en ;
 	dqv:inDimension :ConfidentialDataDescriptionDimension .
 
 
@@ -283,11 +308,13 @@
 	rdfs:comment "Provides details about the nature of potentially offensive or anxiety-causing content"@en .
 
 :AnxietyContentPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the anxiety content presence dimension of a dataset"@en ;
+	rdfs:label "Anxiety content presence metric"@en ;
 	dqv:inDimension :AnxietyContentPresenceDimension .
 
 :AnxietyContentDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the anxiety content description dimension of a dataset"@en ;
+	rdfs:label "Anxiety content description metric"@en ;
 	dqv:inDimension :AnxietyContentDescriptionDimension .
 
 
@@ -303,11 +330,13 @@
 	rdfs:comment "Provides details about how subpopulations are identified and their distributions within the dataset"@en .
 
 :SubpopulationPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the subpopulation presence dimension of a dataset"@en ;
+	rdfs:label "Subpopulation presence metric"@en ;
 	dqv:inDimension :SubpopulationPresenceDimension .
 
 :SubpopulationDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the subpopulation description dimension of a dataset"@en ;
+	rdfs:label "Subpopulation description metric"@en ;
 	dqv:inDimension :SubpopulationDescriptionDimension .
 
 
@@ -323,11 +352,13 @@
 	rdfs:comment "Provides details about how individuals might be identified from the dataset"@en .
 
 :IndividualIdentificationPossibilityMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the individual identification possibility dimension of a dataset"@en ;
+	rdfs:label "Individual identification possibility metric"@en ;
 	dqv:inDimension :IndividualIdentificationPossibilityDimension .
 
 :IndividualIdentificationDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the individual identification description dimension of a dataset"@en ;
+	rdfs:label "Individual identification description metric"@en ;
 	dqv:inDimension :IndividualIdentificationDescriptionDimension .
 
 
@@ -343,11 +374,13 @@
 	rdfs:comment "Provides details about how data might be considered sensitive."@en .
 
 :SensitiveDataPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the sensitive data presence dimension of a dataset"@en ;
+	rdfs:label "Sensitive data presence metric"@en ;
 	dqv:inDimension :SensitiveDataPresenceDimension .
 
 :SensitiveDataDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the sensitive data description dimension of a dataset"@en ;
+	rdfs:label "Sensitive data description metric"@en ;
 	dqv:inDimension :SensitiveDataDescriptionDimension .
 
 
@@ -388,15 +421,18 @@
 	rdfs:label "Instance acquisition verification description"@en .
 
 :InstanceAcquisitionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the instance acquisition dimension of a dataset"@en ;
+	rdfs:label "Instance acquisition metric"@en ;
 	dqv:inDimension :InstanceAcquisitionDimension .
 
 :InstanceAcquisitionVerificationPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the instance acquisition verification presence dimension of a dataset"@en ;
+	rdfs:label "Instance acquisition verification presence metric"@en ;
 	dqv:inDimension :InstanceAcquisitionVerificationPresenceDimension .
 
 :InstanceAcquisitionVerificationDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:coment ""@en ;
+	rdfs:coment "A metric to measure the instance acquisition verification description dimension of a dataset"@en ;
+	rdfs:label "Instance acquisition verification description metric"@en ;
 	dqv:inDimension :InstanceAcquisitionVerificationDescriptionDimension .
 
 
@@ -417,15 +453,18 @@
 	rdfs:label "Data acquisition mechanism validation description"@en .
 
 :DataAcquisitionMechanismMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data acquisition mechanism dimension of a dataset"@en ;
+	rdfs:label "Data acquisition mechanism metric"@en ;
 	dqv:inDimension :DataAcquisitionMechanismDimension .
 
 :DataAcquisitionMechanismValidationPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data acquisition mechanism validation presence dimension of a dataset"@en ;
+	rdfs:label "Data acquisition mechanism validation presence metric"@en ;
 	dqv:inDimension :DataAcquisitionMechanismValidationPresenceDimension .
 
 :DataAcquisitionMechanismValidationDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data acquisition mechanism validation description dimension of a dataset"@en ;
+	rdfs:label "Data acquisition mechanism validation description metric"@en ;
 	dqv:inDimension :DataAcquisitionMechanismValidationDescriptionDimension .
 
 
@@ -433,12 +472,12 @@
 :DatespanDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Indicates the timeframe over which the data was collected"@en ;
-	rdfs:label ""@en .
+	rdfs:label "Datespan dimension"@en .
 
 :DatespanMatchesInstanceDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:comment "Indicates whether the data associated with the instances matches the timeframe over which the data was collected"@en ;
-	rdfs:label ""@en .
+	rdfs:label "Datespan matches instance dimension"@en .
 
 :InstanceDateDescriptionDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
@@ -446,15 +485,18 @@
 	rdfs:label "Instance data creation timeframe"@en .
 
 :DatespanMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the datespan dimension of a dataset"@en ;
+	rdfs:label "Datespan metric"@en ;
 	dqv:inDimension :DatespanDimension .
 
 :DatespanMatchesInstanceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the datespan matches instance dimension of a dataset"@en ;
+	rdfs:label "Datespan matches instance metric"@en ;
 	dqv:inDimension :DatespanMatchesInstanceDimension .
 
 :InstanceDateDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the instance date description dimension of a dataset"@en ;
+	rdfs:label "Instance date description metric"@en ;
 	dqv:inDimension :InstanceDateDescriptionDimension .
 
 
@@ -470,11 +512,13 @@
 	rdfs:label "Ethical review description"@en .
 
 :EthicalReviewPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the ethical review presence dimension of a dataset"@en ;
+	rdfs:label "Ethical review presence metric"@en ;
 	dqv:inDimension :EthicalReviewPresenceDimension .
 
 :EthicalReviewDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the ethical review description dimension of a dataset"@en ;
+	rdfs:label "Ethical review description metric"@en ;
 	dqv:inDimension :EthicalReviewDescriptionDimension .
 
 
@@ -485,7 +529,8 @@
 	rdfs:label "Obtained directly or via third-party"@en .
 
 :ThirdPartyMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the third party dimension of a dataset"@en ;
+	rdfs:label "Third party metric"@en ;
 	dqv:inDimension :ThirdPartyDimension .
 
 
@@ -501,11 +546,13 @@
 	rdfs:label "Notification provided description"@en .
 
 :ProvidedNotificationPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the provided notification presence dimension of a dataset"@en ;
+	rdfs:label "Provided notification presence metric"@en ;
 	dqv:inDimension :ProvidedNotificationPresenceDimension .
 
 :ProvidedNotificationDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the provided notification description dimension of a dataset"@en ;
+	rdfs:label "Provided notification description metric"@en ;
 	dqv:inDimension :ProvidedNotificationDescriptionDimension .
 
 
@@ -521,11 +568,13 @@
 	rdfs:label "Consent obtained description"@en .
 
 :ConsentObtainedPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the consent obtained presence dimension of a dataset"@en ;
+	rdfs:label "Consent obtained presence metric"@en ;
 	dqv:inDimension :ConsentObtainedPresenceDimension .
 
 :ConsentObtainedDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the consent obtained description dimension of a dataset"@en ;
+	rdfs:label "Consent obtained description metric"@en ;
 	dqv:inDimension :ConsentObtainedDescriptionDimension .
 
 
@@ -541,11 +590,13 @@
 	rdfs:label "Consent revokation description"@en .
 
 :ConsentRevokationPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the consent revokation presence dimension of a dataset"@en ;
+	rdfs:label "Consent revokation presence dimension"@en ;
 	dqv:inDimension :ConsentRevokationPresenceDimension .
 
 :ConsentRevokationDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the consent revokation description dimension of a dataset"@en ;
+	rdfs:label "Consent revokation description metric"@en ;
 	dqv:inDimension :ConsentRevokationDescriptionDimension .
 
 
@@ -561,11 +612,13 @@
 	rdfs:label "Impact analysis description"@en .
 
 :ImpactAnalysisPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the impact analysis presence dimension of a dataset"@en ;
+	rdfs:label "Impact analysis presence metric"@en ;
 	dqv:inDimension :ImpactAnalysisPresenceDimension .
 
 :ImpactAnalysisDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the impact analysis description dimension of a dataset"@en ;
+	rdfs:label "Impact analysis description metric"@en ;
 	dqv:inDimension :ImpactAnalysisDescriptionDimension .
 
 
@@ -581,11 +634,13 @@
 	rdfs:label "Describes how data was preprocessed / cleaned / labelled, if this was done"@en .
 
 :PreprocessingDataPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the preprocessing data presence dimension of a dataset"@en ;
+	rdfs:label "Preprocessing data presence metric"@en ;
 	dqv:inDimension :PreprocessingDataPresenceDimension .
 
 :PreprocessingDataDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the preprocessing data description dimension of a dataset"@en ;
+	rdfs:label "Preprocessing data description metric"@en ;
 	dqv:inDimension :PreprocessingDataDescriptionDimension .
 
 
@@ -605,11 +660,13 @@
 	rdfs:label "Raw data link or other access point"@en .
 
 :RawDataSavedPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the raw data saved presence dimension of a dataset"@en ;
+	rdfs:label "Raw data saved presence metric"@en ;
 	dqv:inDimension :RawDataSavedPresenceDimension .
 
 :RawDataSavedAccessPointMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the raw data saved access point dimension of a dataset"@en ;
+	rdfs:label "Raw data saved access point metric"@en ;
 	dqv:inDimension :RawDataSavedAccessPointDimension .
 
 
@@ -625,11 +682,13 @@
 	rdfs:label "Preprocessing software access point"@en .
 
 :SoftwareAvailablePresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the software available presence dimension of a dataset"@en ;
+	rdfs:label "Software available presence metric"@en ;
 	dqv:inDimension :SoftwareAvailablePresenceDimension .
 
 :SoftwareAvailableAccessPointMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the software available access point dimension of a dataset"@en ;
+	rdfs:label "Software available access point metric"@en ;
 	dqv:inDimension :SoftwareAvailableAccessPointDimension .
 
 
@@ -645,11 +704,13 @@
 	rdfs:label "Description of previous tasks"@en .
 
 :TasksUsedForPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the tasks used for presence dimension of a dataset"@en ;
+	rdfs:label "Tasks used for presence metric"@en ;
 	dqv:inDimension :TasksUsedForPresenceDimension .
 
 :TasksUsedForDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the tasks used for description dimension of a dataset"@en ;
+	rdfs:label "Tasks used for description metric"@en ;
 	dqv:inDimension :TasksUsedForDescriptionDimension .
 
 
@@ -665,11 +726,13 @@
 	rdfs:label "Links repository access point"@en .
 
 :RepositoryLinksPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the repository links presence dimension of a dataset"@en ;
+	rdfs:label "Repository links presence metric"@en ;
 	dqv:inDimension :RepositoryLinksPresenceDimension .
 
 :RepositoryLinksAccessPointMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the repository links access point dimension of a dataset"@en ;
+	rdfs:label "Repository links access point metric"@en ;
 	dqv:inDimension :RepositoryLinksAccessPointDimension .
 
 
@@ -685,11 +748,13 @@
 	rdfs:label "Other possible tasks description"@en .
 
 :OtherPossibleTasksPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the other possible tasks presence dimension of a dataset"@en ;
+	rdfs:label "Other possible tasks presence metric"@en ;
 	dqv:inDimension :OtherPossibleTasksPresenceDimension .
 
 :OtherPossibleTasksDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the other possible tasks description dimension of a dataset"@en ;
+	rdfs:label "Other possible tasks description metric"@en ;
 	dqv:inDimension :OtherPossibleTasksDescriptionDimension .
 
 
@@ -705,11 +770,13 @@
 	rdfs:label "Description of composition / collectiong / processing future impact"@en .
 
 :CompositionCollectionProcessingFutureImpactPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the composition collection processing future impact presence dimension of a dataset"@en ;
+	rdfs:label "Composition collection processing future impact presence metric"@en ;
 	dqv:inDimension :CompositionCollectionProcessingFutureImpactPresenceDimension .
 
 :CompositionCollectionProcessingFutureImpactDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the composition collection processing future impact description dimension of a dataset"@en ;
+	rdfs:label "Composition collection processing future impact description metric"@en ;
 	dqv:inDimension :CompositionCollectionProcessingFutureImpactDescriptionDimension .
 
 
@@ -725,11 +792,13 @@
 	rdfs:label "Tasks not to be used for description"@en .
 
 :NotToBeUsedForTaskPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the not to be used for task presence dimension of a dataset"@en ;
+	rdfs:label "Not to be used for task presence metric"@en ;
 	dqv:inDimension :NotToBeUsedForTaskPresenceDimension .
 
 :NotToBeUsedForTaskDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the not to be used for task description dimension of a dataset"@en ;
+	rdfs:label "Not to be used for task description metric"@en ;
 	dqv:inDimension :NotToBeUsedForTaskDescriptionDimension .
 
 
@@ -745,11 +814,13 @@
 	rdfs:label "Third party distribution description"@en .
 
 :ThirdPartyDistributionPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the third party distribution presence dimension of a dataset"@en ;
+	rdfs:label "Third party distribution presence metric"@en ;
 	dqv:inDimension :ThirdPartyDistributionPresenceDimension .
 
 :ThirdPartyDistributionDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the third party distribution description dimension of a dataset"@en ;
+	rdfs:label "Third party distribution description metric"@en ;
 	dqv:inDimension :ThirdPartyDistributionDescriptionDimension .
 
 
@@ -770,15 +841,18 @@
 	rdfs:label "Dataset DOI"@en .
 
 :DistributionMeansMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the distribution means dimension of a dataset"@en ;
+	rdfs:label "Distribution means metric"@en ;
 	dqv:inDimension :DistributionMeansDimension .
 
 :hasDOIMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the has DOI dimension of a dataset"@en ;
+	rdfs:label "has DOI metric"@en ;
 	dqv:inDimension :hasDOIDimension .
 
 :DOIMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the DOI dimension of a dataset"@en ;
+	rdfs:label "DOI metric"@en ;
 	dqv:inDimension :DOIDimension .
 
 
@@ -789,7 +863,8 @@
 	rdfs:label "Distribution date"@en .
 
 :DistributionDateMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the distribution date dimension of a dataset"@en ;
+	rdfs:label "Distribution date metric"@en ;
 	dqv:inDimension :DistributionDateDimension .
 
 
@@ -805,11 +880,13 @@
 	rdfs:label "Description of licesning and/or ToU, including a link or other access point, if applicable"@en .
 
 :LicensePresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the license presence dimension of a dataset"@en ;
+	rdfs:label "License presence metric"@en ;
 	dqv:inDimension :LicensePresenceDimension .
 
 :LicenseDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the license description dimension of a dataset"@en ;
+	rdfs:label "License description metric"@en ;
 	dqv:inDimension :LicenseDescriptionDimension .
 
 
@@ -825,11 +902,13 @@
 	rdfs:label "Description of third party restrictions on instance data"@en .
 
 :InstanceDataRestrictionPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the instance data restriction presence dimension of a dataset"@en ;
+	rdfs:label "Instance data restriction presence metric"@en ;
 	dqv:inDimension :InstanceDataRestrictionPresenceDimension .
 
 :InstanceDataRestrictionDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the instance data restriction description dimension of a dataset"@en ;
+	rdfs:label "Instance data restriction description metric"@en ;
 	dqv:inDimension :InstanceDataRestrictionDescriptionDimension .
 
 
@@ -845,11 +924,13 @@
 	rdfs:label "Description of export controls / regulatory restrictions, if applicable"@en .
 
 :ExportControlRegulatoryRestrictionPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the export control regulatory restriction presence dimension of a dataset"@en ;
+	rdfs:label "Export control regulatory restriction presence metric"@en ;
 	dqv:inDimension :ExportControlRegulatoryRestrictionPresenceDimension .
 
 :ExportControlRegulatoryRestrictionDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the export control regulatory restriction description dimension of a dataset"@en ;
+	rdfs:label "Export control regulatory restriction description metric"@en ;
 	dqv:inDimension :ExportControlRegulatoryRestrictionDescriptionDimension .
 
 
@@ -885,11 +966,13 @@
 	rdfs:label "Erratum access point"@en .
 
 :ErratumPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the erratum presence dimension of a dataset"@en ;
+	rdfs:label "Erratum presence metric"@en ;
 	dqv:inDimension :ErratumPresenceDimension .
 
 :ErratumAccessPointMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the erratum access point dimension of a dataset"@en ;
+	rdfs:label "Erratum access point metric"@en ;
 	dqv:inDimension :ErratumAccessPointDimension .
 
 
@@ -915,19 +998,23 @@
 	rdfs:label "Dataset communication means"@en .
 
 :UpdatePresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the update presence dimension of a dataset"@en ;
+	rdfs:label "Update presence metric"@en ;
 	dqv:inDimension :UpdatePresenceDimension .
 
 :UpdateFrequencyMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the update frequency dimension of a dataset"@en ;
+	rdfs:label "Update frequency metric"@en ;
 	dqv:inDimension :UpdateFrequencyDimension .
 
 :UpdaterMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the updater dimension of a dataset"@en ;
+	rdfs:label "Updater metric"@en ;
 	dqv:inDimension :UpdaterDimension .
 
 :UpdateCommunicationMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the update communication dimension of a dataset"@en ;
+	rdfs:label "Update communication metric"@en ;
 	dqv:inDimension :UpdateCommunicationDimension .
 
 
@@ -943,11 +1030,13 @@
 	rdfs:label "Data retention description"@en .
 
 :DataRetentionPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data retention presence dimension of a dataset"@en ;
+	rdfs:label "Data retention presence metric"@en ;
 	dqv:inDimension :DataRetentionPresenceDimension .
 
 :DataRetentionDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the data retention description dimension of a dataset"@en ;
+	rdfs:label "Data retention description metric"@en ;
 	dqv:inDimension :DataRetentionDescriptionDimension .
 
 
@@ -964,11 +1053,13 @@
 	rdfs:label "Legacy support description"@en .
 
 :LegacySupportPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the legacy support presence dimension of a dataset"@en ;
+	rdfs:label "Legacy support presence metric"@en ;
 	dqv:inDimension :LegacySupportPresenceDimension .
 
 :LegacySupportDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the legacy support description dimension of a dataset"@en ;
+	rdfs:label "Legacy support description metric"@en ;
 	dqv:inDimension :LegacySupportDescriptionDimension .
 
 
@@ -1005,26 +1096,32 @@
 	rdfs:label "Augmentation communication description"@en .
 
 :AugmentationPossibilityPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the augmentation possibility presence dimension of a dataset"@en ;
+	rdfs:label "Augmentation possibility presence metric"@en ;
 	dqv:inDimension :AugmentationPossibilityPresenceDimension .
 
 :AugmentationPossibilityDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the augmentation possibility description dimension of a dataset"@en ;
+	rdfs:label "Augmentation possibility description metric"@en ;
 	dqv:inDimension :AugmentationPossibilityDescriptionDimension .
 
 :AugmentationValidationPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the augmentation validation presence dimension of a dataset"@en ;
+	rdfs:label "Augmentation validation presence metric"@en ;
 	dqv:inDimension :AugmentationValidationPresenceDimension .
 
 :AugmentationValidationDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the augmentation validation description dimension of a dataset"@en ;
+	rdfs:label "Augmentation validation description metric"@en ;
 	dqv:inDimension :AugmentationValidationDescriptionDimension .
 
 :AugmentationCommunicationPresenceMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the augmentation communication presence dimension of a dataset"@en ;
+	rdfs:label "Augmentation communication presence metric"@en ;
 	dqv:inDimension :AugmentationCommunicationPresenceDimension .
 
 :AugmentationCommunicationDescriptionMetric rdf:type dqv:Metric ;
-	rdfs:comment ""@en ;
+	rdfs:comment "A metric to measure the augmentation communication description dimension of a dataset"@en ;
+	rdfs:label "Augmentation communication description metric"@en ;
 	dqv:inDimension :AugmentationCommunicationDescriptionDimension .
 
