@@ -328,15 +328,12 @@
     dqv:isMeasurementOf :InstanceAcquisitionMetric ;
     dqv:value :SubjectReported .
 
-# Todo: fix comments
 :VerificationPresence rdf:type dqv:QualityMeasurement ;
-    rdfs:comment "Something" ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :InstanceAcquisitionVerificationPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 :VerificationDescription rdf:type dqv:QualityMeasurement ;
-    rdfs:comment "Something else" ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :InstanceAcquisitionVerificationDescriptionMetric ;
     dqv:value "Something here"^^xsd:string .
@@ -364,7 +361,15 @@
     dqv:isMeasurementOf :SamplingMethodMetric ;
     dqv:value "Images that had protected health information (PHI) of any type were excluded from the dataset."^^xsd:string .
 
-# TODO: who was involved in the data collection process?
+# Who was involved in the data collection process?
+:DataCollectionParticipantsMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataCollectionParticipantsMetric ;
+    dqv:value """
+        A team from Stanford's Computer Science, Medicine, and Radiology departments worked together on this project. The project was led through Stanford's AI for Healthcare Bootcamp.
+
+        None of the team members, students, and radiologists were compensated for this work, beyond their regular compensation for the position they held in their respective departments.
+    """^^xsd:string .
 
 # Collection duration
 :DatespanMeasurement rdf:type dqv:QualityMeasurement ;

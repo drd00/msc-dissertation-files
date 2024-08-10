@@ -59,7 +59,6 @@
 
 # N.B.: they do not answer this question correctly, so the closest thing to a description of representativeness is filled.
 :RepresentativenessMeasurement rdf:type dqv:QualityMeasurement ;
-    rdfs:comment "This field was not unambiguously answered"@en ;
     dqv:computedOn :MoviewDataset ;
     dqv:isMeasurementOf :RepresentativenessMetric ;
     dqv:value "No tests were run to determine representativeness."^^xsd:string .
@@ -201,7 +200,12 @@
         The sample of instances collected is English movie reviews from the rec.arts.movies.reviews newsgroup, from which a “number of stars” rating could be extracted. The sample is limited to forty reviews per unique author in order to achieve broader coverage by authorship. Beyond that, the sample is arbitrary 
     """^^xsd:string .
 
-# TODO: who was involved in the data collection process?
+:DataCollectionParticipantsMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :MoviewDataset ;
+    dqv:isMeasurementOf :DataCollectionParticipantsMetric ;
+    dqv:value """
+        Unknown to the authors of the datasheet.
+    """^^xsd:string .
 
 # Collection duration
 # TODO: fix dqv:value here.

@@ -119,7 +119,12 @@
     rdfs:comment "This field was not unambiguously answered"@en ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :RepresentativenessMetric ;
-    dqv:value "The dataset contains studies from patients that visited the inpatient and outpatient centers of the Stanford Hospital between October 2002 and July 2017 and had a chest X-ray taken."^^xsd:string .
+    dqv:value """The dataset contains studies from patients that visited the inpatient and outpatient centers of the Stanford Hospital between October 2002 and July 2017 and had a chest X-ray taken.
+    
+    Studies that had been prospectively labeled as one of "normal", "known abnormality" and "emergent abnormality" were included in the analysis.
+
+    The studies are ordered chronologically in the dataset.
+    """^^xsd:string .
 
 # Each instance consists of
 :InstanceCompositionMeasurement rdf:type dqv:QualityMeasurement ;
@@ -323,15 +328,12 @@
     dqv:isMeasurementOf :InstanceAcquisitionMetric ;
     dqv:value :SubjectReported .
 
-# Todo: fix comments
 :VerificationPresence rdf:type dqv:QualityMeasurement ;
-    rdfs:comment "Something" ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :InstanceAcquisitionVerificationPresenceMetric ;
     dqv:value "false"^^xsd:boolean .
 
 :VerificationDescription rdf:type dqv:QualityMeasurement ;
-    rdfs:comment "Something else" ;
     dqv:computedOn :ChexpertDataset ;
     dqv:isMeasurementOf :InstanceAcquisitionVerificationDescriptionMetric ;
     dqv:value "Something here"^^xsd:string .
@@ -359,7 +361,15 @@
     dqv:isMeasurementOf :SamplingMethodMetric ;
     dqv:value "Images that had protected health information (PHI) of any type were excluded from the dataset."^^xsd:string .
 
-# TODO: who was involved in the data collection process?
+# Who was involved in the data collection process?
+:DataCollectionParticipantsMeasurement rdf:type dqv:QualityMeasurement ;
+    dqv:computedOn :ChexpertDataset ;
+    dqv:isMeasurementOf :DataCollectionParticipantsMetric ;
+    dqv:value """
+        A team from Stanford's Computer Science, Medicine, and Radiology departments worked together on this project. The project was led through Stanford's AI for Healthcare Bootcamp.
+
+        None of the team members, students, and radiologists were compensated for this work, beyond their regular compensation for the position they held in their respective departments.
+    """^^xsd:string .
 
 # Collection duration
 :DatespanMeasurement rdf:type dqv:QualityMeasurement ;

@@ -98,6 +98,17 @@
 	dqv:inDimension :SamplingMethodDimension .
 
 
+# Who was involved in the data collection process?
+:DataCollectionParticipantsDimension rdf:type dqv:Dimension ;
+	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
+	rdfs:label "Data collection participants"@en ;
+	rdfs:comment "Describes who was involved in the data collection process"@en .
+
+:DataCollectionParticipantsMetric rdf:type dqv:Metric ;
+	rdfs:comment "A metric to measure the data collection participants dimension of a dataset"@en ;
+	rdfs:label "Data collection participants metric"@en ;
+	dqv:inDimension :WhoDataCollectionDimension .
+
 # Each instance consists of
 :InstanceCompositionDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
