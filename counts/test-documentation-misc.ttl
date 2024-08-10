@@ -8,6 +8,12 @@
 
 @prefix : <https://example.org/ex#> .   # for new declarations
 
+:interpretedBias rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAudit ;
+    rdfs:range :Bias ;
+    rdfs:comment "Indicates a bias type interpreted from a bias audit"@en ;
+    rdfs:label "Interpreted bias"@en .
+
 :BiasAudit rdf:type owl:Class ;
     rdfs:subClassOf airo:Documentation ;
     rdfs:comment "An audit which focuses on measuring bias in the AI system"@en ;
@@ -113,21 +119,31 @@
     rdfs:comment "A threshold which indicates a value, above or below which a test may be considered to have passed or failed"@en ;
     rdfs:label "Threshold binary"@en .
 
-:thresholdBegin rdf:type owl:ObjectProperty ;
+:thresholdBegin rdf:type owl:DatatypeProperty ;
     rdfs:domain :ThresholdRange ;
-    rdfs:range xsd:float , xsd:integer ;
+#    rdfs:range xsd:float , xsd:integer ;
+    rdfs:range [ 
+        rdf:type rdfs:Datatype ;
+        owl:unionOf ( xsd:float xsd:integer )
+    ] ;
     rdfs:comment "Indicates a float or integer beginning value for a range threshold"@en ;
     rdfs:label "threshold begin"@en .
 
-:thresholdEnd rdf:type owl:ObjectProperty ;
+:thresholdEnd rdf:type owl:DatatypeProperty ;
     rdfs:domain :ThresholdRange ;
-    rdfs:range xsd:float , xsd:integer ;
+    rdfs:range [
+        rdf:type rdfs:Datatype ;
+        owl:unionOf ( xsd:float xsd:integer )
+    ] ;
     rdfs:comment "Indicates a float or integer ending value for a range threshold"@en ;
     rdfs:label "threshold end"@en .
 
 :binaryThreshold rdf:type owl:ObjectProperty ;
     rdfs:domain :ThresholdBinary ;
-    rdfs:range xsd:float , xsd:integer ;
+    rdfs:range [
+        rdf:type rdfs:Datatype ;
+        owl:unionOf ( xsd:float xsd:integer )
+    ] ;
     rdfs:comment "Indicates a float or integer value for the binary threshold"@en ;
     rdfs:label "binary threshold"@en .
 
@@ -171,13 +187,13 @@
     rdfs:comment "Indicates that a test results in a fail, with an integer test result."@en ;
     rdfs:label "Integer fail"@en .
 
-:floatValue rdf:type owl:ObjectProperty ;
+:floatValue rdf:type owl:DatatypeProperty ;
     rdfs:domain :FloatPass , :FloatFail ;
     rdfs:range xsd:float ;
     rdfs:comment "Indicates the float value result associated with a FloatPass or FloatFail test result."@en ;
     rdfs:label "float value"@en .
 
-:integerValue rdf:type owl:ObjectProperty ;
+:integerValue rdf:type owl:DatatypeProperty ;
     rdfs:domain :IntegerPass , :IntegerFail ;
     rdfs:range xsd:integer ;
     rdfs:comment "Indicates the integer value result associated with an IntegerPass or IntegerFail test result."@en ;
@@ -207,9 +223,3 @@
     owl:onProperty :integerValue ;
     owl:cardinality "1"^^xsd:nonNegativeInteger
 ] .
-
-:interpretedBias rdf:type owl:ObjectProperty ;
-    rdfs:domain :BiasAudit ;
-    rdfs:range :Bias ;
-    rdfs:comment "Indicates a bias type interpreted from a bias audit"@en ;
-    rdfs:label "Interpreted bias"@en .
