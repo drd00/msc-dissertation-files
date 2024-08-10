@@ -207,3 +207,9 @@
     owl:onProperty :integerValue ;
     owl:cardinality "1"^^xsd:nonNegativeInteger
 ] .
+
+:interpretedBias rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAudit ;
+    rdfs:range :Bias ;
+    rdfs:comment "Indicates a bias type interpreted from a bias audit"@en ;
+    rdfs:label "Interpreted bias"@en .

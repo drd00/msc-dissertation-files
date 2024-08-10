@@ -28,15 +28,15 @@
     :hasFairnessMetric :StatisticalParityDifference ;
     :testThreshold [
         rdf:type :ThresholdRange ;
-        :thresholdBegin -0.1 ;
-        :thresholdEnd 0.1
+        :thresholdBegin "-0.1"^^xsd:float ;
+        :thresholdEnd "0.1"^^xsd:float
     ] ;
     :testsBias :GenderBias ;
     earl:result [
         rdf:type earl:TestResult ;
         earl:outcome [
             rdf:type :FloatFail ;
-            :floatValue -0.1104
+            :floatValue "-0.1104"^^xsd:float
         ]
     ] ;
     :testResultURI "https://example.org/results/statistical_party_for_this_model"^^xsd:anyURI .
@@ -46,15 +46,15 @@
     :hasFairnessMetric :EqualOpportunityDifference ;
     :testThreshold [
         rdf:type :ThresholdRange ;
-        :thresholdBegin -0.1 ;
-        :thresholdEnd 0.1
+        :thresholdBegin "-0.1"^^xsd:float ;
+        :thresholdEnd "0.1"^^xsd:float
     ] ;
     :testsBias :GenderBias ;
     earl:result [
         rdf:type earl:TestResult ;
         earl:outcome [
             rdf:type :FloatPass ;
-            :floatValue 0.0910
+            :floatValue "0.0910"^^xsd:float
         ]
     ] ;
     :testResultURI "https://example.org/results/equal_opportunity_for_this_model"^^xsd:anyURI .
@@ -64,15 +64,15 @@
     :hasFairnessMetric :AverageOddsDifference ;
     :testThreshold [
         rdf:type :ThresholdRange ;
-        :thresholdBegin -0.1 ;
-        :thresholdEnd 0.1
+        :thresholdBegin "-0.1"^^xsd:float ;
+        :thresholdEnd "0.1"^^xsd:float
     ] ;
     :testsBias :GenderBias ;
     earl:result [
         rdf:type earl:TestResult ;
         earl:outcome [
             rdf:type :FloatPass ;
-            :floatValue 0.0786
+            :floatValue "0.0786"^^xsd:float
         ]
     ] ;
     :testResultURI "https://example.org/results/average_odds_for_this_model"^^xsd:anyURI .

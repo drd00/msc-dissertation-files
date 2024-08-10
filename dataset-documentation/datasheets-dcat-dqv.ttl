@@ -5,8 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix airo: <https://w3id.org/airo#> .
 
 # Example namespace for any new types.
 @prefix : <https://example.org/ex#> .
