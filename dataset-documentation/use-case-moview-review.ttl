@@ -59,7 +59,6 @@
 
 # N.B.: they do not answer this question correctly, so the closest thing to a description of representativeness is filled.
 :RepresentativenessMeasurement rdf:type dqv:QualityMeasurement ;
-    rdfs:comment "This field was not unambiguously answered"@en ;
     dqv:computedOn :MoviewDataset ;
     dqv:isMeasurementOf :RepresentativenessMetric ;
     dqv:value "No tests were run to determine representativeness."^^xsd:string .
