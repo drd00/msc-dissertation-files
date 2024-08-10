@@ -1,0 +1,201 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix earl: <http://www.w3.org/ns/earl#> .
+
+@prefix : <https://example.org/ex#> .   # for new declarations
+
+:FairnessMetric rdf:type owl:Class ;
+    terms:source "IBM AI Fairness 360 Glossary, https://aif360.res.ibm.com/resources#glossary"@en ;
+    rdfs:comment "A quantification of unwanted bias in training data or models"@en ;
+    rdfs:label "Fairness metric"@en .
+
+:hasFairnessMetric rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range :FairnessMetric ;
+    rdfs:comment "Indicates that a test uses a particular fairness metric."@en ;
+    rdfs:label "has fairness metric"@en .
+
+# Fairness metrics from IBM AIF360
+:StatisticalParityDifference rdf:type :FairnessMetric ;
+    terms:source "IBM Cloud Pak for Data Docs, https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-stat-parity-diff.html?context=cpdaas"@en ;
+    rdfs:comment "The Statistical parity difference metric calculates the difference in the ratio of favorable outcomes between monitored groups and reference groups"@en ;
+    rdfs:label "Statistical parity difference"@en .
+
+:DisparateImpact rdf:type :FairnessMetric ;
+    terms:source "IBM Cloud Pak for Data Docs, https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-disparate-impact.html?context=analytic"@en ;
+    rdfs:comment "Disparate impact compares the percentage of favorable outcomes for a monitored group to the percentage of favorable outcomes for a reference group"@en ;
+    rdfs:label "Disparate impact"@en .
+
+:EqualOpportunityDifference rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Web Page, https://aif360.res.ibm.com/"@en ;
+    rdfs:comment "The difference of true positive rates between the unprivileged and the privileged groups"@en ;
+    rdfs:label "Equal opportunity difference"@en .
+
+:AverageOddsDifference rdf:type :FairnessMetric ;
+    terms:source "IBM Cloud Pak for Data Docs, https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-fairness-metrics-ovr.html?context=cpdaas"@en ;
+    rdfs:comment "The average odds difference gives the percentage of transactions that was incorrectly scored by your model"@en ;
+    rdfs:label "Average odds difference"@en .
+
+:AverageAbsOddsDifference rdf:type :FairnessMetric ;
+    terms:source "IBM Cloud Pak for Data Docs, https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-fairness-metrics-ovr.html?context=cpdaas"@en ;
+    rdfs:comment "The average absolute odds difference compares the average of absolute difference in false positive rates and true positive rates between monitored groups and reference groups"@en ;
+    rdfs:label "Average absolute odds difference"@en .
+
+:ErrorRateDifference rdf:type :FairnessMetric ;
+    terms:source "IBM Cloud Pak for Data Docs, https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-fairness-metrics-ovr.html?context=cpdaas"@en ;
+    rdfs:comment "The error rate difference calculates the percentage of transactions that are incorrectly scored by your model"@en ;
+    rdfs:label "Error rate difference"@en .
+
+:ErrorRateRatio rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric"@en ;
+    rdfs:comment "(False positives + False negatives) divided by (Positives + Negatives) "@en ;    # (FP+FN)/(P+N)
+    rdfs:label "Error rate ratio"@en .
+
+:FalseDiscoveryRateDifference rdf:type :FairnessMetric ;
+    terms:source "IBM Cloud Pak for Data Docs, https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-fairness-metrics-ovr.html?context=cpdaas"@en ;
+    rdfs:comment "The false discovery rate difference gives the amount of false positive transactions as a percentage of all transactions with a positive outcome"@en ;
+    rdfs:label "False discovery rate difference"@en .
+
+:FalseDiscoveryRateRatio rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric"@en ;
+    rdfs:comment "(False discovery rate for unprivileged group) divided by (False discovery rate for privileged group)"@en ; # FDRu/FDRp
+    rdfs:label "False discovery rate ratio"@en .
+
+:FalseNegativeRateRatio rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric"@en ;
+    rdfs:comment "(False negative rate for the unprivileged group) divided by (False negative rate for the privileged group)"@en ; # FNRu/FNRp
+    rdfs:label "False negative rate ratio"@en .
+
+:FalseOmissionRateDifference rdf:type :FairnessMetric ;
+    terms:source "IBM Cloud Pak for Data Docs, https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-fairness-metrics-ovr.html?context=cpdaas"@en ;
+    rdfs:comment "The false omission rate difference gives the number of false negative transactions as a percentage of all transactions with a negative outcome"@en ;
+    rdfs:label "False omission rate difference"@en .
+
+:FalseOmissionRateRatio rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric"@en ;
+    rdfs:comment "(False omission rate for unprivileged group) divided by (False omission rate for privileged group)"@en ; # FORu/FORp
+    rdfs:label "False omission rate ratio"@en .
+
+:FalsePositiveRateRatio rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "(False positive rate for unprivileged group) divided by (False positive rate for privileged group)"@en ;
+    rdfs:label "False positive rate ratio"@en .
+
+:FalseNegativeRateDifference rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "(False negative rate for unprivileged group) divided by (False negative rate for privileged group)"@en ; # FNRu-FNRp
+    rdfs:label "False negative rate difference"@en .
+
+:FalsePositiveRateDifference rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "(False positive rate for unprivileged group) minus (False positive rate for privileged group)"@en ;   # FPRu-FPRp
+    rdfs:label "False positive rate difference"@en .
+
+:TruePositiveRateDifference rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "The ratio of true positives to positive examples in the dataset, TPR = TP/P"@en ;
+    rdfs:label "True positive rate difference"@en .
+
+:CoefficientOfVariation rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "The square root of two times the generalize entropy index"@en ;
+    rdfs:label "Coefficient of variation"@en .
+
+:TheilIndex rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "The Theil index is the generalized entropy index with alpha = 1" ;
+    rdfs:label "Theil index"@en .
+
+:BetweenGroupTheilIndex rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "The between group generalized entropy index with alpha = 1"@en ;
+    rdfs:label "Between group Theil index"@en .
+
+:BetweenGroupCoefficientOfVariation rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "The square root of two times the between group generalized entropy index with alpha = 2"@en ;
+    rdfs:label "Between group coefficient of variation"@en .
+
+:BetweenAllGroupsCoefficientOfVariation rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "The square root of two times the between all groups generalized entropy index with alpha = 2"@en ;
+    rdfs:label "Between all groups coefficient of variation"@en .
+
+:BetweenAllGroupsGeneralisedEntropyIndex rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "Between-group generalized entropy index that uses all combinations of groups based on self.dataset.protected_attributes"@en ;
+    rdfs:label "Between all groups generalised entropy index"@en .
+
+:ConsistencyMetric rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "Individual fairness metric that measures how similar the labels are for similar instances"@en ;
+    rdfs:label "Consistency metric"@en .
+
+:GeneralisedEntropyIndex rdf:type :FairnessMetric ;
+    terms:source "A Unified Approach to Quantifying Algorithmic Unfairness: Measuring Individual & Group Unfairness via Inequality Indices. https://arxiv.org/abs/1807.00787" ;
+    rdfs:comment "Generalized entropy index is a measure of unfairness which can be interpreted as a measure of information theoretic redundancy in data."@en ;
+    rdfs:label "Generalised entropy index"@en .
+
+:BetweenGroupGeneralisedEntropyIndex rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric" ;
+    rdfs:comment "Between-group generalized entropy index that uses self.privileged_groups and self.unprivileged_groups as the only two groups"@en ;
+    rdfs:label "Between groups generalised entropy index"@en .
+
+:MeanEuclideanDistanceDifference rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.SampleDistortionMetric.html#aif360.metrics.SampleDistortionMetric"@en ;
+    rdfs:comment "Difference of the average Euclidean distances"@en ;
+    rdfs:label "Mean Euclidean distance difference"@en .
+
+:MeanEuclideanDistanceRatio rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.SampleDistortionMetric.html#aif360.metrics.SampleDistortionMetric"@en ;
+    rdfs:comment "Ratio of the average Euclidean distances"@en ;
+    rdfs:label "Mean Euclidean distance ratio"@en .
+
+:MeanMahalanobisDistanceDifference rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.SampleDistortionMetric.html#aif360.metrics.SampleDistortionMetric"@en ;
+    rdfs:comment "Difference of the average Mahalanobis distances"@en ;
+    rdfs:label "Mean Mahalanobis distance difference"@en .
+
+:MeanMahalanobisDistanceRatio rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.SampleDistortionMetric.html#aif360.metrics.SampleDistortionMetric"@en ;
+    rdfs:comment "Ratio of the average Mahalanobis distances"@en ;
+    rdfs:label "Mean Mahalanobis distance ratio"@en .
+
+:MeanManhattanDistanceDifference rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.SampleDistortionMetric.html#aif360.metrics.SampleDistortionMetric"@en ;
+    rdfs:comment "Difference of the average Manhattan distances"@en ;
+    rdfs:label "Mean Manhattan distance difference"@en .
+
+:MeanManhattanDistanceRatio rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.SampleDistortionMetric.html#aif360.metrics.SampleDistortionMetric"@en ;
+    rdfs:comment "Ratio of the average Manhattan distances"@en ;
+    rdfs:label "Mean Manhattan distance ratio"@en .
+
+:BaseRateMetric rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.BinaryLabelDatasetMetric.html#aif360.metrics.BinaryLabelDatasetMetric"@en ;
+    rdfs:comment "Pr(Y=1) = P/(P+N)"@en ;
+    rdfs:label "Base rate metric"@en .
+
+:SmoothedEmpiricalDifferentialFairness rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.BinaryLabelDatasetMetric.html#aif360.metrics.BinaryLabelDatasetMetric"@en ;
+    rdfs:comment "Smoothed empirical differential fairness"@en ;
+    rdfs:label "Smoothed empirical differential fairness"@en .
+
+:RichSubgroupMetric rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.BinaryLabelDatasetMetric.html#aif360.metrics.BinaryLabelDatasetMetric"@en ;
+    rdfs:comment "Audit dataset with respect to rich subgroups defined by linear thresholds of sensitive attributes"@en ;
+    rdfs:label "Rich subgroup metric"@en .
+
+:DifferentialFairnessBiasAmplification rdf:type :FairnessMetric ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.MDSSClassificationMetric.html#aif360.metrics.MDSSClassificationMetric"@en ;
+    rdfs:comment "Bias amplification is the difference in smoothed EDF between the classifier and the original dataset"@en ;
+    rdfs:label "Differential fairness bias amplification"@en .
+
+:MDSSBiasScore rdf:type :FairnessMetric ;   # from score_groups of MDSSClassificationMetric
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/generated/aif360.metrics.MDSSClassificationMetric.html#aif360.metrics.MDSSClassificationMetric"@en ;
+    rdfs:comment "The bias score for a prespecified group of records"@en ;
+    rdfs:label "MDSS bias score"@en .

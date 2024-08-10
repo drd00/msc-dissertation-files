@@ -1,0 +1,209 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix earl: <http://www.w3.org/ns/earl#> .
+
+@prefix : <https://example.org/ex#> .   # for new declarations
+
+:BiasAudit rdf:type owl:Class ;
+    rdfs:subClassOf airo:Documentation ;
+    rdfs:comment "An audit which focuses on measuring bias in the AI system"@en ;
+    rdfs:label "Bias audit"@en .
+# :hasAudit property no longer required; use airo:hasDocumentation with a :BiasAudit.
+
+# Very important to store the date that the audit was conducted
+:auditDate rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAudit ;
+    rdfs:range xsd:date ;
+    rdfs:comment "Indicates the date that a bias audit was conducted"@en ;
+    rdfs:label "Bias audit date" .
+
+:BiasAudit rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :auditDate ;
+    owl:cardinality "1"^^xsd:integer
+] .
+
+# A particular bias assertion should consist of:
+#   1. A description of the groups involved in the test, and the reason for this test.
+#   2. Indication of the fairness metric used for the test.
+#   3. Indication of the test result (e.g., a float value)
+#   4. Indication of the threshold for passing / failure, justifying what this threshold is supposed to represent.
+#   5. Indication of whether the test passed or failed.
+#   6. Indication of biases implied by this test.
+
+:BiasAssertion rdf:type owl:Class ;
+    rdfs:subClassOf earl:Assertion ;
+    rdfs:comment "Indicates that an assertion measures bias"@en ;
+    rdfs:label "Bias assertion"@en .
+
+# Constraint to ensure any :BiasAssertion has a :Bias test subject
+:BiasAssertion rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :testsBias ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ,
+[
+    rdf:type owl:Restriction ;
+    owl:onProperty :groupDescription ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ,
+[
+    rdf:type owl:Restriction ;
+    owl:onProperty :testThreshold ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+
+:BiasAssertion rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :hasFairnessMetric ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+
+# A custom 'tests bias' type. Purpose: Simplifies documentation.
+# Avoids constructing specific conditions as in earl:TestCriterion ;
+# 'Pass' when the bias tested for is deemed present, 'fail' when the bias tested for is deemed not present.
+:testsBias rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range :Bias ;
+    rdfs:comment "Connects an Assertion with the bias type it is testing for."@en ;
+    rdfs:label "Tests bias"@en .
+
+:hasAssertion rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAudit ;
+    rdfs:range earl:Assertion ;
+    rdfs:comment "Connects a bias audit with an assertion"@en ;
+    rdfs:label "has assertion"@en .
+
+# A URI pointing to where the results reside
+:testResultURI rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "URI pointing to the test result (e.g., GitHub link)."@en ;
+    rdfs:label "Result URI" .
+
+# Description of the groups being tested in a bias assertion
+:groupDescription rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Provides a description of the groups which are compared in a bias assertion"@en ;
+    rdfs:label "Group description"@en .
+
+# Test thresholds
+:Threshold rdf:type owl:Class ;
+    rdfs:comment "A threshold associated with a bias test"@en ;
+    rdfs:label "Threshold"@en .
+
+:testThreshold rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion ;
+    rdfs:range :Threshold;
+    rdfs:comment "Indicates the threshold associated with a particular bias test assertion"@en ;
+    rdfs:label "test threshold"@en .
+
+:ThresholdRange rdf:type owl:Class ;
+    rdfs:subClassOf :Threshold ;
+    rdfs:comment "A threshold which indicates a range of acceptable or unacceptable values"@en ;
+    rdfs:label "Threshold range"@en .
+
+:ThresholdBinary rdf:type owl:Class ;
+    rdfs:subClassOf :Threshold ;
+    rdfs:comment "A threshold which indicates a value, above or below which a test may be considered to have passed or failed"@en ;
+    rdfs:label "Threshold binary"@en .
+
+:thresholdBegin rdf:type owl:ObjectProperty ;
+    rdfs:domain :ThresholdRange ;
+    rdfs:range xsd:float , xsd:integer ;
+    rdfs:comment "Indicates a float or integer beginning value for a range threshold"@en ;
+    rdfs:label "threshold begin"@en .
+
+:thresholdEnd rdf:type owl:ObjectProperty ;
+    rdfs:domain :ThresholdRange ;
+    rdfs:range xsd:float , xsd:integer ;
+    rdfs:comment "Indicates a float or integer ending value for a range threshold"@en ;
+    rdfs:label "threshold end"@en .
+
+:binaryThreshold rdf:type owl:ObjectProperty ;
+    rdfs:domain :ThresholdBinary ;
+    rdfs:range xsd:float , xsd:integer ;
+    rdfs:comment "Indicates a float or integer value for the binary threshold"@en ;
+    rdfs:label "binary threshold"@en .
+
+# OWL constraints on threshold objects
+:ThresholdRange rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :thresholdBegin ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ,
+[
+    rdf:type owl:Restriction ;
+    owl:onProperty :thresholdEnd ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+
+:ThresholdBinary rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :binaryThreshold ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+# Test pass or fail indicates the nature of the thresholds
+
+# Expand EARL to allow for numerical test results (not only pass / fail)
+:FloatPass rdf:type owl:Class ;
+    rdfs:subClassOf earl:Pass ;
+    rdfs:comment "Indicates that a test results in a pass, with a floating point test result."@en ;
+    rdfs:label "Float pass"@en .
+
+:FloatFail rdf:type owl:Class ;
+    rdfs:subClassOf earl:Fail ;
+    rdfs:comment "Indicates that a test results in a fail, with a floating point test result."@en ;
+    rdfs:label "Float fail"@en .
+
+:IntegerPass rdf:type owl:Class ;
+    rdfs:subClassOf earl:Pass ;
+    rdfs:comment "Indicates that a test results in a pass, with an integer test result."@en ;
+    rdfs:label "Integer pass"@en .
+
+:IntegerFail rdf:type owl:Class ;
+    rdfs:subClassOf earl:Fail ;
+    rdfs:comment "Indicates that a test results in a fail, with an integer test result."@en ;
+    rdfs:label "Integer fail"@en .
+
+:floatValue rdf:type owl:ObjectProperty ;
+    rdfs:domain :FloatPass , :FloatFail ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Indicates the float value result associated with a FloatPass or FloatFail test result."@en ;
+    rdfs:label "float value"@en .
+
+:integerValue rdf:type owl:ObjectProperty ;
+    rdfs:domain :IntegerPass , :IntegerFail ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Indicates the integer value result associated with an IntegerPass or IntegerFail test result."@en ;
+    rdfs:label "integer value"@en .
+
+# Enforce cardinality constraints for properties
+:FloatPass rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :floatValue ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+
+:FloatFail rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :floatValue ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+
+:IntegerPass rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :integerValue ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .
+
+:IntegerFail rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty :integerValue ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] .

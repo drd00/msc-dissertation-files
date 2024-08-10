@@ -1,0 +1,86 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix earl: <http://www.w3.org/ns/earl#> .
+
+@prefix : <https://example.org/ex#> .   # for new declarations
+
+:mitigationApplied rdf:type owl:ObjectProperty ;
+    rdfs:domain :BiasAssertion , :BiasAudit ;
+    rdfs:range :BiasMitigationMeasure ;
+    rdfs:comment "Indicates a mitigation measure applied to a bias assertion"@en ;
+    rdfs:label "Mitigation applied"@en .
+
+:BiasMitigationMeasure rdf:type owl:Class ;
+    rdfs:subClassOf airo:Control ;
+    rdfs:comment "A mitigation measure for bias"@en ;
+    rdfs:label "Bias mitigation measure"@en .
+
+# Bias mitigation metrics in IBM AI fairness 360
+:OptimizedPreprocessing rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "A preprocessing technique that learns a probabilistic transformation that edits the features and labels in the data with group fairness, individual distortion, and data fidelity constraints and objectives."@en ;
+    rdfs:label "Optimized preprocessing"@en .
+
+:DisparateImpactRemover rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Disparate impact remover is a preprocessing technique that edits feature values increase group fairness while preserving rank-ordering within groups."@en ;
+    rdfs:label "Disparate impact remover"@en .
+
+:EqualizedOddsPostprocessing rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "A post-processing technique that solves a linear program to find probabilities with which to change output labels to optimize equalized odds."@en ;
+    rdfs:label "Equalized odds postprocessing"@en .
+
+:Reweighing rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Reweighing is a preprocessing technique that Weights the examples in each (group, label) combination differently to ensure fairness before classification."@en ;
+    rdfs:label "Reweighing"@en .
+
+:RejectOptionClassification rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Reject option classification is a postprocessing technique that gives favorable outcomes to unprivileged groups and unfavorable outcomes privileged groups in a confidence band around the decision boundary with the highest uncertainty."@en ;
+    rdfs:label "Reject option classification"@en .
+
+:PrejudiceRemoverRegularizer rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Prejudice remover is an in-processing technique that adds a discrimination-aware regularization terms to the learning objective."@en ;
+    rdfs:label "Prejudice remover regularizer"@en .
+
+:CalibratedEqualizedOddsPostprocessing rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Calibrated equalized odds postprocessing is a post-processing technique that optimizes over calibrated classifier score outputs to find probabilities with which to change output labels with an equalized odds objective."@en ;
+    rdfs:label "Calibrated equalized odds postprocessing"@en .
+
+:LearningFairRepresentations rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Learning fair representations is a pre-processing technique that finds a latent representation which encodes the data well but obfuscates information about protected attributes."@en ;
+    rdfs:label "Learning fair representations"@en .
+
+:AdversarialDebiasing rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Adversarial debiasing is an in-processing technique that learns a classifier to maximize prediction accuracy and simultaneously reduce an adversary's ability to determine the protected attribute from the predictions."@en ;
+    rdfs:label "Adversarial debiasing"@en .
+
+:MetaAlgorithmFairClassification rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "The meta algorithm here takes the fairness metric as part of the input and returns a classifier optimized w.r.t."@en ;
+    rdfs:label "Meta algorithm fair classification"@en .
+
+:RichSubgroupFairness rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Model is an algorithm for learning classifiers that are fair with respect to rich subgroups"@en ;
+    rdfs:label "Rich subgroup fairness"@en .
+
+:ExponentiatedGradientReduction rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Exponentiated gradient reduction for fair classification"@en ;
+    rdfs:label "Exponentiated gradient reduction"@en .
+
+:GridSearchReduction rdf:type :BiasMitigationMeasure ;
+    terms:source "IBM AIF360 Python Docs, https://aif360.readthedocs.io/en/stable/modules/algorithms.html"@en ;
+    rdfs:comment "Grid search reduction for fair classification or regression"@en ;
+    rdfs:label "Grid search reduction"@en .

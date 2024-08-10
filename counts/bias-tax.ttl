@@ -1,0 +1,540 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix earl: <http://www.w3.org/ns/earl#> .
+
+@prefix : <https://example.org/ex#> .   # for new declarations
+
+:Bias rdf:type owl:Class ;
+    terms:source "ISO/IEC 24027:2020, 3.3.2"@en ;
+    rdfs:comment "systematic difference in treatment of certain objects, people, or groups in comparison to others."@en ;
+    rdfs:label "bias"@en .
+
+:CognitiveBias rdf:type owl:Class ;
+    rdfs:subClassOf :Bias ;
+    terms:source "ISO/IEC 24027:2020, 3.3.4"@en ;
+    rdfs:comment "human bias that might impact the design and application of a system."@en ;
+    rdfs:label "human cognitive bias"@en .
+
+:AutomationBias rdf:type owl:Class ;
+    rdfs:subClassOf :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 3.3.1"@en ;
+    rdfs:comment "type of human cognitive bias due to over-reliance on the recommendations of an AI system."@en ;
+    rdfs:label "automation bias"@en .
+
+:ConfirmationBias rdf:type owl:Class ;
+    rdfs:subClassOf :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 3.3.4"@en ;
+    rdfs:comment "type of human cognitive bias that favours predictions of AI systems that confirm pre-existing beliefs or hypotheses."@en ;
+    rdfs:label "confirmation bias"@en .
+
+:DataBias rdf:type owl:Class ;
+    terms:source "ISO/IEC 24027:2020, 3.3.7"@en ;
+    rdfs:comment "data properties that if unaddressed lead to AI systems that perform better or worse for different groups."@en ;
+    rdfs:label "data bias"@en .
+
+:StatisticalBias rdf:type owl:Class ;
+    terms:source "ISO 20501:2019, 3.3.9"@en ;
+    rdfs:comment "type of consistent numerical offset in an estimate relative to the true underlying value, inherent to most estimates."@en ;
+    rdfs:label "statistical bias"@en .
+
+:Trustworthiness rdf:type airo:Entity ;
+    terms:source "ISO 17068:2017, 3.18"@en ;
+    rdfs:comment "quality of being dependable and reliable."@en ;
+    rdfs:label "trustworthiness"@en .
+
+:Group rdf:type owl:Class ;
+    terms:source "ISO/IEC 24027:2020, 3.3.8"@en ;
+    rdfs:comment "subset of objects in a domain that are linked because they have shared characteristics."@en ;
+    rdfs:label "group"@en .
+
+
+# The following are discussed in ISO/IEC 24027:2020 but not listed in the 'Terms' section of that document
+:SocietalBias rdf:type owl:Class ;
+    rdfs:subClassOf :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.9"@en ;
+    rdfs:comment "Societal bias occurs when one or more similar cognitive biases (conscious or unconscious) are being held by many individuals in society. This societal bias originates from society at large and could be closely related to other cognitive or statistical biases. It manifests as data available about society that reflects historical patterns. Societal bias can also be considered a type of data bias."@en ;
+    rdfs:label "societal bias"@en .
+
+:SelectionBias rdf:type owl:Class ;
+    rdfs:subClassOf :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.2.1"@en ;
+    rdfs:comment "Selection bias occurs when data is not collected randomly from the intended population."@en ;
+    rdfs:label "selection bias"@en .
+
+# Instance-level declarations of different types of societal bias.
+:ReligionBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to a person's religion"@en ;
+    rdfs:label "Religious bias"@en .
+
+:RacialBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to the race of an individual"@en ;
+    rdfs:label "Racial bias"@en .
+
+:SexualOrientationBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to the sexual orientation of an individual"@en ;
+    rdfs:label "Sexual orientation bias"@en .
+
+:EthnicBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to the ethnicity of an individual"@en ;
+    rdfs:label "Ethic bias"@en .
+
+:PoliticalBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to political views"@en ;
+    rdfs:label "Political bias"@en .
+
+:PhilosophicalBeliefBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to philosophical beliefs"@en ;
+    rdfs:label "Philophical belief bias"@en .
+
+:TradeUnionMembershipBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to trade union membership"@en ;
+    rdfs:label "Bias due to trade union membership"@en .
+
+:GeneticDataBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to genetic data"@en ;
+    rdfs:label "Genetic data bias"@en .
+
+:BiometricDataUseBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to the use of biometric data"@en ;
+    rdfs:label "Biometric data use bias"@en .
+
+:HealthDataBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to health data"@en ;
+    rdfs:label "Health data bias"@en .
+
+# Added due to its importance; not listed in GDPR or ISO/IEC 24027:2020
+:GenderBias rdf:type :SocietalBias ;
+    rdfs:comment "Bias related to gender"@en ;
+    rdfs:label "Gender bias"@en .
+
+:SamplingBias rdf:type :SelectionBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.2.2"@en ;
+    rdfs:comment "Sampling bias occurs when data is not collected randomly from the intended population."@en ;
+    rdfs:label "sampling bias"@en .
+
+:CoverageBias rdf:type :SelectionBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.2.3"@en ;
+    rdfs:comment "Coverage bias occurs when a population represented in a dataset does not match the population that the ML model is making predictions about."@en ;
+    rdfs:label "coverage bias"@en .
+
+:NonResponseBias rdf:type :SelectionBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.2.4"@en ;
+    rdfs:comment "Non-response bias (also called participation bias) occurs when people from certain groups opt-out of surveys at different rates than users from other groups."@en ;
+    rdfs:label "non-response bias"@en .
+
+:DataLabelBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.3"@en ;
+    rdfs:comment "The labelling process itself potentially introduces the cognitive or societal biases described in subclause 7.2 to the data."@en ;
+    rdfs:label "data labels and labelling process"@en .
+
+:NonRepresentativeSampling rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.4"@en ;
+    rdfs:comment "If a dataset is not representative of the intended deployment environment, then the model has the potential to learn biases based on the ways in which the data is non-representative."@en ;
+    rdfs:label "non-representative sampling"@en .
+
+:MissingFeaturesLabels rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.5"@en ;
+    rdfs:comment "Features are often missing from individual training samples. If the frequency of missing features is higher for one group than another then this presents another vector for bias."@en ;
+    rdfs:label "missing features and labels"@en .
+
+:DataProcessing rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.6"@en ;
+    rdfs:comment "Bias might also creep in due to pre-processing (or post-processing) of data, even though the original data would not have led to any bias."@en ;
+    rdfs:label "data processing bias"@en .
+
+:SimpsonsParadox rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.7"@en ;
+    rdfs:comment "Simpson's paradox manifests when a trend that is indicated in individual groups of data reverses when the groups of data are combined."@en ;
+    rdfs:label "Simpson's paradox"@en .
+
+:ConfoundingVariableBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.8"@en ;
+    rdfs:coment "A confounding variable that influences both the dependent variable and independent variable causing a spurious association."@en ;
+    rdfs:label "confounding variables"@en .
+
+:NonNormality rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.9"@en ;
+    rdfs:comment "if the data is subject to a different distribution [from normal] (e.g. Chi-Square, Beta, Lorentz, Cauchy, Weibull or Pareto) the result might be biased and misleading."@en ;
+    rdfs:label "non-normality"@en .
+
+:OutlierNoiseBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.10"@en ;
+    rdfs:comment "Outliers are extreme data values that, if real, represent very low probability events of the to-be-modelled data. Noise is distortion which is characterised by a statistically-distributed variation of a physical quantity."@en ;
+    rdfs:label "outliers and noise"@en .
+
+:DataAggregationBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.11; http://arxiv.org/abs/1901.10002"@en ;
+    rdfs:comment "Aggregating data covering different groups of objects that might have different statistical distributions can introduce bias into the data used to train AI systems"@en ;
+    rdfs:label "data aggregation bias"@en .
+
+:DistributedTrainingBias rdf:type :DataBias ;
+    terms:source "ISO/IEC 24027:2020, 7.3.12"@en ;
+    rdfs:comment "Distributed ML might introduce its own cause for data bias as the different sources of data might not have the same distribution of feature space."@en ;
+    rdfs:label "distributed training bias"@en .
+
+:GroupAttributionBias rdf:type :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.3"@en ;
+    rdfs:comment "Group attribution bias occurs when a human assumes that what is true for an individual or object is also true for everyone, or all objects, in that group."@en ;
+    rdfs:label "group attribution bias"@en .
+
+:ImplicitBias rdf:type :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.4"@en ;
+    rdfs:comment "Implicit bias occurs when a human makes an association or assumption based on their mental models and memories."@en ;
+    rdfs:label "implicit bias"@en .
+
+:InGroupBias rdf:type :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.6"@en ;
+    rdfs:comment "In-group bias occurs when showing partiality to one's own group or own characteristics."@en ;
+    rdfs:label "in-group bias"@en .
+
+:OutGroupHomogeneityBias rdf:type :CognitiveBias ;
+    terms:source "ISO/IEC 24027:2020, 7.2.7"@en ;
+    rdfs:comment "Out-group homogeneity bias occurs when seeing out-group members as more alike than in-group members when comparing attitudes, values, personality traits, and other characteristics."@en ;
+    rdfs:label "out-group homogeneity bias"@en .
+
+:WYSIATIBias rdf:type :CognitiveBias ;
+    terms:source "ISO IEC 24027:2020, 7.2.8 / https://www.microsoft.com/en-us/research/uploads/prod/2020/05/Fairlearn_WhitePaper-2020-09-22.pdf"@en ;
+    rdfs:comment "'What You See Is All There Is' (WYSIATI) bias occurs when a human looks for information that confirms their beliefs, overlooks contradicting information, and draws conclusions based on what is familiar."@en ;
+    rdfs:label "What you see is all there is bias"@en .
+
+
+
+:ComputationalBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=root"@en ;
+    rdfs:comment "A systematic tendency which causes differences between results and facts. The bias exists in numbers of the process of data analysis, including the source of the data, the estimator chosen, and the ways the data was analyzed."@en ;
+    rdfs:label "computational bias"@en ;
+    rdfs:subClassOf :Bias .
+
+:ProcessingBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FProcessingBias"@en ;
+    rdfs:comment "Judgement modulated by affect, which is influenced by the level of efficacy and efficiency in information processing; in cognitive sciences, processing bias is often referred to as an aesthetic judgement."@en ;
+    rdfs:label "processing bias"@en ;
+    rdfs:subClassOf :ComputationalBias .
+
+:AmplificationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FAmplificationBias"@en ;
+    rdfs:comment "Arises when the distribution over prediction outputs is skewed in comparison to the prior distribution of the prediction target"@en ;
+    rdfs:label "amplification bias"@en ;
+    rdfs:subClassOf :ProcessingBias .
+
+:ErrorPropagationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FErrorPropagationBias"@en ;
+    rdfs:comment "The effect of variables' uncertainties (or errors, more specifically random errors) on the uncertainty of a function based on them"@en ;
+    rdfs:label "error propagation bias"@en ;
+    rdfs:subClassOf :ProcessingBias .
+
+:InheritedBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FInheritedBias"@en ;
+    rdfs:comment "Arises when applications that are built with machine learning are used to generate inputs for other machine learning algorithms. If the output is biased in any way, this bias may be inherited by systems using the output as input to learn other models."@en ;
+    rdfs:label "inherited bias"@en ;
+    rdfs:subClassOf :ProcessingBias .
+
+:ModelSelectionBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FModelSelectionBias"@en ;
+    rdfs:comment "The bias introduced while using the data to select a single seemingly 'best' model from a large set of models employing many predictor variables. Model selection bias also occurs when an explanatory variable has a weak relationship with the response variable."@en ;
+    rdfs:label "model selection bias"@en ;
+    rdfs:subClassOf :ComputationalBias .
+
+:SurvivorshipBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FSurvivorshipBias"@en ;
+    rdfs:comment "Tendency for people to focus on the items, observations, or people that 'survive' or make it past a selection process, while overlooking those that did not."@en ;
+    rdfs:label "survivorship bias"@en ;
+    rdfs:subClassOf :ComputationalBias .
+
+:SelectionAndSamplingBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FSelectionAndSamplingBias"@en ;
+    rdfs:comment "Bias introduced by the selection of individuals, groups, or data for analysis in such a way that proper randomization is not achieved, thereby failing to ensure that the sample obtained is representative of the population intended to be analyzed."@en ;
+    rdfs:label "selection and sampling bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:DataGenerationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FDataGenerationBias"@en ;
+    rdfs:comment "Arises from the addition of synthetic or redundant data samples to a dataset"@en ;
+    rdfs:label "data generation bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:DetectionBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FDetectionBias"@en ;
+    rdfs:comment "Systematic differences between groups in how outcomes are determined and may cause an over- or underestimation of the size of the effect."@en ;
+    rdfs:label "detection bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:EcologicalFallacyBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FEcologicalFallacyBias"@en ;
+    rdfs:comment "Occurs when an inference is made about an individual based on their membership within a group."@en ;
+    rdfs:label "ecological fallacy bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:EvaluationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FEvaluationBias"@en ;
+    rdfs:comment "Arises when the testing or external benchmark populations do not equally represent the various parts of the user population or from the use of performance metrics that are not appropriate for the way in which the model will be used."@en ;
+    rdfs:label "evaluation bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:ExclusionBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FExclusionBias"@en ;
+    rdfs:comment "When specific groups of user populations are excluded from testing and subsequent analyses."@en ;
+    rdfs:label "exclusion bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:MeasurementBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FMeasurementBias"@en ;
+    rdfs:comment "Arises when features and labels are proxies for desired quantities, potentially leaving out important factors or introducing group or input-dependent noise that leads to differential performance."@en ;
+    rdfs:label "measurement bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:PopularityBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FPopularityBias"@en ;
+    rdfs:comment "A form of selection bias that occurs when items that are more popular are more exposed and less popular items are under-represented."@en ;
+    rdfs:label "popularity bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:PopulationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FPopulationBias"@en ;
+    rdfs:comment "A form of selection bias that occurs when items that are more popular are more exposed and less popular items are under-represented.aSystematic distortions in demographics or other user characteristics between a population of users represented in a dataset or on a platform and some target population."@en ;
+    rdfs:label "population bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:RepresentationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FRepresentationBias"@en ;
+    rdfs:comment "Arises due to non-random sampling of subgroups, causing trends estimated for one population to not be generalizable to data collected from a new population."@en ;
+    rdfs:label "representation bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:TemporalBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FTemporalBias"@en ;
+    rdfs:comment "Bias that arises from differences in populations and behaviors over time."@en ;
+    rdfs:label "temporal bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:UncertaintyBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FUncertaintyBias"@en ;
+    rdfs:comment "Arises when predictive algorithms favor groups that are better represented in the training data, since there will be less uncertainty associated with those predictions."@en ;
+    rdfs:label "uncertainty bias"@en ;
+    rdfs:subClassOf :DataBias .
+
+:UseAndInterpretationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FUseAndInterpretationBias"@en ;
+    rdfs:comment "An information-processing bias, the tendency to inappropriately analyze ambiguous stimuli, scenarios and events."@en ;
+    rdfs:label "use and interpretation bias"@en ;
+    rdfs:subClassOf :Bias .
+
+:ActivityBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FActivityBias"@en ;
+    rdfs:comment "A type of selection bias that occurs when systems/platforms get their training data from their most active users, rather than those less active (or inactive)."@en ;
+    rdfs:label "activity bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:ConceptDriftBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FConceptDriftBias"@en ;
+    rdfs:comment "Use of a system outside the planned domain of application, and a common cause of performance gaps between laboratory settings and the real world."@en ;
+    rdfs:label "concept drift bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:ContentProductionBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FContentProductionBias"@en ;
+    rdfs:comment "Arises from structural, lexical, semantic, and syntactic differences in the contents generated by users."@en ;
+    rdfs:label "content production bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:DataDredgingBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FDataDredgingBias"@en ;
+    rdfs:comment "A statistical bias in which testing huge numbers of hypotheses of a dataset may appear to yield statistical significance even when the results are statistically nonsignificant."@en ;
+    rdfs:label "data dredging bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:EmergentBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FEmergentBias"@en ;
+    rdfs:comment "Emergent bias is the result of the use and reliance on algorithms across new or unanticipated contexts."@en ;
+    rdfs:label "emergent bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:FeedbackLoopBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FFeedbackLoopBias"@en ;
+    rdfs:comment "Effects that may occur when an algorithm learns from user behavior and feeds that behavior back into the model."@en ;
+    rdfs:label "feedback loop bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:HostileAttributionBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FHostileAttributionBias"@en ;
+    rdfs:comment "A bias wherein individuals perceive benign or ambiguous behaviors as hostile."@en ;
+    rdfs:label "hostile attribution bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:LinkingBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FLinkingBias"@en ;
+    rdfs:comment "Arises when network attributes obtained from user connections, activities, or interactions differ and misrepresent the true behavior of the users."@en ;
+    rdfs:label "linking bias"@en ;
+    rdfs:subClassOf :UseAndInterpretationBias .
+
+:GroupBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FGroupBias"@en ;
+    rdfs:comment "A pattern of favoring members of one's in-group over out-group members. This can be expressed in evaluation of others, in allocation of resources, and in many other ways."@en ;
+    rdfs:label "group bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:DeploymentBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FDeploymentBias"@en ;
+    rdfs:comment "Arises when systems are used as decision aids for humans, since the human intermediary may act on predictions in ways that are typically not modeled in the system. However, it is still individuals using the deployed system."@en ;
+    rdfs:label "deployment bias"@en ;
+    rdfs:subClassOf :GroupBias .
+
+:FundingBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FFundingBias"@en ;
+    rdfs:comment "Arises when biased results are reported in order to support or satisfy the funding agency or financial supporter of the research study, but it can also be the individual researcher."@en ;
+    rdfs:label "funding bias"@en ;
+    rdfs:subClassOf :GroupBias .
+
+:GroupthinkBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FGroupthinkBias"@en ;
+    rdfs:comment "A psychological phenomenon that occurs when people in a group tend to make non-optimal decisions based on their desire to conform to the group, or fear of dissenting with the group. In groupthink, individuals often refrain from expressing their personal disagreement with the group, hesitating to voice opinions that do not align with the group."@en ;
+    rdfs:label "Groupthink bias"@en ;
+    rdfs:subClassOf :GroupBias .
+
+:IndividualBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FIndividualBias"@en ;
+    rdfs:comment "Individual bias is a persistent point of view or limited list of such points of view that one applies ('parent', 'academic', 'professional', or etc.)."@en ;
+    rdfs:label "individual bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:AnchoringBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FAnchoringBias"@en ;
+    rdfs:comment "A cognitive bias, the influence of a particular reference point or anchor on people’s decisions. Often more fully referred to as anchoring-and-adjustment, or anchoring-and-adjusting: after an anchor is set, people adjust insufficiently from that anchor point to arrive at a final answer. Decision makers are biased towards an initially presented value."@en ;
+    rdfs:label "anchoring bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:RankingBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FRankingBias"@en ;
+    rdfs:comment "The idea that top-ranked results are the most relevant and important and will result in more clicks than other results."@en ;
+    rdfs:label "ranking bias"@en ;
+    rdfs:subClassOf :AnchoringBias .
+
+:AnnotatorReportingBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FAnnotatorReportingBias"@en ;
+    rdfs:comment "When users rely on automation as a heuristic replacement for their own information seeking and processing. A form of individual bias but often discussed as a group bias, or the larger effects on natural language processing models."@en ;
+    rdfs:label "annotator reporting bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:AutomationComplacencyBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FAutomationComplacencyBias"@en ;
+    rdfs:comment "A mental shortcut whereby people tend to overweight what comes easily or quickly to mind, meaning that what is easier to recall—e.g., more “available”—receives greater emphasis in judgement and decision-making."@en ;
+    rdfs:label "automation complacency bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:AvailabilityHeuristicBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FAvailabilityHeuristicBias"@en ;
+    rdfs:comment "A mental shortcut whereby people tend to overweight what comes easily or quickly to mind, meaning that what is easier to recall—e.g., more “available”—receives greater emphasis in judgement and decision-making."@en ;
+    rdfs:label "availability heuristic bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:BehaviouralBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FBehavioralBias"@en ;
+    rdfs:comment "Systematic distortions in user behavior across platforms or contexts, or across users represented in different datasets."@en ;
+    rdfs:label "behavioural bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:ConfirmationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FConfirmationBias"@en ;
+    rdfs:comment "A cognitive bias where people tend to prefer information that aligns with, or confirms, their existing beliefs. People can exhibit confirmation bias in the search for, interpretation of, and recall of information. In the famous Wason selection task experiments, participants repeatedly showed a preference for confirmation over falsification. They were tasked with identifying an underlying rule that applied to number triples they were shown, and they overwhelmingly tested triples that confirmed rather than falsified their hypothesized rule."@en ;
+    rdfs:label "confirmation bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:DunningKrugerEffectBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FDunning-KrugerEffectBias"@en ;
+    rdfs:comment "The tendency of people with low ability in a given area or task to overestimate their self-assessed ability. Typically measured by comparing self-assessment with objective performance, often called subjective ability and objective ability, respectively."@en ;
+    rdfs:label "Dunning-Kruger effect bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:ConsumerBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FConsumerBias"@en ;
+    rdfs:comment "Arises when an algorithm or platform provides users with a new venue within which to express their biases, and may occur from either side, or party, in a digital interaction.."@en ;
+    rdfs:label "consumer bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:HumanReportingBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FHumanReportingBias"@en ;
+    rdfs:comment "When users rely on automation as a heuristic replacement for their own information seeking and processing."@en ;
+    rdfs:label "human reporting bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:ImplicitBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FImplicitBias"@en ;
+    rdfs:comment "An unconscious belief, attitude, feeling, association, or stereotype that can affect the way in which humans process information, make decisions, and take actions."@en ;
+    rdfs:label "implicit bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:InterpretationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FInterpretationBias"@en ;
+    rdfs:comment "A form of information processing bias that can occur when users interpret algorithmic outputs according to their internalized biases and views."@en ;
+    rdfs:label "interpretation bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:LossOfSituationalAwarenessBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FLossOfSituationalAwarenessBias"@en ;
+    rdfs:comment "When automation leads to humans being unaware of their situation such that, when control of a system is given back to them in a situation where humans and machines cooperate, they are unprepared to assume their duties. This can be a loss of awareness over what automation is and isn’t taking care of."@en ;
+    rdfs:label "loss of situational awareness bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:ModeConfusionBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FModeConfusionBias"@en ;
+    rdfs:comment "When modal interfaces confuse human operators, who misunderstand which mode the system is using, taking actions which are correct for a different mode but incorrect for their current situation. This is the cause of many deadly accidents, but also a source of confusion in everyday life."@en ;
+    rdfs:label "mode confusion bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:PresentationBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FPresentationBias"@en ;
+    rdfs:comment "Biases arising from how information is presented on the Web, via a user interface, due to rating or ranking of output, or through users’ own self-selected, biased interaction."@en ;
+    rdfs:label "presentation bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:RashomonEffectBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FRashomonEffectBias"@en ;
+    rdfs:comment "Refers to differences in perspective, memory and recall, interpretation, and reporting on the same event from multiple persons or witnesses."@en ;
+    rdfs:label "Rashomon effect bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:SelectiveAdherenceBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FSelectiveAdherenceBias"@en ;
+    rdfs:comment "Decision-makers’ inclination to selectively adopt algorithmic advice when it matches their pre-existing beliefs and stereotypes."@en ;
+    rdfs:label "selective adherence bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:StreetlightEffectBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FStreetlightEffectBias"@en ;
+    rdfs:comment "A bias whereby people tend to search only where it is easiest to look."@en ;
+    rdfs:label "streetlight effect bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:UserInteractionBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FUserInteractionBias"@en ;
+    rdfs:comment "Arises when a user imposes their own self-selected biases and behavior during interaction with data, output, results, etc."@en ;
+    rdfs:label "user interaction bias"@en ;
+    rdfs:subClassOf :IndividualBias .
+
+:InstitutionalBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FInstitutionalBias"@en ;
+    rdfs:comment "In contrast to biases exhibited at the level of individual persons, institutional bias refers to a tendency exhibited at the level of entire institutions, where practices or norms result in the favoring or disadvantaging of certain social groups. Common examples include institutional racism and institutional sexism."@en ;
+    rdfs:label "institutional bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:SunkCostFallacyBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FSunkCostFallacyBias"@en ;
+    rdfs:comment "A human tendency where people opt to continue with an endeavor or behavior due to previously spent or invested resources, such as money, time, and effort, regardless of whether costs outweigh benefits. For example, in AI, the sunk cost fallacy could lead development teams and organizations to feel that because they have already invested so much time and money into a particular AI application, they must pursue it to market rather than deciding to end the effort, even in the face of significant technical debt and/or ethical debt."@en ;
+    rdfs:label "sunk cost fallacy bias"@en ;
+    rdfs:subClassOf :GroupBias .
+
+:SystemicBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FSystemicBias"@en ;
+    rdfs:comment "Biases that result from procedures and practices of particular institutions that operate in ways which result in certain social groups being advantaged or favored and others being disadvantaged or devalued."@en ;
+    rdfs:label "systemic bias"@en ;
+    rdfs:subClassOf :CognitiveBias .
+
+:HistoricalBias rdf:type owl:Class ;
+    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FHistoricalBias"@en ;
+    rdfs:comment "Referring to the long-standing biases encoded in society over time. Related to, but distinct from, biases in historical description, or the interpretation, analysis, and explanation of history. A common example of historical bias is the tendency to view the larger world from a Western or European view."@en ;
+    rdfs:label "historical bias"@en ;
+    rdfs:subClassOf :DataBias .
