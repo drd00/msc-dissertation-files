@@ -75,7 +75,7 @@
 :RepresentativenessDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
 	rdfs:label "Representativeness"@en ;
-	rdfs:comment "Describes how representative the sample is of the larger set"@en .
+	rdfs:comment "Describes whether the sample is representative of the larger set (if it is a sample from a larger set), and if so how this representativeness was validated/verified"@en .
 
 :SamplingMethodDimension rdf:type dqv:Dimension ;
 	terms:source "Datasheets for datasets, https://arxiv.org/pdf/1803.09010."@en ;
