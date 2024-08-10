@@ -334,7 +334,7 @@
     rdfs:comment "Indicates a float or integer ending value for a range threshold"@en ;
     rdfs:label "threshold end"@en .
 
-:binaryThreshold rdf:type owl:ObjectProperty ;
+:binaryThreshold rdf:type owl:DatatypeProperty ;
     rdfs:domain :ThresholdBinary ;
     rdfs:range [
         rdf:type rdfs:Datatype ;
