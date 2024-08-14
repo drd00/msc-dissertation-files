@@ -11,12 +11,17 @@ WHERE {
         ?doc rdf:type :BiasAudit .
         ?doc :hasAssertion ?biasassertion .
         ?biasassertion :testsBias ?bias .
+        ?biasassertion earl:result ?testresult .
+        ?testresult earl:outcome ?testoutcome .
+        ?testoutcome rdf:type ?type .
+        FILTER(?type IN (:FloatFail , :IntFail , earl:Fail))
         ?bias rdf:type :SocietalBias .
         ?bias :potentiallyViolates ?potentialViolation .
     }
     UNION {
         ?doc rdf:type :BiasAudit .
-        ?doc :interpetedBias ?socbias .
-        ?socbias :potentiallyViolates ?potentialViolation .
+        ?doc :interpetedBias ?bias .
+        ?bias rdf:type :SocietalBias .
+        ?bias :potentiallyViolates ?potentialViolation .
     }
 }
