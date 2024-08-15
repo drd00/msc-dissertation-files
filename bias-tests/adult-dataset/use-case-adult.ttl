@@ -39,7 +39,7 @@
             :floatValue "-0.1104"^^xsd:float
         ]
     ] ;
-    :testResultURI "https://example.org/results/statistical_party_for_this_model"^^xsd:anyURI .
+    :testResultURI "https://example.org/results/statistical_parity_for_this_model"^^xsd:anyURI .
 
 :EqualOpportunityAssertion rdf:type :BiasAssertion ;
     :groupDescription "Comparison between male and female groups" ;
