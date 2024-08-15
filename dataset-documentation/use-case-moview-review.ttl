@@ -57,7 +57,6 @@
     dqv:isMeasurementOf :SamplingMetric ;
     dqv:value "false"^^xsd:boolean .    # not representative of all instances, subset
 
-# N.B.: they do not answer this question correctly, so the closest thing to a description of representativeness is filled.
 :RepresentativenessMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :MoviewDataset ;
     dqv:isMeasurementOf :RepresentativenessMetric ;
