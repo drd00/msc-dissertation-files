@@ -282,7 +282,7 @@
     rdfs:domain :BiasAssertion ;
     rdfs:range xsd:anyURI ;
     rdfs:comment "URI pointing to the test result (e.g., GitHub link)."@en ;
-    rdfs:label "Result URI" .
+    rdfs:label "Result URI"@en .
 
 # Description of the groups being tested in a bias assertion
 :groupDescription rdf:type owl:DatatypeProperty ;
