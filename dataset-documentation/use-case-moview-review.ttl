@@ -80,7 +80,6 @@
     dqv:value "true"^^xsd:boolean .
 
 
-# N.B. note: a significant limitation to this representation is that tables, figures and references which are mentioned in the original report are not captured.
 :LabelTargetDescriptionMeasurement rdf:type dqv:QualityMeasurement ;
     dqv:computedOn :MoviewDataset ;
     dqv:isMeasurementOf :LabelDescriptionMetric ;
