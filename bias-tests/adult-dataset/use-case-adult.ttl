@@ -145,3 +145,4 @@
     ] ;
     :testResultURI "https://example.org/results/theil_index_for_this_dataset"^^xsd:anyURI .
 
+:AdultDatasetBiasAuditDS :hasAssertion :DisparateImpactAssertion , :StatisticalParityDifferenceAssertion , :TheilIndexAssertion .
