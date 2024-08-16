@@ -4,6 +4,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix earl: <http://www.w3.org/ns/earl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 @prefix : <https://example.org/ex#> .   # for new declarations
 
@@ -1252,7 +1253,7 @@
 
 :RightFreedomMovementResidence rdf:type :EUFundamentalRight ;
     terms:source "http://data.europa.eu/eli/treaty/char_2012/art_45/oj"@en ;
-    rdfs:commnet "1. Every citizen of the Union has the right to move and reside freely within the territory of the Member States.\n2. Freedom of movement and residence may be granted, in accordance with the Treaties, to nationals of third countries legally resident in the territory of a Member State."@en ;
+    rdfs:comment "1. Every citizen of the Union has the right to move and reside freely within the territory of the Member States.\n2. Freedom of movement and residence may be granted, in accordance with the Treaties, to nationals of third countries legally resident in the territory of a Member State."@en ;
     rdfs:label "Freedom of movement and of residence"@en .
 
 :RightDiplomaticConsularProtection rdf:type :EUFundamentalRight ;
