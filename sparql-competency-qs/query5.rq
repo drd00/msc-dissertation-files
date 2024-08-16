@@ -20,7 +20,7 @@ WHERE {
     }
     UNION {
         ?doc rdf:type :BiasAudit .
-        ?doc :interpetedBias ?bias .
+        ?doc :interpretedBias ?bias .
         ?bias rdf:type :SocietalBias .
         ?bias :potentiallyViolates ?potentialViolation .
     }
