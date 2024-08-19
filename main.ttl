@@ -900,12 +900,6 @@
     rdfs:label "annotator reporting bias"@en ;
     rdfs:subClassOf :IndividualBias .
 
-:AutomationComplacencyBias rdf:type owl:Class ;
-    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FAutomationComplacencyBias"@en ;
-    rdfs:comment "A mental shortcut whereby people tend to overweight what comes easily or quickly to mind, meaning that what is easier to recall—e.g., more “available”—receives greater emphasis in judgement and decision-making."@en ;
-    rdfs:label "automation complacency bias"@en ;
-    rdfs:subClassOf :IndividualBias .
-
 :AvailabilityHeuristicBias rdf:type owl:Class ;
     terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FAvailabilityHeuristicBias"@en ;
     rdfs:comment "A mental shortcut whereby people tend to overweight what comes easily or quickly to mind, meaning that what is easier to recall—e.g., more “available”—receives greater emphasis in judgement and decision-making."@en ;
@@ -916,12 +910,6 @@
     terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FBehavioralBias"@en ;
     rdfs:comment "Systematic distortions in user behavior across platforms or contexts, or across users represented in different datasets."@en ;
     rdfs:label "behavioural bias"@en ;
-    rdfs:subClassOf :IndividualBias .
-
-:ConfirmationBias rdf:type owl:Class ;
-    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FConfirmationBias"@en ;
-    rdfs:comment "A cognitive bias where people tend to prefer information that aligns with, or confirms, their existing beliefs. People can exhibit confirmation bias in the search for, interpretation of, and recall of information. In the famous Wason selection task experiments, participants repeatedly showed a preference for confirmation over falsification. They were tasked with identifying an underlying rule that applied to number triples they were shown, and they overwhelmingly tested triples that confirmed rather than falsified their hypothesized rule."@en ;
-    rdfs:label "confirmation bias"@en ;
     rdfs:subClassOf :IndividualBias .
 
 :DunningKrugerEffectBias rdf:type owl:Class ;
@@ -940,12 +928,6 @@
     terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FHumanReportingBias"@en ;
     rdfs:comment "When users rely on automation as a heuristic replacement for their own information seeking and processing."@en ;
     rdfs:label "human reporting bias"@en ;
-    rdfs:subClassOf :IndividualBias .
-
-:ImplicitBias rdf:type owl:Class ;
-    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FImplicitBias"@en ;
-    rdfs:comment "An unconscious belief, attitude, feeling, association, or stereotype that can affect the way in which humans process information, make decisions, and take actions."@en ;
-    rdfs:label "implicit bias"@en ;
     rdfs:subClassOf :IndividualBias .
 
 :InterpretationBias rdf:type owl:Class ;
