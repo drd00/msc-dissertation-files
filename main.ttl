@@ -732,12 +732,6 @@
     rdfs:label "survivorship bias"@en ;
     rdfs:subClassOf :ComputationalBias .
 
-:SelectionAndSamplingBias rdf:type owl:Class ;
-    terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FSelectionAndSamplingBias"@en ;
-    rdfs:comment "Bias introduced by the selection of individuals, groups, or data for analysis in such a way that proper randomization is not achieved, thereby failing to ensure that the sample obtained is representative of the population intended to be analyzed."@en ;
-    rdfs:label "selection and sampling bias"@en ;
-    rdfs:subClassOf :DataBias .
-
 :DataGenerationBias rdf:type owl:Class ;
     terms:source "https://bioportal.bioontology.org/ontologies/AIO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Faio%2FDataGenerationBias"@en ;
     rdfs:comment "Arises from the addition of synthetic or redundant data samples to a dataset"@en ;
